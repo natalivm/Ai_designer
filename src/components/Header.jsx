@@ -1,81 +1,39 @@
-import { calcMyCapital, calcCurrentlyInvested, calcProfit, calcDailyPnL } from '../utils/positionCalcs'
+import Button from './Button'
+import { SITE } from '../utils/constants'
 
-function Header({ portfolio }) {
-  const myCapital = calcMyCapital()
-  const invested = calcCurrentlyInvested()
-  const profit = calcProfit()
-  const dailyPnL = calcDailyPnL()
-  const isPositive = profit >= 0
-  const dailyPositive = dailyPnL >= 0
-  const hasDailyData = dailyPnL !== 0
+const NAV = [
+  { href: '#program', label: 'Програма' },
+  { href: '#skills', label: 'Що вивчите' },
+  { href: '#audience', label: 'Для кого' },
+  { href: '#faq', label: 'FAQ' },
+]
 
-  const updatedLabel = portfolio?.updatedAt
-    ? 'Updated ' + new Date(portfolio.updatedAt).toLocaleDateString('en-US', {
-        month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit',
-      })
-    : null
-
-  const dailyPct = invested > 0 && hasDailyData ? (dailyPnL / invested) * 100 : null
-
+function Header() {
   return (
-    <header className="sticky top-0 z-10 border-b border-slate-800/50 bg-slate-950/90 backdrop-blur-xl">
-      <div className="mx-auto max-w-5xl px-4 sm:px-8">
-        {/* Top row: logo + updated timestamp */}
-        <div className="flex items-center justify-between py-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/15 ring-1 ring-emerald-500/20">
-              <svg className="h-5 w-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
-            </div>
-            <h1 className="text-xl font-bold tracking-tight text-slate-100">
-              TradingFun
-            </h1>
-          </div>
-          {updatedLabel && (
-            <span className="text-[11px] text-slate-600">{updatedLabel}</span>
-          )}
-        </div>
+    <header className="sticky top-0 z-30 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-8">
+        <a href="#top" className="flex items-center gap-2.5">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-violet-500/15 ring-1 ring-violet-500/30">
+            <svg className="h-5 w-5 text-violet-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+          </span>
+          <span className="text-sm font-bold tracking-tight text-slate-100 sm:text-base">
+            AI for Product Designers
+          </span>
+        </a>
 
-        {/* Stats row */}
-        <div className="border-t border-slate-800/40 py-3">
-          <div className="grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:items-center sm:justify-center sm:gap-5">
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-slate-600">Capital</span>
-              <span className="text-base sm:text-lg font-bold text-slate-200 tabular-nums">
-                ${myCapital.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-              </span>
-            </div>
+        <nav className="hidden items-center gap-7 md:flex">
+          {NAV.map((item) => (
+            <a key={item.href} href={item.href} className="text-sm text-slate-400 transition hover:text-slate-100">
+              {item.label}
+            </a>
+          ))}
+        </nav>
 
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-slate-600">Invested</span>
-              <span className="text-base sm:text-lg font-bold text-slate-200 tabular-nums">
-                ${invested.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-              </span>
-            </div>
-
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-slate-600">Profit</span>
-              <span className={`text-base sm:text-lg font-bold tabular-nums ${isPositive ? 'text-emerald-400' : 'text-red-400'}`}>
-                {isPositive ? '+' : '-'}${Math.abs(profit).toLocaleString(undefined, { maximumFractionDigits: 0 })}
-              </span>
-            </div>
-
-            {hasDailyData && (
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-slate-600">Daily</span>
-                <span className={`text-base sm:text-lg font-bold tabular-nums ${dailyPositive ? 'text-emerald-400' : 'text-red-400'}`}>
-                  {dailyPositive ? '+' : '-'}${Math.abs(dailyPnL).toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                </span>
-                {dailyPct !== null && (
-                  <span className={`rounded px-1.5 py-0.5 text-[10px] font-bold ${dailyPositive ? 'bg-emerald-500/15 text-emerald-400' : 'bg-red-500/15 text-red-400'}`}>
-                    {dailyPct >= 0 ? '+' : ''}{dailyPct.toFixed(1)}%
-                  </span>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
+        <Button as="a" href={SITE.enrollUrl} size="md" className="hidden sm:inline-flex">
+          Записатися
+        </Button>
       </div>
     </header>
   )

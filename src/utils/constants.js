@@ -1,24 +1,17 @@
-// ── Accent styles for Card component ────────────────────────────────────
+// Brand / site-wide constants for the AI for Product Designers landing.
+
+export const SITE = {
+  name: 'AI for Product Designers',
+  shortName: 'AI for PD',
+  // Where the "enroll" buttons point. Replace with the real signup URL.
+  enrollUrl: 'mailto:hello@ai-for-pd.com?subject=Запис%20на%20курс%20AI%20for%20Product%20Designers',
+}
+
+// Tailwind border/background accents reused by Card and section chips.
 export const ACCENT_STYLES = {
-  emerald: 'border-emerald-500/20 hover:border-emerald-500/40',
-  blue: 'border-blue-500/20 hover:border-blue-500/40',
-  amber: 'border-amber-500/20 hover:border-amber-500/40',
-  rose: 'border-rose-500/20 hover:border-rose-500/40',
-  violet: 'border-violet-500/20 hover:border-violet-500/40',
+  violet: 'border-violet-500/30 hover:border-violet-400/50',
+  sky: 'border-sky-500/30 hover:border-sky-400/50',
+  emerald: 'border-emerald-500/30 hover:border-emerald-400/50',
+  amber: 'border-amber-500/30 hover:border-amber-400/50',
+  slate: 'border-slate-700/60 hover:border-slate-600/70',
 }
-
-// ── Currency symbols and FX rates ────────────────────────────────────────
-export const CCY_SYMBOLS = { USD: '$', EUR: '€', CAD: 'C$', GBP: '£', CHF: 'CHF ' }
-
-export function ccySym(currency) {
-  return CCY_SYMBOLS[currency] || (currency ? currency + ' ' : '$')
-}
-
-export const FX_TO_USD = { USD: 1, EUR: 1.08, CAD: 0.73, GBP: 1.27, CHF: 1.13 }
-
-export function toUSD(amount, currency) {
-  return amount * (FX_TO_USD[currency] || 1)
-}
-
-// ── Fee rule: deduct $0.35 per transaction ───────────────────────────────
-export const FEE_PER_TRANSACTION = 0.35

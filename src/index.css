@@ -1,14 +1,12 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body, #root {
   min-height: 100vh;
   min-height: 100dvh;
-}
-
-/* Smooth scrolling for the card list */
-.scroll-smooth {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 }
 
 /* Hide scrollbar but keep functionality */
@@ -20,80 +18,20 @@ html, body, #root {
   scrollbar-width: none;
 }
 
-/* Glowing dot pulse animation */
-.glow-dot {
-  animation: glow-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+/* Soft floating glow behind the hero */
+@keyframes float-glow {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate(0, -24px) scale(1.08); opacity: 0.9; }
+}
+.float-glow {
+  animation: float-glow 9s ease-in-out infinite;
 }
 
-@keyframes glow-pulse {
-  0%, 100% {
-    opacity: 0.75;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.25;
-    transform: scale(1.6);
-  }
+/* Gentle rise-in on first paint */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
-/* Fire icon flicker animation */
-.fire-icon {
-  animation: fire-flicker 1.2s ease-in-out infinite alternate;
-  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.7));
-}
-
-@keyframes fire-flicker {
-  0%, 100% { transform: scale(1); }
-  33% { transform: scale(1.1) rotate(2deg); }
-  66% { transform: scale(0.95) rotate(-2deg); }
-}
-
-/* Top gainer card — bright orange border glow with shimmer */
-.top-gainer-card {
-  box-shadow:
-    0 0 10px rgba(59, 130, 246, 0.3),
-    0 0 30px rgba(59, 130, 246, 0.15),
-    0 0 60px rgba(59, 130, 246, 0.05),
-    inset 0 0 20px rgba(59, 130, 246, 0.04);
-  animation: gainer-glow 2s ease-in-out infinite alternate;
-  position: relative;
-  overflow: visible;
-}
-
-.top-gainer-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    transparent 30%,
-    rgba(59, 130, 246, 0.15) 50%,
-    transparent 70%
-  );
-  background-size: 200% 200%;
-  animation: shimmer 3s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 1;
-}
-
-@keyframes gainer-glow {
-  0% {
-    box-shadow:
-      0 0 8px rgba(59, 130, 246, 0.25),
-      0 0 24px rgba(59, 130, 246, 0.1),
-      inset 0 0 16px rgba(59, 130, 246, 0.03);
-  }
-  100% {
-    box-shadow:
-      0 0 14px rgba(59, 130, 246, 0.4),
-      0 0 40px rgba(59, 130, 246, 0.2),
-      0 0 80px rgba(59, 130, 246, 0.07),
-      inset 0 0 24px rgba(59, 130, 246, 0.06);
-  }
-}
-
-@keyframes shimmer {
-  0% { background-position: 200% 200%; }
-  100% { background-position: -200% -200%; }
+.rise-in {
+  animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
