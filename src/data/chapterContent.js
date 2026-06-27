@@ -2005,7 +2005,2008 @@ export const CHAPTER_CONTENT = {
       "practice": "Візьміть один реальний артефакт зі своєї поточної роботи — набір AI-згенерованих персон, серію зображень або фрагмент мікрокопі. Крок 1: проженіть його через перевірочний промпт на упередженість з першого уроку й випишіть, кого або що модель пропустила чи спотворила. Крок 2: вручну додайте недопредставлені групи чи перепишіть формулювання, щоб закрити прогалини. Крок 3: складіть свій особистий чеклист із 5-6 пунктів для перевірки AI-результатів на упередженість і збережіть його там, де працюєте. Крок 4: подивіться на свій робочий процес очима другого уроку й чесно дайте відповідь — які рутинні задачі ви вже можете передати AI, а в які людські навички (формулювання, етика, дослідження) варто вкластися найближчі пів року? Запишіть один конкретний крок розвитку на цей місяць."
     }
   },
-  "en": {}
+  "en": {
+    "block-1": {
+      "intro": "This chapter is your entry point into AI for product design. We'll break down how language models actually work (without the unnecessary theory), why they matter to a designer, what tools are out there, and—most importantly—how to brief them well. The running example throughout the chapter is the onboarding flow for a mobile habit tracker, which we'll use to practice every technique.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "What AI Is: Key Concepts and Terminology",
+          "paragraphs": [
+            "When we say \"AI\" in a design context today, in the vast majority of cases we mean generative models—systems that create text, images, or code in response to your request. The most important subtype for us is the LLM (Large Language Model). It's a model trained on enormous amounts of text that can continue, rephrase, analyze, and generate language. ChatGPT and Claude are interfaces to these LLMs.",
+            "To work confidently with these tools, it helps to understand a few basic concepts. They explain why a model behaves the way it does and keep you from being surprised by \"strange\" answers.",
+            "The most important thing to grasp: an LLM doesn't \"know\" facts and doesn't \"think\" like a human. It predicts the most likely next word based on statistics. That's why it's brilliant at phrasing and structure but can confidently make things up—and that's not a bug, it's the nature of the technology."
+          ],
+          "bullets": [
+            "LLM (large language model) — the \"brain\" behind ChatGPT/Claude. It predicts text word by word based on the billions of examples it was trained on.",
+            "Tokens — the chunks of text a model operates on (roughly 0.75 of a word, or about 4 characters in English). The phrase \"Habit tracker onboarding\" is about 4–5 tokens. This matters because a model's limits and API billing are measured in tokens, not words.",
+            "Context (context window) — the amount of text a model \"sees\" at once: your prompt, plus the conversation history, plus its own response. If a conversation gets very long, the earliest messages \"fall out\" of memory and the model forgets them.",
+            "Temperature — a \"creativity\" setting from 0 to 1 (sometimes up to 2). Low (0–0.3) gives predictable, precise answers—good for structure and analysis. High (0.7–1) gives varied, unexpected options—good for brainstorming ideas and copywriting.",
+            "Multimodality — a model's ability to work not just with text but with images, screenshots, and files. Modern ChatGPT and Claude are multimodal: you can upload a screenshot of a mockup and ask for a UX critique.",
+            "Hallucinations — when a model confidently produces made-up information (a nonexistent Apple guideline, a fake study, a dead link). This is the main reason you should always verify factual data yourself."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT (OpenAI)",
+              "what": "An LLM-based chatbot from OpenAI. A versatile assistant for text: it generates hypotheses, structures research, writes UX copy, and analyzes data. It's multimodal (it can see images) and can run code."
+            },
+            {
+              "name": "Claude (Anthropic)",
+              "what": "An LLM-based chatbot from Anthropic. Strong at working with long texts and large context, at clean structured responses, and at following instructions. Handy when you need to process a large body of interviews or documentation."
+            }
+          ],
+          "tip": "Don't treat an LLM's answer as the final word. Treat it as a draft from a very fast, well-read, but occasionally careless intern: the phrasing is excellent, but double-check the facts and figures yourself."
+        },
+        {
+          "title": "The Benefits of Using AI in a Designer's Work",
+          "paragraphs": [
+            "AI doesn't replace the designer—it removes the grunt work and amplifies you as a professional. Instead of spending hours on rough first-pass work, you spend minutes and focus on the decisions that require taste, empathy, and product context.",
+            "The biggest payoff is in the early stages, when you need to quickly generate lots of options and avoid getting stuck on a blank page. We'll show this with our running example—the onboarding flow for a habit tracker.",
+            "An important boundary: AI helps well where there's a clear input and a verifiable output (text, structure, drafts, pattern analysis). It's weaker where you need ownership of a decision, deep business context, and genuine empathy for the user. Those areas stay with you."
+          ],
+          "bullets": [
+            "Speed at the start: 20 variations of an onboarding welcome screen in a minute, instead of an hour of manual iteration.",
+            "Beating the blank page: AI gives you a first draft, which is easier to critique and improve than to invent from scratch.",
+            "Routine copy: microcopy, push notifications, error messages, empty states—at scale and in a consistent tone.",
+            "Research analysis: quickly distilling dozens of interviews into themes, patterns, and user pain points.",
+            "A \"second brain\": AI asks the uncomfortable questions, plays the skeptical stakeholder or product manager, and highlights your blind spots.",
+            "Faster learning: you can ask about methodologies, patterns, and unfamiliar terms on the fly."
+          ],
+          "example": {
+            "title": "Example: Spin Up Onboarding Ideas in 2 Minutes",
+            "paragraphs": [
+              "Prompt for ChatGPT/Claude: \"You're a product designer for a mobile habit tracker. Suggest 10 different approaches to onboarding for a new user who has just installed the app. For each approach, give: the core idea in one sentence, the main benefit, and the main risk. Keep it short, as a list.\"",
+              "Within a few seconds you'll get 10 directions (onboarding through setting up the first habit, through personalization, through a demo mode, and so on). From there, your job is to discard the weak ones, combine the strong ones, and turn the best 2–3 into real screens. AI handled the rough divergent part; you handle the convergent part and take ownership of the choice."
+            ]
+          },
+          "tip": "The most common beginner mistake is asking AI to \"make the final version.\" The right strategy: AI generates raw options and drafts, while the final decision, polish, and accountability always stay with you."
+        },
+        {
+          "title": "The Ecosystem of AI Tools",
+          "paragraphs": [
+            "There are a lot of tools, but almost all of them fall into a handful of categories based on the type of task. You don't need to know them all—it's enough to have one working tool in each category you actually use.",
+            "Let's go through the categories and the specific tools in each. For a designer, the core is usually a text assistant (ChatGPT or Claude), plus something for visuals and something for research."
+          ],
+          "bullets": [
+            "Text assistants (LLM chats) — ChatGPT, Claude. Your primary tool: copy, analysis, structuring, ideas.",
+            "Image generation — Midjourney, DALL·E. Moodboards, concept art, illustrations, visual style references.",
+            "AI inside design tools — Figma AI. Generating placeholder text, renaming layers, and drafting mockups right inside your working file.",
+            "Research and search with sources — Perplexity. Answers to factual questions with links you can rely on (unlike a \"bare\" LLM).",
+            "Call transcription and notes — Otter, Fireflies. Automatic transcripts of user interviews and meetings."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT / Claude",
+              "what": "Text assistants. Your day-to-day working tool for any task involving text, analysis, and structuring. This is where you should start."
+            },
+            {
+              "name": "Midjourney",
+              "what": "An image generator that works from a text description. For a designer, it's great for quick moodboards, style references, and concept illustrations. Not for final UI screens, but for inspiration and direction."
+            },
+            {
+              "name": "DALL·E",
+              "what": "OpenAI's image generator, built into ChatGPT. Handy when you need a quick illustration or a concept icon right in the conversation, without a separate service."
+            },
+            {
+              "name": "Figma AI",
+              "what": "A set of AI features inside Figma: generating realistic text instead of Lorem Ipsum, automatically renaming layers, drafting mockups, and searching across files. It saves routine clicks in the environment you already work in."
+            },
+            {
+              "name": "Perplexity",
+              "what": "An AI-powered search engine that gives you an answer with links to its sources. Indispensable for researching the market, competitors, and facts, because you can verify the result through the links—lower risk of hallucinations."
+            },
+            {
+              "name": "Otter / Fireflies",
+              "what": "Call transcription services. They automatically turn interviews and meetings into text, which you can then feed to an LLM for analysis. They free you from taking notes by hand."
+            }
+          ],
+          "tip": "Don't try to master everything at once. Take ChatGPT or Claude as your foundation, add Perplexity for research—and that alone covers 80% of your tasks. Bring in the rest as you need it."
+        },
+        {
+          "title": "Prompt Engineering Basics: The Structure of a Prompt",
+          "paragraphs": [
+            "A prompt is your brief for the AI. The quality of the answer largely depends on the quality of the prompt. A good prompt isn't a magic spell—it's just a clear brief: the more specifically you explain what you need, the better the result.",
+            "A solid prompt structure has four blocks: ROLE (who the AI should be), CONTEXT (what the product is, who the audience is, what the constraints are), TASK (what exactly to do), and FORMAT (how to present the result). You don't always have to use all four, but for serious tasks they sharply raise the quality.",
+            "Let's go through each block and build a complete prompt for our habit-tracker onboarding, step by step."
+          ],
+          "steps": [
+            "ROLE: assign the AI an expert role to set the tone and depth. E.g.: \"You're an experienced UX copywriter for mobile apps.\"",
+            "CONTEXT: provide the background—what the product is, who the audience is, what the constraints are. E.g.: \"The product is a habit tracker. The audience is people aged 25–40 who want to build a routine. Tone of voice: encouraging, no pressure.\"",
+            "TASK: state a specific action with measurable parameters. E.g.: \"Write copy for 3 onboarding screens: a headline (up to 5 words) plus a subheadline (up to 12 words) for each.\"",
+            "FORMAT: specify exactly how to present the result—a list, a table, JSON, the tone, the language, length limits. E.g.: \"Present it as a table: screen — headline — subheadline. In English.\"",
+            "Review and refine: read the answer, point out what's off, and ask it to redo specific parts—don't start from scratch."
+          ],
+          "example": {
+            "title": "Example: A Full Prompt Using the ROLE — CONTEXT — TASK — FORMAT Structure",
+            "paragraphs": [
+              "A weak prompt (what a beginner does): \"Write the onboarding copy for a habit app.\" The result will be generic and faceless, because the AI knows nothing about your product.",
+              "A strong prompt using the structure: \"Role: you're an experienced UX copywriter for mobile apps. Context: the product is a habit tracker for people aged 25–40 who want to build a daily routine; the tone of voice is warm, encouraging, free of guilt and pressure. Task: write copy for 3 onboarding screens — (1) a welcome, (2) the product's value, (3) a call to create the first habit. For each screen, give a headline of up to 5 words and a subheadline of up to 12 words. Format: a table with the columns 'Screen', 'Headline', 'Subheadline', in English.\"",
+              "The second version gives you a ready-to-use result in the exact format you need, because you've removed every guess the AI would otherwise make about the product, audience, and tone."
+            ]
+          },
+          "tip": "If the answer came out generic and says nothing, the culprit is almost always missing CONTEXT. Add specifics about the product, audience, and constraints, and the quality will jump. Avoid vague phrases like \"make it nice\" or \"write it well\"—give measurable criteria instead."
+        },
+        {
+          "title": "Advanced Prompting Techniques",
+          "paragraphs": [
+            "Once you've got the basic structure down, there are a few techniques that take quality to the next level. They're especially useful for complex, ambiguous tasks where a simple request yields a mediocre result.",
+            "Let's go through four key techniques: few-shot (learning from examples), chain-of-thought (reasoning step by step), iteration (gradual refinement), and system prompts (the ongoing ground rules). We'll demonstrate all of them on the habit-tracker onboarding."
+          ],
+          "bullets": [
+            "Few-shot — you give the model 1–3 examples of the result you want, and it picks up the style and format. The opposite is zero-shot, where there are no examples at all.",
+            "Chain-of-thought — you ask the model to reason step by step (\"think it through in stages\") before its final answer. It improves quality on tasks involving logic and analysis.",
+            "Iteration — you don't expect perfection on the first try; you refine the answer through follow-ups: \"shorter,\" \"more about the emotion,\" \"cut the corporate jargon.\" It's a dialogue, not a one-shot request.",
+            "System prompts — standing instructions that apply to the entire conversation (role, tone, constraints). In ChatGPT this is Custom Instructions; in Claude it's the system field or the project's instructions (Projects)."
+          ],
+          "steps": [
+            "Few-shot: give the AI 2 examples of your signature microcopy, then ask it to write new copy in the same style.",
+            "Chain-of-thought: for an analytical task, add the phrase \"reason step by step before giving your final answer.\"",
+            "Iteration: once you have a draft, give targeted edits instead of a full restart—that preserves the context and the good finds.",
+            "System prompt: write the role, product, and tone of voice into Custom Instructions / Projects once, so you don't have to repeat them in every request."
+          ],
+          "example": {
+            "title": "Example: Few-Shot and Chain-of-Thought for Onboarding",
+            "paragraphs": [
+              "Few-shot prompt: \"Here are examples of our tone of voice for a habit tracker. Example 1 — headline: 'Small step, big change.' Example 2 — headline: 'Today is the best day to start.' In the same warm, encouraging style, write 5 more headlines for the screen where the user creates their first habit.\"",
+              "Thanks to the two examples, the model \"catches\" the tone and produces options that sound like your product, not like some generic app.",
+              "Chain-of-thought prompt: \"Analyze my 4-screen onboarding flow (described below). First, evaluate it step by step against these criteria: clarity of value, cognitive load, and motivation to act. Only after that reasoning, give a summary with the 3 main problems and your recommendations.\" Step-by-step reasoning makes the critique substantive rather than superficial."
+            ]
+          },
+          "tip": "A typical mistake is giving up after the first bad answer and rewriting the whole prompt from scratch. Instead, iterate: point out exactly what's off. And remember—in a very long conversation the early context \"falls out,\" so for a new, large task it's better to start a fresh chat with a system prompt."
+        }
+      ],
+      "practice": "Take any mobile app you know well (your own project or a favorite) and write a prompt for it using the full ROLE — CONTEXT — TASK — FORMAT structure to generate onboarding copy. Run it through ChatGPT or Claude, then refine the result with at least two rounds of follow-up tweaks. Save the final prompt and the response—it'll be your first working template."
+    },
+    "block-2": {
+      "intro": "Marketing research has always eaten up weeks: dozens of tabs, manual spreadsheets, and an endless pile of articles saved \"for later.\" AI doesn't replace the designer-researcher, but it compresses the grunt work — searching, organizing sources, and doing the initial analysis — down to a matter of hours. In this chapter, we'll gather and structure data about competitors and trends step by step, using one continuous, real-world example: the period tracker Flo.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "A New Approach to Research with AI",
+          "paragraphs": [
+            "Classic marketing research is linear: you frame a question, Google it by hand, open 30 tabs, copy chunks into a document, and spend weeks pulling it all into some kind of picture. The problem isn't that it's slow — it's that by the time the picture comes together, some of the data is already stale, you're worn out, and you start \"forcing\" your conclusions to fit the first convenient hypothesis.",
+            "AI doesn't change the fact that the research still needs to be done — it changes how the effort is distributed. The machine takes on what it's objectively better at than a human: quickly sweeping through dozens of sources, extracting facts, doing the first round of grouping, and drafting a structure. What stays with you is what humans are better at: asking the right question, checking things critically, sensing the product's context, and deciding what to actually do with it all.",
+            "The key mental shift is to stop treating AI as an oracle that \"knows the answer\" and start treating it as a very fast but naive junior researcher. It'll bring you a mountain of material in five minutes — but it'll also happily invent a source that doesn't exist if you ask it to. That's why this entire chapter is built around one discipline: AI searches and organizes — you ask the questions and verify.",
+            "In practice, the working cycle looks like this: (1) you frame a research question and a hypothesis; (2) an AI search engine gathers sources with links; (3) you verify the key numbers against the original sources; (4) AI helps you structure the findings into a table or matrix; (5) you interpret them and draw a conclusion for the product. The rest of this chapter fills each of these steps with concrete tools and prompts, using Flo as the example."
+          ],
+          "bullets": [
+            "AI compresses the grunt work of research (searching, organizing, drafting structure), but it doesn't replace the researcher's thinking.",
+            "How to think about AI: not an oracle, but a fast, naive junior whose work you always need to check.",
+            "The working cycle: question → gather sources → verify → structure → interpret.",
+            "A designer's value shifts from \"finding information\" to \"asking the right question and critically evaluating the answer.\""
+          ],
+          "tip": "Before you open any AI tool, write one sentence down on paper: \"What exactly do I want to find out, and why?\" Without this, AI will simply generate a good-looking answer to a question you never asked."
+        },
+        {
+          "title": "Data Sources and AI Search Platforms",
+          "paragraphs": [
+            "Before you can analyze competitors and trends, you need to gather the raw data — and gather it from the right tools. There's no single \"magic\" service here: each one covers a different type of task. Perplexity gives you fast answers with links to sources, Similarweb shows you real traffic and audience numbers, Glasp helps you keep the valuable quotes from everything you read and watch, and ChatGPT/Claude glue it all together into drafts and structures. Below is what each of these is, in plain terms, and how to gather data specifically for Flo.",
+            "The first rule of working with AI search platforms: always look at the sources, not just the generated text. Perplexity puts numbered reference links under each paragraph — click them. If an important figure (say, \"Flo's number of downloads\") has no credible source, or the source is a random blog, you can't take that number into a stakeholder presentation.",
+            "The second rule: separate the types of data. Qualitative data (how a product is positioned, what pains it solves, how it speaks to its audience) is best gathered through Perplexity and Glasp. Quantitative data (traffic, audience share by country, demographics) comes from Similarweb. Don't make a text AI invent exact traffic figures — it doesn't know them, and it will gladly hallucinate.",
+            "The working order for Flo: first, use Perplexity to get a general picture of the period-tracker market and a list of the main players, with sources; then, for each competitor, check Similarweb to understand the scale and geography of their audience; in parallel, use Glasp to save sharp quotes from reviews, user feedback, and video breakdowns, so you can quickly pull them together into a competitor table later."
+          ],
+          "tools": [
+            {
+              "name": "Perplexity",
+              "what": "An AI search engine: you ask a question in plain language, it searches the internet in real time and gives you a coherent answer with numbered links to sources. Unlike regular ChatGPT, it shows where each fact came from, so findings are easier to verify. Ideal for getting your first picture of a market."
+            },
+            {
+              "name": "Similarweb",
+              "what": "Traffic and audience analytics for websites and apps: it shows estimated visits, audience geography, traffic sources, demographics, and similar services. It gives you the quantitative footing (\"who's bigger, where their audience is\") that a text AI can't be taught. Basic data is free; precise figures are in the paid plans."
+            },
+            {
+              "name": "Glasp",
+              "what": "A tool for highlighting and saving quotes and insights from articles and videos (a highlighter). It works as a browser extension: you mark important passages right on the page or in YouTube captions, add notes, and then everything is stored in one place and exportable. It saves you from the \"bookmarks nobody ever opens\" problem."
+            },
+            {
+              "name": "ChatGPT / Claude",
+              "what": "General-purpose AI assistants (large language models). Unlike search engines, they don't search the live internet by default, but they're excellent at structuring, rewriting, grouping, and drafting. You hand them data you've already gathered, and they turn a mess of notes into a table, a matrix, or a list of hypotheses."
+            }
+          ],
+          "steps": [
+            "Frame a research question for Flo (for example: \"Who are Flo's main competitors in the period & cycle tracking market, and how do they differ?\").",
+            "Put that question to Perplexity and ask for an answer with links to sources and a list of players.",
+            "Open the sources under the key facts and figures — check that they aren't just a random blog.",
+            "For each named competitor, open Similarweb to see the scale of their traffic, geography, and audience demographics.",
+            "As you read reviews, App Store feedback, and video breakdowns, highlight valuable quotes in Glasp and add short notes.",
+            "Hand the compiled material (notes + quotes + figures) to ChatGPT/Claude to structure into a table."
+          ],
+          "example": {
+            "title": "Example: Flo — the first data gathering pass with Perplexity",
+            "paragraphs": [
+              "Prompt for Perplexity (copy and paste): \"You are a product analyst. Compile an overview of the market for menstrual cycle tracking apps (period & cycle tracking) as of 2025–2026. Name 5–7 of Flo's main competitors (for example, Clue, Apple Health, Natural Cycles, and so on). For each one, briefly describe: its core positioning, its key differentiator, its target audience, and its monetization model. Be sure to include source links for every claim. If there's no reliable source for some fact, say so directly — don't make it up.\"",
+              "What to do with the answer: go through the list of competitors and click the sources under each one's positioning. Anything confirmed by the product's official site, a reputable publication's review, or the App Store — you keep. Anything resting on a single dubious link — you flag as \"needs verification.\"",
+              "Follow-up prompt (as a second message): \"Now focus only on Clue and Apple Health. Compare them with Flo along three axes: (1) what user trust is built on, (2) how they handle the privacy of health data, (3) which features they have that Flo lacks. Present it as a table and keep the links.\"",
+              "The typical mistake at this step is to take Perplexity's pretty table and drop it straight into a presentation. Half the \"facts\" might be true, but without clicking the sources, you don't know which half. Verifying two or three key figures against the original sources takes five minutes and saves your reputation."
+            ]
+          },
+          "bullets": [
+            "Perplexity — for a qualitative picture of the market, with sources; Similarweb — for quantitative audience data.",
+            "Glasp — so you don't lose valuable quotes from reviews and videos while you read.",
+            "ChatGPT/Claude — for structuring data you've already gathered, not for finding exact figures.",
+            "Always click the sources under the facts — that's the core hygiene of working with AI search."
+          ],
+          "tip": "In Perplexity, turn on Focus mode (for example, academic sources only, or Reddit) depending on the task: for market figures, use the general web; for real user pain points, use discussions on Reddit and in communities."
+        },
+        {
+          "title": "Analyzing Competitors with AI",
+          "paragraphs": [
+            "Competitor analysis isn't a \"list of apps\" — it's a structured comparison along the axes that matter for decisions. AI speeds up two stages here: gathering each competitor's characteristics and consolidating them into a single matrix. But you set the axes of comparison (what exactly we're comparing on), because that depends on Flo's product strategy, not on whatever AI happened to find first.",
+            "Meaningful comparison axes for Flo: core positioning, key cycle features, medical credibility and evidence-based content, privacy and the handling of sensitive health data, monetization, tone of communication, and strong user praise/complaints. We take the key competitors — Clue (a medical, neutral, data-driven approach), Apple Health (a cycle tracker built into the iPhone ecosystem, with no separate monetization), and, if needed, Natural Cycles (FDA-cleared contraception) or Ovia.",
+            "The fundamental difference between working through AI and doing it by hand: you don't read 40 pages of App Store reviews yourself — you collect them and ask AI to pull out the recurring patterns (what people praise, what they complain about). But there's a trap here: AI loves to generalize and may pin a complaint on a product that isn't actually in the data. So in your prompt, explicitly require it to rely only on the provided text and to cite examples.",
+            "The final artifact of this lesson is a competitor comparison matrix plus a short conclusion: \"where Flo has an advantage, and where it's vulnerable.\" It's the conclusion, not the table, that's valuable to the team. AI will generate the table; the interpretation (\"we're strong on UX and community, but Clue wins on the perception of medical seriousness\") is yours to make."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT / Claude",
+              "what": "Here they're used as the structuring engine: you provide the gathered characteristics and reviews of the competitors, and the model consolidates them into a comparison table along your axes and extracts patterns from the reviews. Important: feed them your own data — don't ask them to describe competitors \"from memory,\" because that information may be out of date."
+            },
+            {
+              "name": "Similarweb",
+              "what": "At this stage, it provides the quantitative context for the qualitative comparison: which competitor is actually bigger by audience, where it's stronger by country, where its traffic comes from. This turns a subjective \"Clue is popular too\" into \"Clue has such-and-such audience share in Europe.\""
+            },
+            {
+              "name": "Glasp",
+              "what": "A source of raw quotes for the matrix: the highlights you saved from reviews and user feedback during research can be exported and fed straight into ChatGPT/Claude as input data for pattern analysis."
+            }
+          ],
+          "steps": [
+            "Define the comparison axes around Flo's strategy (positioning, features, medical credibility, privacy, monetization, tone, reviews).",
+            "Gather each competitor's characteristics (Clue, Apple Health, etc.) through Perplexity and their audience figures through Similarweb.",
+            "Copy real user reviews (App Store / Google Play / Reddit) into a document — separately for each product.",
+            "Hand the collected material to ChatGPT/Claude and ask it to consolidate it into a matrix along your axes, relying only on the provided data.",
+            "In a separate prompt, ask it to extract the \"what people praise / what they complain about\" patterns from the reviews, with quotes.",
+            "Write the conclusion yourself: where Flo has an advantage, and where it's vulnerable relative to competitors."
+          ],
+          "example": {
+            "title": "Example: Flo vs. Clue and Apple Health — a matrix in Claude",
+            "paragraphs": [
+              "Prompt for building the matrix (ChatGPT/Claude): \"You are a product designer-researcher. Below I'm giving you the gathered characteristics of three cycle-tracking apps: Flo, Clue, Apple Health. Consolidate them into a comparison table along these axes: positioning, key cycle features, medical credibility / evidence-based content, health-data privacy, monetization, tone of communication. Use ONLY the data I provide. If there's no data for a given cell, put a dash — don't invent anything. [then paste your gathered notes for each product]\".",
+              "Prompt for analyzing reviews: \"Here are 30 real Flo user reviews from the App Store (I'm pasting the text). Extract the 5 most common reasons for positive ratings and the 5 most common complaints. For each point, give 1–2 short quotes from the provided text as evidence. Don't add reasons that aren't in the reviews.\"",
+              "How to read the result: if AI lists \"confusing interface\" among the complaints but you don't see that in the provided quotes — that's a hallucination signal; remove it. But if every point is backed by a real quote, you've got a reliable basis for product conclusions.",
+              "The typical mistake is asking Claude to \"tell me how Clue differs from Flo\" without your own data and then believing the answer. The model will answer confidently, but it may be relying on outdated information (features change every quarter). The right way: first gather current data through Perplexity/Similarweb, and only then hand it to the model to structure."
+            ]
+          },
+          "bullets": [
+            "The comparison axes are set by the product strategy, not by AI — otherwise you get a pretty but useless table.",
+            "Feed the model your own gathered data instead of \"tell me from memory\" — that's how you avoid outdated facts.",
+            "Require supporting quotes when analyzing reviews, so you can catch hallucinations.",
+            "The value is in the conclusion about Flo's advantages and vulnerabilities, not in the matrix itself."
+          ],
+          "tip": "Make the matrix \"live\": add an \"Opportunity for Flo\" column next to each competitor vulnerability. That instantly turns competitor analysis into a list of product ideas, instead of dead weight gathering dust."
+        },
+        {
+          "title": "Spotting Trends, Reading Signals, and Forming Hypotheses",
+          "paragraphs": [
+            "A trend isn't one loud headline — it's a recurring signal from several independent sources. The researcher's job is to tell a real trend (a lasting shift in people's behavior or expectations) from hype (a one-off spike of attention). AI helps you gather weak signals faster, but the call on \"is this a trend or just noise\" stays with you — and that's exactly where it's easiest to slip up by trusting a nicely worded answer.",
+            "For Flo, the relevant signals lie across several areas: a growing demand for privacy of reproductive health data, interest in AI-driven personalization of advice, a trend toward women's health beyond just the cycle (perimenopause, hormones, fertility), and shifts in regulation. We treat each of these directions as a hypothesis, not as an established fact.",
+            "The work moves from signal to hypothesis. A signal is an observation (\"reviews and Reddit increasingly mention concern over cycle-data privacy\"). A hypothesis is a testable statement with a product implication (\"If we make privacy an explicit value advantage of Flo, it will increase trust and retention among the data-sensitive segment\"). AI is great at helping reframe raw signals into hypothesis format and at suggesting how to test them.",
+            "The core discipline of this lesson is triangulation: any trend must be confirmed by at least three different types of sources (for example: search interest, community discussions, and industry reports). If AI claims there's a \"growing trend\" but you can only find confirmation in one blog — that's not a trend, that's someone's opinion. Blind trust in AI's confident tone is the most expensive mistake here, because a false hypothesis drags months of product work in the wrong direction."
+          ],
+          "tools": [
+            {
+              "name": "Perplexity",
+              "what": "The main tool for finding signals: you ask about changes in user behavior, new regulations, or industry reports from a recent period, and you get an answer with links. It lets you quickly check whether a suspected trend is confirmed by several sources or hangs on just one."
+            },
+            {
+              "name": "Glasp",
+              "what": "This is where you stash raw signals as you read: quotes from trend reports, interviews, video analysis. Later, this bank of highlights becomes the input data for forming hypotheses — nothing gets lost between tabs."
+            },
+            {
+              "name": "ChatGPT / Claude",
+              "what": "They turn gathered signals into structured hypotheses: framing them as \"If… then…,\" suggesting a way to test them, and helping assess how robust a signal is. They work with your data — not for searching, but for making sense of it and articulating it."
+            },
+            {
+              "name": "Similarweb",
+              "what": "Helps verify a signal quantitatively: if you suspect rising interest in a particular niche or competitor, you can look at traffic trends and geography to confirm or refute the hunch with real data instead of a gut feeling."
+            }
+          ],
+          "steps": [
+            "Gather raw signals from several types of sources (Perplexity for reports and news, Reddit/communities for conversations, Glasp for saving quotes).",
+            "Group the signals into directions (privacy, AI personalization, broader women's health, etc.).",
+            "For each direction, apply triangulation: find confirmation from at least three independent sources.",
+            "Reframe the confirmed signals into \"If… then…\" hypotheses (with the help of ChatGPT/Claude).",
+            "For each hypothesis, define how you'd test it (survey, interview, A/B test, metrics analysis).",
+            "Discard hypotheses that rest on a single source or on AI's confident tone with no evidence."
+          ],
+          "example": {
+            "title": "Example: Flo — from a privacy signal to a hypothesis",
+            "paragraphs": [
+              "Prompt for Perplexity to find signals: \"What changes in the behavior and expectations of users of women's health and cycle-tracking apps have been observed in 2024–2026 regarding the privacy and security of reproductive health data? Name specific signals (regulations, user reactions, industry reports) and include source links for each.\"",
+              "Triangulation: to treat \"demand for privacy\" as a trend, you look for confirmation from three types of sources — (1) an industry report or news item about regulations (via Perplexity), (2) real user conversations on Reddit/in reviews (saving the quotes in Glasp), (3) a quantitative signal (for example, the traffic trend of privacy-focused competitors in Similarweb). When all three align — the signal is robust.",
+              "Prompt for Claude to build hypotheses: \"Here are the signals I've gathered about data privacy in cycle-tracking apps (I'm pasting notes and quotes from sources). Reframe them into 3 product hypotheses for Flo in the format: 'If [product change], then [expected effect on behavior/metric], because [supporting signal].' For each hypothesis, suggest the cheapest way to test it. Rely only on the provided signals.\"",
+              "An example of a finished hypothesis: \"If Flo makes data privacy an explicit, visible advantage (for example, an anonymous mode and a transparent explanation that data isn't shared with third parties), then trust and retention will rise among the segment of privacy-sensitive users, because signals from regulations, reviews, and audience behavior all point to this concern growing.\"",
+              "The typical — and most expensive — mistake in this chapter is mistaking AI's confident phrasing for a confirmed trend. If Perplexity writes \"a growing trend is observed\" but on checking there's only one weak source, it's not a trend. A hypothesis built on a hallucination looks convincing in a presentation, but it leads the team in the wrong direction for months."
+            ]
+          },
+          "bullets": [
+            "A trend = a recurring signal from several independent sources, not one loud headline.",
+            "Work from signal to hypothesis, in the format \"If… then… because…\".",
+            "Triangulation: confirm a trend with at least three types of sources before building strategy on it.",
+            "The most expensive mistake is believing AI's confident tone without checking; a false hypothesis costs months of work."
+          ],
+          "tip": "Set up a simple table: \"Signal → Sources (how many and which) → Hypothesis → How to test → Status.\" It forces you to explicitly record the number of sources and stops you from passing off a single observation as a trend."
+        }
+      ],
+      "practice": "Pick a real product from a field close to you (or take Flo as your example) and use Perplexity to compile a list of 5 competitors with source links, making sure to verify at least three key facts against the original sources. Gather characteristics and real reviews for two of the competitors, and consolidate them into a comparison matrix using ChatGPT or Claude, relying only on your own data. Based on the signals you find, formulate at least two product hypotheses in the format \"If… then… because…,\" and for each one, describe how it could be tested."
+    },
+    "block-3": {
+      "intro": "Product designers increasingly work not with visuals but with data: app store reviews, survey results, interview transcripts, competitor analytics. The catch is that most of this data is unstructured, a wall of text from which it's hard to extract meaning quickly. In this chapter you'll learn how to take raw data (using reviews of the Flo and Duolingo apps as examples) and use AI to turn it into structured insights, diagrams, and arguments for your team. Every prompt is given verbatim, so copy it, adapt it to your product, and start using it right away.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "The designer as data communicator",
+          "paragraphs": [
+            "There was a time when a designer's job ended at the mockup. Today we're expected to bring the team not just \"pretty,\" but \"justified\": why exactly this, what data it's based on, what users are saying. A data communicator is a designer who can gather data, spot a pattern in it, and explain that pattern to stakeholders in language they'll understand. AI doesn't replace your thinking here; it speeds up the grind: reading hundreds of reviews, grouping them, counting them, drafting visualizations.",
+            "There's an important line of responsibility: AI helps you process and structure, but interpretation and decisions remain yours. A model can calculate that 40% of complaints are about onboarding, but only you know the product context and decide what to do about it. So throughout this chapter we always work as a pair: AI does the rough work, the human checks it and makes the call.",
+            "Another part of the role is translation. The analyst speaks the language of metrics, marketing speaks the language of funnels, engineering speaks the language of tickets. A designer-communicator takes an insight and repackages it for each audience: for the CPO, in terms of impact on retention; for engineering, as concrete onboarding bugs; for the content team, as specific wording. AI is great at helping you rewrite for each of these recipients."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT",
+              "what": "OpenAI's chatbot that works with text: it summarizes, groups, rewrites, and answers questions. For a designer it's an all-purpose assistant you can \"feed\" reviews to and ask to extract the gist or rewrite an insight for different audiences."
+            },
+            {
+              "name": "Claude",
+              "what": "Anthropic's chatbot, similar to ChatGPT, but especially strong at handling large volumes of text (you can paste in many reviews at once) and at carefully sticking to a requested response structure. Handy when you need to correctly process hundreds of rows and get a tidy table or JSON back."
+            }
+          ],
+          "bullets": [
+            "Data communicator = gather data -> spot the pattern -> explain it to the team so they can make a decision.",
+            "AI takes on the grind (reading, grouping, counting); the human handles interpretation and decisions.",
+            "You need to be able to retell one insight in different ways: for the CPO, for engineering, and for the content team."
+          ],
+          "tip": "Before you open an AI tool, frame a single sentence: \"I want to understand ___ so I can decide about ___.\" Without that focus, the model will give you smooth but useless text. A classic mistake is asking \"what's interesting in this data?\" with no context: the answer will fit any chart."
+        },
+        {
+          "title": "Structuring unstructured data",
+          "paragraphs": [
+            "Picture a real situation: you're leading an onboarding redesign at Flo (a cycle tracker) and you've exported 300 reviews from the App Store and Google Play. It's a solid wall of text: \"really handy app, but the ads are annoying,\" \"can't find where to turn off push notifications,\" \"predictions are off after giving birth,\" and so on. Reading it all by hand takes hours, and what you end up with is a subjective impression rather than data. The AI's job here is to turn that chaos into a table with categories, sentiment, and frequency.",
+            "The basic principle of structuring: we ask the model not to \"retell\" but to classify each review against a predefined scheme. If you don't define the scheme, the AI will invent categories on its own, and they'll be different every time, which wrecks your counts. So we first lock in a set of categories (for example: Onboarding, Prediction accuracy, Ads/monetization, Paid features, Technical bugs, Data privacy, Other), and only then ask it to sort the reviews into them.",
+            "It's convenient to get the result as a table or CSV/JSON so you can drop it into Notion, Google Sheets, or Dovetail. What you get out isn't a \"feeling\" but specifics: \"Ads: 28% of mentions, 80% of them negative,\" and that's already an argument for prioritization."
+          ],
+          "tools": [
+            {
+              "name": "Notion AI",
+              "what": "The AI assistant built into Notion. It's convenient because it works right inside the team's knowledge base: you can keep reviews in a Notion table and immediately ask the AI to summarize a column, add tags, or extract insights without moving the data to another tool."
+            },
+            {
+              "name": "Dovetail",
+              "what": "A platform built for researchers: it stores interviews, reviews, and transcripts and lets you tag fragments of text (highlights) and automatically group them into themes. It has built-in AI that suggests tags and summaries. A good fit when you have a lot of research data and need order that lasts."
+            }
+          ],
+          "steps": [
+            "Collect the raw reviews into a single file (a CSV or a plain list of rows). These columns are enough: review text, rating (1-5), platform, date.",
+            "Lock in a closed list of categories (5-8 of them) tailored to your product. You do this, not the AI, because you know the context.",
+            "Give the model a prompt: the role, the task, the list of categories, the output format (table/CSV), and the rule \"one review -> one main category + sentiment.\"",
+            "Process in batches of 30-50 reviews if you have a lot, so the model doesn't \"lose\" rows or truncate its response.",
+            "Pull the results together and count the frequency by category and sentiment (you can ask for this in a separate prompt or build a summary table in Sheets).",
+            "Spot-check 10-15 rows by hand: did the AI sort the reviews correctly? If categories get mixed up, tighten their definitions in the prompt."
+          ],
+          "example": {
+            "title": "Example: classifying Flo reviews into a structured table",
+            "paragraphs": [
+              "Classification prompt (pasted in together with the block of reviews):",
+              "\"You are a UX researcher. I'll give you user reviews of the Flo app (a menstrual cycle tracker). Sort EVERY review into the categories from this list: [Onboarding, Prediction accuracy, Ads/monetization, Paid features, Technical bugs, Data privacy, Other]. Rules: 1) pick only ONE main category per review; 2) determine the sentiment: positive / neutral / negative; 3) extract a short verbatim quote fragment (up to 10 words) that illustrates the gist. Return the result as a table with the columns: # | Quote | Category | Sentiment. Don't invent categories outside the list; if nothing fits, use Other. The output must have exactly as many rows as the input. Here are the reviews: <I paste 40 reviews here>.\"",
+              "Aggregation prompt (we hand over the resulting table):",
+              "\"Based on this table, calculate: 1) how many reviews are in each category and what percentage that is of the total; 2) the sentiment breakdown within each category; 3) the top 3 categories with the largest share of negativity. Return a compact table + 3 key takeaways, one sentence each.\"",
+              "A typical result: \"Ads/monetization: 28% of mentions (80% negative), Onboarding: 19% (65% negative), Prediction accuracy: 22% (mixed).\" This is no longer \"I have a hunch\"; it's a basis for prioritizing the redesign."
+            ]
+          },
+          "bullets": [
+            "YOU define the closed list of categories, otherwise the AI invents different ones each time and your counts fall apart.",
+            "Ask for verbatim quotes: they save you when a stakeholder asks \"where's that from?\"",
+            "Slice a large dataset into batches of 30-50 rows so nothing gets lost."
+          ],
+          "tip": "Always require the AI to preserve the exact number of rows: \"the output must have exactly as many rows as the input.\" Models love to quietly \"merge\" similar reviews, and your percentages turn into lies. And don't accept a tidy summary of themes without verifying the sources."
+        },
+        {
+          "title": "AI visualization: charts, classifications, word clouds",
+          "paragraphs": [
+            "A table of numbers convinces the analyst, but not always the rest of the team. That's where visualization kicks in. The good news: AI can not only do the counting but also generate the code for a chart, a classification tree, or the data for a word cloud right away. You don't need to know how to draw charts by hand; just describe what to show and paste the result into the right tool.",
+            "The handiest format for a designer is Mermaid: you ask the AI to describe a diagram in text, and the service turns that text into a chart. It's perfect for a category tree (\"which themes, which subthemes, how many reviews in each\") or for a user journey with pain points at every step. For word frequency, people use a word cloud: a cloud where more frequent words are bigger. It's good at \"selling\" a general impression: you can see at a glance that the word \"ads\" is huge.",
+            "It's important to understand the limits: a word cloud is pretty but primitive. It shows word frequency, not meaning or sentiment (the word \"accuracy\" can appear in both praise and a complaint). So use a word cloud as an eye-catching illustration on a slide, but make decisions based on the structured table from the previous lesson. And remember: a flashy chart with a truncated axis or 3D effects is misleading; your job is to bring the visualization back to honesty."
+          ],
+          "tools": [
+            {
+              "name": "Mermaid",
+              "what": "A tool that draws diagrams from plain text (schemas, flowcharts, trees, sequences). You write a few lines of description and get a finished chart. AI can generate that text for you, and you can paste it into Notion, GitHub, or mermaid.live to see the picture."
+            },
+            {
+              "name": "Word cloud services",
+              "what": "Tools like WordClouds.com, MonkeyLearn WordCloud, or WordArt.com that build a \"word cloud\": the more often a word appears in the text, the larger it's shown. You paste in the review text (or a ready-made \"word - frequency\" list from the AI) and get a picture."
+            }
+          ],
+          "steps": [
+            "Decide exactly what you want to show: the structure of themes (-> tree/diagram) or the general feel of the vocabulary (-> word cloud).",
+            "For a diagram, ask the AI to return code in Mermaid syntax with your categories and numbers.",
+            "Paste that code into mermaid.live or Notion, check that the chart reads clearly, and if needed ask the AI to simplify it.",
+            "For a word cloud, ask the AI to remove \"junk\" words (stop words: \"and,\" \"but,\" \"very,\" the app's name) and return a \"word - frequency\" list.",
+            "Upload that list into a word cloud service and pick a shape/colors to match your slide.",
+            "Label the visualization with its source and sample (\"300 reviews, App Store + Google Play, June 2026\") so people trust it."
+          ],
+          "example": {
+            "title": "Example: a Mermaid category tree + word cloud data for Duolingo",
+            "paragraphs": [
+              "Diagram prompt (based on already-classified Duolingo reviews):",
+              "\"Based on my data, generate a diagram in Mermaid syntax (graph TD). The root is \\\"Duolingo reviews.\\\" The branches are categories with counts in parentheses: Gamification/streaks (35), Ads (40), Paid subscription (25), Lesson content quality (20), Technical bugs (15). Under each category add 1-2 typical pain points as short phrases. Return ONLY the Mermaid code, with no explanations.\"",
+              "An expected snippet of the output that you can paste into mermaid.live:",
+              "graph TD; A[Duolingo reviews] --> B[Ads 40]; A --> C[Gamification/streaks 35]; A --> D[Paid subscription 25]; B --> B1[Too many video ads]; C --> C1[Losing a streak is demotivating];",
+              "Word cloud prompt:",
+              "\"Here are 200 reviews about Duolingo. Extract the 30 most frequent MEANINGFUL words (nouns and adjectives about the experience). Remove stop words, the app's name, and generic words like \\\"app,\\\" \\\"very,\\\" \\\"good.\\\" Return a table: word | frequency. Text: <I paste the reviews>.\"",
+              "You upload the resulting \"word - frequency\" list into WordClouds.com, and a cloud appears on your slide where \"ads\" and \"streak\" are noticeably bigger than the other words."
+            ]
+          },
+          "bullets": [
+            "Mermaid -> structure and relationships; word cloud -> the general feel of the vocabulary, nothing more.",
+            "A word cloud shows frequency but NOT sentiment or meaning; don't make decisions based on it.",
+            "Always remove stop words, otherwise the biggest word will be \"and\" or the app's name."
+          ],
+          "tip": "Ask the AI to return \"ONLY the Mermaid code, with no explanations,\" otherwise you'll have to manually strip out the surrounding text and the code won't paste into the renderer. A classic mistake is asking for \"a nice infographic\" with no data: you'll get a pretty but meaningless template."
+        },
+        {
+          "title": "Competitor analysis with AI",
+          "paragraphs": [
+            "Competitor analysis for a designer isn't \"their button is blue and ours is green.\" It's the search for an answer: what users love about the competitor, what they complain about, and where there's an unmet need in between that your product could fill. AI speeds up exactly the gathering and structuring of these signals: you give it reviews of a competitor (or several competitors) and ask it to break down strengths and weaknesses using the same categories as your product.",
+            "The most valuable part is the side-by-side comparison. If you've already classified reviews of Flo, do the same for a competitor (say, Clue or Stardust) using an IDENTICAL list of categories. Then the AI can build a comparison table: where you're stronger, where you're losing, and where it hurts for both (that's a market opportunity). Keeping the categories identical is critical here; without it there's no point in comparing.",
+            "A genre of its own is hunting for the \"job to be done\" and unmet needs: you ask the AI to find phrases in the competitor's reviews like \"too bad there's no...,\" \"I wish it could...,\" \"I have to use another app because....\" These are direct hints for your backlog. But keep accuracy in mind: AI can \"hallucinate\" features the competitor doesn't actually have, so verify key facts about a rival's product by hand on their site or in the app itself."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT / Claude",
+              "what": "The same chatbots, but in the role of an analyst: they take in reviews of several competitors and build comparison tables of strengths and weaknesses. Claude is handier when you need to paste in a lot of text at once; ChatGPT, when you need quick iterations and rewriting of conclusions."
+            },
+            {
+              "name": "Dovetail",
+              "what": "Here it acts as a shared repository for competitive research: you store competitor reviews, tag them by theme, and keep everything in one place so the team can return to the insights rather than starting the analysis from scratch each time."
+            }
+          ],
+          "steps": [
+            "Gather reviews for 1-3 competitors and use the SAME list of categories as for your own product.",
+            "Ask the AI to classify the competitor's reviews and separately pull out strengths and weaknesses with quotes.",
+            "Generate a comparison table \"our product vs. competitor\" for each category with a rating (strong/medium/weak).",
+            "In a separate prompt, ask it to find unmet needs (\"I wish...,\" \"too bad there's no...\"); these are candidates for your backlog.",
+            "Verify the facts about the competitor's features by hand (open their app or site); the AI may have made them up.",
+            "Boil it down to a conclusion: 3 of our advantages, 3 risks, 2-3 market opportunities (what hurts for everyone, we tackle first)."
+          ],
+          "example": {
+            "title": "Example: comparing Flo and a competitor and finding opportunities",
+            "paragraphs": [
+              "Comparison-table prompt:",
+              "\"You are a product analyst. I'll give you two groups of reviews: [A] about Flo and [B] about the competitor Clue. Classify both using the same categories: [Onboarding, Prediction accuracy, Ads/monetization, Paid features, Technical bugs, Data privacy]. Build a comparison table: Category | Flo (strong/medium/weak + why) | Clue (strong/medium/weak + why). Rely ONLY on the provided reviews; don't add outside knowledge. At the end, mark the categories where BOTH products are weak. Reviews A: <...> Reviews B: <...>.\"",
+              "Prompt for finding unmet needs:",
+              "\"In these Clue reviews, find every statement about MISSING or DESIRED features (markers: \\\"I wish,\\\" \\\"too bad there's no,\\\" \\\"why can't I,\\\" \\\"I have to use a separate\\\"). Group them into themes and note how many times each is mentioned. Return a list: Need | Number of mentions | Example quote.\"",
+              "The conclusion you bring to the team: \"Both apps have weak onboarding and complaints about accuracy after childbirth; this is our opportunity to claim the \\\"postpartum tracker\\\" niche. We need to catch up on the competitor's privacy advantage.\" After that comes verifying the facts by hand and presenting to stakeholders."
+            ]
+          },
+          "bullets": [
+            "Compare competitors using an IDENTICAL list of categories, otherwise the table is meaningless.",
+            "\"It hurts for both\" = the best market opportunity for your product.",
+            "Markers of unmet needs: \"I wish,\" \"too bad there's no,\" \"I have to use a separate.\""
+          ],
+          "tip": "Add a firm \"rely ONLY on the provided reviews, don't add outside knowledge\" to the prompt; this sharply reduces hallucinations about features the competitor doesn't actually have. A classic mistake is asking for both the data and the analysis in a single prompt: the model will mix verified facts with guesswork."
+        }
+      ],
+      "practice": "Take a real app (your own or a favorite, Flo, Duolingo, anything) and collect 50-100 reviews from the stores. Step 1: build a closed list of 6 categories and use a prompt to classify the reviews into a table with sentiment and quotes. Step 2: in a separate prompt, aggregate the frequency by category and find the top 3 pain points. Step 3: generate a Mermaid category tree and paste it into mermaid.live. Step 4 (optional): collect a competitor's reviews using the same list and build a comparison table + a list of unmet needs. What you should end up with is a single slide: a diagram + 3 insights + 1 recommendation for the team. Check 10 classification rows by hand and note where the AI got it wrong."
+    },
+    "block-4": {
+      "intro": "In this chapter, we'll learn to use AI at the most important stage of product work: understanding your users. You'll see how AI speeds up interview analysis, helps you build personas, model hypotheses, and clearly articulate the product problem. Every lesson is built around a single running example: we're working on a cycle- and symptom-tracking feature for a femtech app like Flo. This gives you ready-made prompt templates you can apply directly to your own project. Let's agree up front on the golden rule of this chapter: AI is an amplifier for your thinking, not a replacement for real people. AI personas hallucinate, inherit biases from their training data, and can sound convincing precisely where they're actually making things up. So every technique below is a way to prepare for working with live users and to speed up the routine work, not an excuse to stop talking to them.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "Interview analysis",
+          "paragraphs": [
+            "The longest and most exhausting part of research work isn't the interviews themselves, it's what happens afterward: transcribing, coding, and finding patterns across dozens of pages of text. This is exactly where AI saves you hours. A large language model is excellent at reading a transcript, pulling out key pain points, grouping similar quotes, and flagging contradictions, as long as you give it clear instructions and real data.",
+            "The principle is simple: you upload an interview transcript (or several), set the analytical frame, and ask the AI to structure its observations. The key is not to ask \"what interesting things do you see,\" but to pose specific research questions: what barriers get in the user's way, what words she uses, where her behavior contradicts what she says. The more specific your request, the less filler and invention you'll get in the answer.",
+            "The key difference from AI personas: here the AI works with REAL data that you've collected from live people. This is the safest and most useful scenario for applying AI in research. But even here the model can \"fill in\" a quote that never existed, or smooth over an inconvenient nuance, so always check your final insights against the original transcript."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT",
+              "what": "A chatbot from OpenAI built on a large language model. It understands natural language, can read uploaded files, summarize text, and answer questions. The paid version supports long documents and file analysis."
+            },
+            {
+              "name": "Claude",
+              "what": "A chat assistant from Anthropic. It has a very large context window, which makes it especially handy for working with long transcripts: you can upload several interviews at once and analyze them together."
+            },
+            {
+              "name": "Dovetail",
+              "what": "A specialized platform for researchers: it stores interview transcripts, lets you tag (code) quotes, and its built-in AI automatically suggests themes, summaries, and insights based on your real data."
+            }
+          ],
+          "steps": [
+            "Prepare the transcript: clean out unnecessary timestamps and technical markers, but keep track of who is speaking, the researcher or the respondent.",
+            "Define the analytical frame: 3-5 research questions you're looking to answer (pain points, motivations, barriers, the user's own language).",
+            "Upload the transcript into Claude or ChatGPT and give it a prompt with a clear answer structure (themes, supporting quotes, contradictions).",
+            "Ask the AI to back up every observation with a DIRECT quote from the text. This sharply reduces the risk of invention.",
+            "Manually check 2-3 key quotes against the original. If even one can't be found word for word, scrutinize the entire response more critically.",
+            "If you have several interviews, ask the AI to consolidate the shared patterns into a table: \"theme - how many respondents mentioned it - example quote.\""
+          ],
+          "example": {
+            "title": "Example: analyzing interviews about cycle tracking",
+            "paragraphs": [
+              "Let's say we ran 6 interviews with users of a femtech app about how they track their cycle and symptoms. The transcripts are ready. Here's the prompt we give Claude along with the uploaded file:",
+              "\"You are an experienced UX researcher. Below is a transcript of an interview with a user of a femtech app about menstrual cycle tracking. Analyze it using the following structure: 1) The user's top 3 pain points; 2) Her motivations for tracking her cycle; 3) Barriers that keep her from doing it consistently; 4) Moments where her words contradict her behavior. For EACH point, include a direct quote from the text in quotation marks. If there's no direct evidence in the transcript for a given point, write 'insufficient data' and don't make anything up.\"",
+              "Notice two details in this prompt. First, we set a role and a structure, which makes the answer usable in your downstream work. Second, we explicitly gave the AI permission to say \"insufficient data.\" This is a simple but powerful technique: without it, the model would rather invent a plausible answer than admit that information is missing."
+            ]
+          },
+          "bullets": [
+            "AI is most useful for exactly the routine work: transcribing, coding, and finding patterns across a large volume of text.",
+            "Demand direct quotes as evidence. This is the best safeguard against hallucinations.",
+            "Always spot-check insights against the original transcript before presenting them to the team."
+          ],
+          "tip": "Add the phrase \"If there's no evidence in the text, write 'insufficient data'\" to the end of your prompt. It's one of the most effective techniques against invention when working with real data."
+        },
+        {
+          "title": "Creating and using AI personas",
+          "paragraphs": [
+            "A persona is a generalized portrait of a user segment: its goals, pain points, context, and behavior. Traditionally, personas are built on real research. AI lets you draft a persona in minutes, which is useful in the early stages, for getting the team aligned, and for preparing for real interviews. But this is where the danger zone begins, and we need to be honest about it right away.",
+            "An AI persona is NOT data about real users. It's a statistically plausible image, assembled by the model from everything it has seen on the internet. Because of this, AI personas are prone to two problems. The first is hallucination: the model confidently attributes habits, numbers, and quotes to the user that no one ever said. The second is bias: personas often come out stereotypical, because the model reproduces the most common notions rather than the most accurate ones (for example, simplistic gender or age cliches).",
+            "So the right role for an AI persona is as a hypothesis, not a fact. Use it to quickly align understanding across the team, to prepare a guide for a real interview, or to test a draft script. You get the best results when you \"feed\" the AI your real data from the previous lesson: then the persona rests on your interviews, not just the model's imagination."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT",
+              "what": "Good for generating a structured persona from your template. You can ask it to output the result as a persona card with fields: name, context, goals, pain points, behavior."
+            },
+            {
+              "name": "Claude",
+              "what": "Handy when you need to build a persona based on your real transcripts: its large context lets it take several interviews into account at once and make the persona less invented."
+            },
+            {
+              "name": "Uizard Personas",
+              "what": "A tool that generates visual persona cards with a photo, description, and characteristics from a text prompt. Useful for quick presentation artifacts, but the generated details are hypotheses too, not data."
+            }
+          ],
+          "steps": [
+            "Define the segment you're building the persona for (for example, \"women aged 28-35 who are planning a pregnancy and tracking their cycle\").",
+            "Gather what you actually already know: insights from previous interviews, analytics, app store reviews. This is the raw material for the persona.",
+            "Give the AI a prompt with a clear persona card template and insert your real data as context.",
+            "Separately, ask the AI to mark which fields are based on the data you provided and which it made up itself (this makes the hypotheses visible).",
+            "Edit the result critically: remove stereotypes, refine the context for your market, delete invented specific numbers.",
+            "Label the persona as an \"AI draft pending validation\" and schedule 3-5 real interviews to confirm or refute it."
+          ],
+          "example": {
+            "title": "Example: a persona for a femtech app user",
+            "paragraphs": [
+              "Here's a prompt for creating a draft persona. If you have real data, insert it into the \"Context\" block. If not, ask the AI to honestly flag everything as an assumption.",
+              "\"You are a product designer. Create a draft persona for a femtech cycle-tracking app. Context (real data from our interviews): [insert 3-5 insights]. Build the persona as a card with the fields: Name and age, Life context, Why she uses the app (goals), Main pain points, Behavioral habits, What frustrates her about existing solutions. IMPORTANT: after the card, add a section titled 'What I assumed without data' and honestly list which fields you filled in based on guesses rather than the context provided.\"",
+              "The result might be something like: \"Olena, 31. Planning her first pregnancy, works in an office. Goal: to understand her fertile window. Pain point: confusing predictions and pushy premium ads...\" And in the assumptions section, the AI honestly admits: \"I assumed her age, profession, and the fact that she's planning a pregnancy. None of that was in the context provided.\" It's precisely this section that turns a pretty piece of fiction into a working hypothesis you know you need to verify."
+            ]
+          },
+          "bullets": [
+            "An AI persona is a hypothesis, not a portrait of a real user. Always label its status.",
+            "The two main dangers: hallucinations (invented facts) and bias (stereotypes from the training data).",
+            "Quality jumps sharply when you \"feed\" the AI real insights from your own interviews.",
+            "A dedicated \"what I assumed without data\" section makes the inventions visible and manageable."
+          ],
+          "tip": "Never make product decisions based on an AI persona alone. Use it to better prepare for real research, not to avoid it."
+        },
+        {
+          "title": "Conducting interviews with AI-generated personas",
+          "paragraphs": [
+            "The next step is to ask the AI to \"play\" the persona and let you interview it. This may sound odd, but it has concrete value: you practice your interviewing technique, debug your question guide, check whether you're asking leading questions, and quickly run through possible answer scenarios, all without spending real users' time. It's a practice simulator, not a source of truth.",
+            "For the AI to hold the role convincingly, your prompt needs to do three things: define the persona as specifically as possible, forbid the AI from \"breaking character\" and stepping out of role, and ask it to answer realistically, with hesitation, emotion, and sometimes incomplete answers, like a real person. You should also explicitly allow the persona to say \"I don't know\" or \"I haven't thought about that.\" Without this, the AI will answer everything perfectly and at length, which never happens in a real interview.",
+            "And here is the most important warning of the whole chapter. An AI persona's answers are NOT user data. They are a plausible simulation that reflects the model's biases. An AI persona will never truly surprise you, never tell you about an unexpected context in her life, and never show an emotion the model doesn't \"expect\" from such an image. Those very surprises are the main value of real interviews, and the AI can't give them to you. So the insights from such an interview are hypotheses to be verified with live people, and nothing more."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT",
+              "what": "Holds an assigned role well within a single conversation. Convenient for practice: you ask questions one by one, as in a live interview, and immediately see the persona's reaction."
+            },
+            {
+              "name": "Claude",
+              "what": "Its large context lets you run a long, multi-turn interview without losing the persona details you set at the start. Handy for rehearsing a full guide."
+            }
+          ],
+          "steps": [
+            "First, create or take a ready-made persona (from the previous lesson). The more detailed it is, the more realistic the simulation.",
+            "Write a \"system\" prompt: define the persona, the ban on breaking character, and the instruction to answer realistically and briefly.",
+            "Allow the persona to say \"I don't know\" / \"I don't remember\" / \"I haven't thought about that.\" This brings the simulation closer to reality.",
+            "Run the interview using your real guide: ask questions one at a time, don't hint at the answers.",
+            "Watch yourself: are you asking leading questions? An AI persona is especially eager to \"agree,\" so it's a great trainer for your technique.",
+            "Record the \"insights\" in a separate list and label them as hypotheses to be verified with real users."
+          ],
+          "example": {
+            "title": "Example: an interview with the persona \"Olena\"",
+            "paragraphs": [
+              "First we give the AI a prompt that puts it into the persona's role:",
+              "\"Play the role of a user of our femtech app. Persona: Olena, 31, planning her first pregnancy, has been using the app for 4 months, not really into numbers. I'm going to interview you about your experience with cycle tracking. Rules: answer in the first person, realistically and briefly, like a real person in conversation; you can hesitate, get distracted, say 'I don't know' or 'I haven't thought about that'; do NOT break character and don't write explanations as the AI; don't try to be a perfect user. Wait for my first question.\"",
+              "Then we run the interview with ordinary questions. Researcher: \"Tell me about the last time you opened the app. What were you doing then?\" Persona (AI): \"Oh... I think it was in the morning. I usually check whether my period is about to start. But honestly, sometimes I just forget to open it for a few days.\" Researcher: \"And what stops you from opening it more often?\" Persona: \"Hmm, I haven't thought about that... Probably it's not very clear to me why I should. The predictions sometimes don't match up, and I stop trusting them.\"",
+              "Notice that the answers sound lively, but they're predictable. This is exactly what an \"average\" model expects from such a persona. The real Olena might have told you she doesn't open the app because it's associated for her with an anxious period in her life. The AI won't give you an insight like that. So the conclusion of this exercise is always the same: \"Hypothesis: users stop trusting the app because of inaccurate predictions. Verify with 5 real interviews.\""
+            ]
+          },
+          "bullets": [
+            "The main benefit is as a trainer: rehearsing your guide and practicing the skill of not asking leading questions.",
+            "In the prompt, always set the role, the ban on breaking it, and permission to say \"I don't know.\"",
+            "An AI persona won't surprise you with unexpected context, and that's precisely the value of real interviews.",
+            "Record all \"insights\" from an AI interview only as hypotheses to be verified with live people."
+          ],
+          "tip": "Run the exact same interview with two different personas back to back. If the answers are too similar, that's a signal you're seeing the model's bias, not the diversity of real users."
+        },
+        {
+          "title": "Forming hypotheses through AI modeling",
+          "paragraphs": [
+            "Once you've gathered insights (real) and hypotheses (including from the AI exercises), the next step is to turn them into clear, testable product hypotheses. Here AI acts as a brainstorming partner: it quickly generates many alternative explanations of the problem, helps you phrase a hypothesis in a working format, and immediately suggests how to measure it. This saves time and widens the field of options you might have missed.",
+            "A good hypothesis has a predictable structure: WE BELIEVE that [a certain change] for [a user segment] will lead to [an expected result], because [reason/insight]. WE'LL KNOW we're right when we see [a specific metric]. If you ask the AI to stick to exactly this frame, you'll get hypotheses ready for prioritization and testing, rather than vague ideas.",
+            "The risk at this stage is subtler than hallucination: it's false confidence. The AI will generate ten smooth, convincing hypotheses, and they'll all sound equally logical, even if they rest on an invented AI persona. So every time, mark what DATA each hypothesis stands on: a real interview, analytics, or just an AI assumption. Hypotheses built from nothing have a right to exist too, but priority in verification always goes to those backed by real signals."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT",
+              "what": "Quickly generates many alternative hypotheses and helps rewrite them into a structured format. Handy for brainstorming different ways to explain the problem."
+            },
+            {
+              "name": "Claude",
+              "what": "Useful when you need to keep all your insights and transcripts in context at once, so that hypotheses rest on the data you've gathered rather than on general reasoning."
+            }
+          ],
+          "steps": [
+            "Gather all your existing observations in one place and mark the source of each (real interview / analytics / AI assumption).",
+            "Give the AI a prompt asking it to generate 5-7 hypotheses in the format \"We believe that... for... will lead to... because...\".",
+            "Ask it to propose, for each hypothesis, a success metric and the cheapest way to verify it.",
+            "Ask the AI to mark which insight each hypothesis stands on, and whether that's real data or an assumption.",
+            "Filter out hypotheses that rest only on AI fantasy or that duplicate each other, and group the rest by theme.",
+            "Prioritize: verify first the hypotheses with the greatest business/user impact and the cheapest validation."
+          ],
+          "example": {
+            "title": "Example: hypotheses about a drop in retention",
+            "paragraphs": [
+              "Suppose analytics shows that users stop opening the app after the first month, and from interviews we heard complaints about inaccurate predictions. We give the AI this prompt:",
+              "\"You are a product designer. Here's our data: 1) Analytics: 40% of users don't return after 30 days (real data). 2) Interviews: several women said they don't trust the cycle predictions (real data). 3) Assumption: maybe they lack an explanation of why the prediction is what it is (hypothesis). Generate 5 product hypotheses in the format: 'We believe that [change] for [segment] will lead to [result], because [reason].' For each, add: a success metric and the cheapest way to verify it. Mark which of our data each hypothesis stands on.\"",
+              "One of the answers might be: \"We believe that showing a short explanation of 'why this prediction' to new users will lead to higher day-30 returns, because trust in the predictions will increase. Metric: D30 retention. Cheapest verification: an A/B test of the tooltip over 2 weeks. Basis: real analytics + real interviews.\" A hypothesis like this is immediately ready for prioritization, because you can see both its logic and its evidence base."
+            ]
+          },
+          "bullets": [
+            "Keep a single hypothesis format: \"We believe that... for... will lead to... because...\".",
+            "Ask the AI to immediately propose a success metric and the cheapest way to verify it.",
+            "The main risk is false confidence: a smooth hypothesis built on invented data sounds just as convincing as a well-grounded one.",
+            "Always mark the source of a hypothesis and prioritize the ones backed by real signals."
+          ],
+          "tip": "Give every hypothesis a source tag: \"real data\" or \"AI assumption.\" In review, the team will immediately see what to verify first and what to treat cautiously."
+        },
+        {
+          "title": "Framing the product problem",
+          "paragraphs": [
+            "The final step in understanding users is to compress all your insights and hypotheses into one clear problem statement. This is the foundation that the team's design and priorities will rest on. The most common mistake is to frame the problem as a solution (\"we need to add a button\"). A good statement describes the user's pain and context, but doesn't impose a way to solve it. AI helps here in two ways: rephrasing your drafts into the right format, and highlighting where you've accidentally hidden a ready-made solution.",
+            "The working format is the Problem Statement: [type of user] in the situation [context] wants [goal], but [obstacle], which leads to [negative outcome]. The \"How might we...\" (HMW) format is also useful, turning a problem into a space for ideas without narrowing it down to a single solution. AI is good at generating several HMW variants from a single Problem Statement, which expands the space for further ideation.",
+            "One final reminder for the whole chapter: a problem statement is only as true as the data beneath it. If the problem rests mostly on AI personas and simulated interviews, flag that honestly and don't give it the weight of real research. AI can elegantly frame even a problem that doesn't exist. So before the team takes a statement into their work, make sure there are at least a few real user signals beneath it, not just machine-generated hypotheses."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT",
+              "what": "Quickly rewrites a draft problem into the standard Problem Statement format and generates several \"How might we...\" variants for further ideation."
+            },
+            {
+              "name": "Claude",
+              "what": "Useful for checking a statement for hidden solutions and for narrowing or widening it correctly, while keeping all your previous insights in context."
+            }
+          ],
+          "steps": [
+            "Gather your validated insights and strongest hypotheses from the previous lessons into one short text.",
+            "Write a first, rough version of the problem in your own words. Don't worry that it's imperfect.",
+            "Give the AI a prompt: rewrite it in the Problem Statement format and separately point out whether a ready-made solution is hidden inside it.",
+            "Ask it to generate 3-5 \"How might we...\" statements based on this problem.",
+            "Check the evidence base: there should be a real signal beneath every key claim, not just an AI assumption.",
+            "Align the final statement with the team and lock it in as the starting point for design."
+          ],
+          "example": {
+            "title": "Example: from a draft to a Problem Statement",
+            "paragraphs": [
+              "Our rough thought sounds like this: \"Users don't trust the predictions and leave.\" There's already a problem hidden in it, but the wording is too general. We give the AI this prompt:",
+              "\"You are a product designer. Reframe this problem into a clear Problem Statement using the template: '[type of user] in the situation [context] wants [goal], but [obstacle], which leads to [outcome].' Here's the draft and the data: users of a femtech cycle-tracking app; from interviews, they don't trust the predictions because they don't understand what they're based on; from analytics, 40% don't return after 30 days. Separately, check: is there a ready-made solution hidden in my wording? And generate 3 'How might we...' variants.\"",
+              "The AI returns something like: \"A user who has just started tracking her cycle wants to rely on the app's predictions, but doesn't understand why the prediction is what it is, which undermines her trust and makes her stop using the app.\" And then the HMW variants: \"How might we help the user understand what the prediction is based on?\", \"How might we make trust in the prediction visible from the very first week?\". Notice that none of the variants imposes a specific screen or button, the space for design stays open."
+            ]
+          },
+          "bullets": [
+            "Frame the problem as pain and context, not as a ready-made solution.",
+            "The working formats: Problem Statement and \"How might we...\" (HMW).",
+            "Ask the AI to separately check whether a ready-made solution is hidden in the problem.",
+            "A problem is only as true as the data beneath it. Don't give machine-generated hypotheses the weight of real research."
+          ],
+          "tip": "Read the final statement out loud and ask: \"Is this describing a pain, or already describing a solution?\" If it contains a verb like \"add\" or \"make a button,\" you've hidden a solution. Step back."
+        }
+      ],
+      "practice": "Take your own product (or a favorite app) and run through the entire chain of this chapter in one go. Step 1: if you have even one real interview transcript, analyze it using the prompt from the first lesson, demanding direct quotes. Step 2: create an AI draft persona with the mandatory \"what I assumed without data\" section. Step 3: interview this persona using your guide, watching whether you're asking leading questions. Step 4: based on what you heard, generate 5 hypotheses in the \"We believe that...\" format, with a metric and a way to verify each. Step 5: compress everything into one Problem Statement and three HMWs. The key requirement of the exercise: put a source tag next to every insight, \"real data\" or \"AI assumption,\" and take an honest look at how many of your conclusions actually rest on real people. That's the core skill of this chapter: using the speed of AI without mistaking it for the truth about your users."
+    },
+    "block-5": {
+      "intro": "You've done your research, understood users' pain points, and even sketched out your first ideas. Now comes the fun part: turning a pile of notes and hypotheses into a concrete MVP solution you can show to your team and stakeholders. In this chapter we'll build the MVP for a meditation app together: first we'll define the product structure, then plan a roadmap with RICE prioritization, and finally put together a convincing stakeholder presentation. It's all built on real prompts you can copy and immediately adapt to your own product. Let's agree on one thing up front: AI here doesn't replace your design thinking, it speeds up the routine work, structuring, drafting, and formatting. You make the decisions.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "Building the product structure",
+          "paragraphs": [
+            "Product structure is the skeleton of your MVP: which screens it has, what the user can do on each one, and how they connect to each other. Without this skeleton, any mockups turn into a chaotic collection of pretty pictures that don't add up to a logical path. Our goal at this stage isn't to draw the final interface, but to agree with ourselves and the team on the scope of the MVP: what we'll build in the first version and what we'll deliberately set aside.",
+            "With a meditation app, it's easy to give in to temptation and cram everything in at once: daily practices, sleep, breathing exercises, community, statistics, gamification. This is a classic trap. An MVP should address one key need, for example, helping a beginner complete their first calm meditation in 5 minutes and come back tomorrow. We build the structure around exactly that need.",
+            "AI is a great help with two steps: generating a draft of the information architecture (a list of screens and blocks) and checking it for completeness and logical gaps. You provide the product context and the audience, and the model returns a structure that you review critically, trim down, and refine. It's faster than writing from scratch and more useful than copying someone else's app.",
+            "It's important to describe the structure in text rather than jumping straight into mockups. A text-based screen map is easy to discuss, quick to edit, and will serve us perfectly in the next lessons, for the roadmap and the presentation."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT",
+              "what": "A chatbot from OpenAI built on a large language model. It understands requests in plain language and generates text: product structures, screen lists, scenarios, and drafts. A handy all-purpose assistant for brainstorming and text tasks."
+            },
+            {
+              "name": "Claude",
+              "what": "A chatbot from Anthropic, also built on a large language model. It's strong at working with long texts and structured answers, and it holds context and logic well. Handy when you need to carefully break a product down into blocks without losing anything."
+            },
+            {
+              "name": "Notion AI",
+              "what": "AI built into Notion (a tool for notes and databases). It helps right inside the document: structuring a draft, turning text into a table or list, rewriting, and summarizing. Handy for saving your product structure straight into your team's workspace."
+            }
+          ],
+          "steps": [
+            "In two or three sentences, define what the product is, who it's for, and the single main user task the MVP addresses.",
+            "Ask the AI to propose a list of key MVP screens with a short description of each one's purpose.",
+            "For each screen, ask it to list the main elements (blocks, buttons, user actions).",
+            "Ask it to describe the main user journey, the sequence of screens from first launch to completing the first meditation.",
+            "Review the result critically: cut everything that doesn't serve the MVP's main task, and flag whatever you're moving to the backlog.",
+            "Move the final structure into Notion or Miro so the team can comment on it."
+          ],
+          "example": {
+            "title": "Example: a prompt for generating the structure of a meditation app",
+            "paragraphs": [
+              "Prompt in ChatGPT or Claude: \"You're a product designer. I'm building an MVP for a mobile meditation app. The main audience is beginners aged 25-40 who are stressed at work and want to learn to calm down. The MVP's main task: help the user complete their first 5-minute meditation on the day they install the app and come back the next day. Propose a minimal set of screens for this MVP. For each screen, give me: 1) a name, 2) its purpose in one sentence, 3) 3-5 key interface elements, 4) the main user action. Don't add extra features like a community or a store, only what serves the main task. Give your answer as a list.\"",
+              "What the model usually returns and what's worth keeping for the MVP: Onboarding (1-3 short screens for choosing a goal: sleep, stress, focus), Home screen (recommended practice of the day plus a \"Start\" button), Meditation player screen (timer, pause, background sound), Completion screen (congratulations, simple stats like \"1 day in a row,\" a reminder for tomorrow), Practice catalog (a short list of 5-10 meditations), Settings (reminder times, profile). Everything else, detailed statistics, friends, premium content, goes into the backlog.",
+              "A useful follow-up prompt after the first response: \"Check this structure for logical gaps: can a beginner get from opening the app to finishing their first meditation without hitting any dead ends? Flag the steps where the user might get confused or drop off.\" That gets you a design review of your draft in under a minute."
+            ]
+          },
+          "bullets": [
+            "An MVP addresses one main need, not all of them at once.",
+            "Start with a text screen map, then mockups, it's cheaper to revise that way.",
+            "AI generates the draft structure; you make the decision about scope.",
+            "Keep a separate backlog for what you're deliberately deferring."
+          ],
+          "tip": "A common mistake is accepting the AI's first answer as final. The model tends to add \"helpful\" screens the MVP doesn't need. Always ask yourself a control question: does this screen serve the MVP's main task or not? If not, it goes to the backlog."
+        },
+        {
+          "title": "Planning a roadmap with AI",
+          "paragraphs": [
+            "Once you have the structure, the question becomes: what do we do first, and what comes second? A roadmap is a plan that shows which features we ship and in what order. For a designer, it's not just a task list but a tool for talking to the team and stakeholders about priorities and expectations.",
+            "The main challenge with a roadmap is prioritization. Everything seems important, everyone on the team has their own opinion, and there's always less time and fewer resources than you'd like. This is where the RICE framework comes to the rescue, a simple and honest way to compare features against each other across four parameters.",
+            "RICE stands for the following: Reach, how many users a feature will touch over a given period, for example a quarter. Impact, how strongly it will affect the main goal, rated on a scale (3 for massive impact, 2 for high, 1 for medium, 0.5 for low, 0.25 for minimal). Confidence, how sure we are of our estimates, as a percentage (100%, 80%, 50%). Effort, how much work it takes, usually measured in person-months of the team.",
+            "The formula is simple: RICE = (Reach x Impact x Confidence) / Effort. The higher the number, the higher the priority. The point is that a feature with huge impact but a crazy amount of effort can lose out to a simple feature that quickly touches a lot of people. AI is useful here as a calculator-assistant and a sounding board: it helps you build the table, calculate the scores, and, most importantly, challenge your estimates. But you have to provide the input numbers, grounded in your research, otherwise it's just a guessing game."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT",
+              "what": "A chatbot from OpenAI. Here it's handy for building the RICE table, calculating scores with the formula, sorting features by priority, and explaining the logic behind the estimates in plain language."
+            },
+            {
+              "name": "Notion AI",
+              "what": "AI inside Notion. It helps turn a feature list into a clean table right in your working document, add the RICE columns, and keep the roadmap where the whole team can see it."
+            },
+            {
+              "name": "Miro AI",
+              "what": "An AI assistant in Miro, an online whiteboard for collaboration. It can generate diagrams from text or sticky notes, group ideas, and build a visual roadmap on a timeline, handy for team workshops."
+            }
+          ],
+          "steps": [
+            "Write out the list of candidate features for the MVP and the upcoming releases (from the previous lesson and the backlog).",
+            "For each feature, estimate the four RICE parameters: Reach, Impact, Confidence, Effort, based on research data rather than gut feeling.",
+            "Ask the AI to build a table and calculate the RICE score for each feature using the formula (Reach x Impact x Confidence) / Effort.",
+            "Ask the AI to sort the features by score and briefly comment on why something is at the top and something else is at the bottom.",
+            "Ask the AI to challenge your Impact and Confidence estimates, this catches inflated expectations.",
+            "Lay out the sorted features across roadmap stages (for example, Now / Next / Later) and visualize them in Miro."
+          ],
+          "example": {
+            "title": "Example: prioritizing meditation MVP features with RICE",
+            "paragraphs": [
+              "Prompt in ChatGPT: \"You're a product designer helping with prioritization using the RICE framework. RICE = (Reach x Impact x Confidence) / Effort. Here are my candidate features for a meditation app with their estimates. 1) Onboarding with goal selection: Reach 5000, Impact 3, Confidence 90%, Effort 1. 2) Push reminders about daily practice: Reach 5000, Impact 2, Confidence 80%, Effort 0.5. 3) Catalog of 10 meditations: Reach 4000, Impact 2, Confidence 90%, Effort 2. 4) Streak stats for \"days in a row\": Reach 3000, Impact 1, Confidence 70%, Effort 1. 5) Social friends feed: Reach 1000, Impact 1, Confidence 40%, Effort 4. Calculate the RICE score for each feature, build a table with all the columns, and sort them from highest priority to lowest. Briefly explain the number-one feature and why the social feed ended up at the bottom.\"",
+              "An approximate result: Push reminders, (5000 x 2 x 0.8) / 0.5 = 16000; Onboarding, (5000 x 3 x 0.9) / 1 = 13500; Meditation catalog, (4000 x 2 x 0.9) / 2 = 3600; Streak stats, (3000 x 1 x 0.7) / 1 = 2100; Social feed, (1000 x 1 x 0.4) / 4 = 100. The conclusion is obvious: cheap push reminders with broad reach beat the expensive social feed by hundreds of times, so for the MVP we take the first two or three features and defer the social feed.",
+              "Next, a prompt for shaping the plan: \"Based on this ranking, lay the features out into a roadmap across three horizons, Now (current sprint), Next (next quarter), Later (backlog). For each horizon, add one sentence about the hypothesis we're testing.\" This text will then go into the stakeholder presentation from the next lesson."
+            ]
+          },
+          "bullets": [
+            "RICE = (Reach x Impact x Confidence) / Effort; a higher score means higher priority.",
+            "Rate Impact on a scale of 3 / 2 / 1 / 0.5 / 0.25, and Confidence as a percentage.",
+            "An expensive feature with high impact easily loses to a cheap one with broad reach.",
+            "AI calculates and challenges the estimates, but you provide the input numbers based on data."
+          ],
+          "tip": "A common mistake is setting Confidence to 100% for everything. If you have no data behind an estimate, honest confidence is 50% or even less. Inflated Confidence puffs up the scores of your favorite features and makes the whole RICE exercise meaningless. A second frequent mistake is comparing Effort in different units (hours here, months there); keep a single scale for all features."
+        },
+        {
+          "title": "Creating AI presentations for stakeholders",
+          "paragraphs": [
+            "The best solution is worthless if you can't \"sell\" it to the people who decide on budget and resources. A stakeholder presentation isn't a report on work done, it's an argument: here's the problem, here's our MVP solution, here's why this particular sequence, here's what we want to test. Designers often underestimate this stage, and that's a shame, because it determines whether your MVP survives to launch.",
+            "Stakeholders are the people who hold your product's fate in their hands: management, clients, leads of other teams, investors. They have little time and a lot of skepticism. So the presentation has to be short, structured, and speak the language of business and user value, not the language of pixel-level interface details.",
+            "AI speeds up this stage dramatically. You already have text from the product structure and roadmap in the previous lessons, that's ready-made content. All that's left is to assemble it into a coherent story with polished formatting. Tools like Gamma turn your text into a finished presentation in minutes, while ChatGPT or Claude help refine the narrative for a specific audience.",
+            "The classic structure of an MVP presentation that's worth keeping in mind: the problem and who feels the pain, the insight from research, our solution (the MVP structure), the roadmap with priorities, which hypotheses we're testing and by which metrics, and what we're asking of stakeholders (resources, decisions, support). AI will help fill in each block, but you have to set the emphasis for your particular room."
+          ],
+          "tools": [
+            {
+              "name": "Gamma",
+              "what": "An AI tool that generates ready-made presentations, documents, and websites from a text description. You provide an outline or text, and Gamma lays out the slides itself with formatting, images, and structure. It saves hours of work in Keynote or PowerPoint."
+            },
+            {
+              "name": "ChatGPT",
+              "what": "A chatbot from OpenAI. Here it's handy for turning raw notes into a presentation structure, writing slide talking points, polishing the wording, and preparing answers to likely stakeholder questions."
+            },
+            {
+              "name": "Claude",
+              "what": "A chatbot from Anthropic. It works well with long context and narrative logic, handy for pulling the material from the product structure and roadmap into a coherent story and maintaining a consistent tone."
+            }
+          ],
+          "steps": [
+            "Gather the material from the previous lessons into a single document: the MVP's main task, the screen structure, the RICE ranking, and the roadmap.",
+            "Ask the AI to draft a 7-10 slide presentation outline following the classic structure (problem -> insight -> solution -> roadmap -> metrics -> ask).",
+            "For each slide, ask the AI to write a headline and 2-4 short talking points, with no filler.",
+            "Pass the finished outline to Gamma to generate formatted slides.",
+            "Edit the visuals: remove excess text, add a diagram of the product structure and a roadmap timeline.",
+            "Ask the AI to compile a list of likely tough stakeholder questions and prepare short answers."
+          ],
+          "example": {
+            "title": "Example: a prompt for generating an MVP presentation in Gamma and ChatGPT",
+            "paragraphs": [
+              "First we prepare the narrative in ChatGPT or Claude: \"You're a product designer preparing an MVP presentation for stakeholders (management and the client). The product is a mobile meditation app for beginners who are stressed at work. The MVP's main task: get the user to their first 5-minute meditation on the day they install the app and bring them back the next day. Draft an 8-slide presentation outline following this structure: 1) The problem and who feels the pain, 2) The insight from research, 3) The solution, the MVP structure, 4) Roadmap (Now/Next/Later), 5) How we prioritized (briefly about RICE), 6) Success metrics, 7) Risks and what we're testing, 8) What we're asking of stakeholders. For each slide, give a headline and at most 3 talking points. Write concisely, in the language of business value, with no design jargon.\"",
+              "Then we move the result into Gamma. Prompt in Gamma: \"Create an 8-slide presentation following this outline [paste the slide talking points]. The style is minimalist and calm, on the meditation theme: a light background, soft colors, plenty of whitespace. On the solution slide, add space for a screen diagram, and on the roadmap slide, a horizontal timeline with three stages, Now / Next / Later.\"",
+              "The final touch is preparing your defense. Prompt in ChatGPT: \"Imagine you're a skeptical CFO. Ask me the 5 toughest questions about this MVP presentation and explain what's behind each one. Then suggest a short answer to each.\" That way you walk into the room prepared rather than improvising under pressure."
+            ]
+          },
+          "bullets": [
+            "A presentation is an argument for your solution, not a report on your work.",
+            "Speak the language of business and user value, not pixels.",
+            "The material from the structure and roadmap is ready-made content for your slides.",
+            "Separately, prepare answers to tough stakeholder questions."
+          ],
+          "tip": "A common mistake is generating a presentation in Gamma and taking it to stakeholders as is. AI makes a good starting draft, but it doesn't know your company's politics or what the specific people in the room care about. Always reread it, remove excess text (a talking point on the slide, the details in your own words), and check the facts and figures: the model can confidently invent a metric you don't actually have."
+        }
+      ],
+      "practice": "Take your own product or come up with your own MVP (for example, a water-tracking app or a language-learning app) and walk through the whole chapter on it. Step 1: with a prompt to ChatGPT or Claude, generate the MVP structure, a minimal set of screens for a single main task, then manually cut the excess into the backlog. Step 2: write out 5-7 candidate features, rate each one with RICE (Reach, Impact, Confidence, Effort), and ask the AI to calculate the scores and sort them; build a Now / Next / Later roadmap. Step 3: based on this material, generate a 7-8 slide presentation in Gamma and prepare answers to 3 tough stakeholder questions. The main demand to make of yourself: don't accept any AI answer as final, review it critically, cut the excess, and check the numbers."
+    },
+    "block-6": {
+      "intro": "In this chapter we stop talking about AI in the abstract and start generating real screens. One end-to-end example runs through the whole chapter: redesigning the home screen of an e-commerce app (a fictional clothing marketplace called \"Sklad\"). You'll see the actual prompt text, learn to pull dozens of concepts out of AI in minutes, and then—most importantly—apply art direction to turn a \"pretty picture\" into a design you can actually hand off to engineering. The core argument of the chapter: generated UI isn't a finished design, it's raw material for your thinking.",
+      "readingTime": 11,
+      "lessons": [
+        {
+          "title": "Generating Concepts",
+          "paragraphs": [
+            "Generating concepts is the stage where you aren't yet looking for the final solution—you're deliberately expanding the space of ideas. A classic designer's problem: we get stuck on the first or second option, because drawing each one from scratch takes time. AI drops that cost to almost zero—you get 10 to 20 directions in the time it used to take to produce one. So the right goal for this stage is quantity and variety, not the beauty of any single screen.",
+            "For our example, let's take a real-world brief: \"The home screen of a clothing marketplace looks dated, the conversion to product views is low, and users aren't noticing the personalized recommendations.\" That's a product problem, not a \"make it pretty\" request. Before you write a prompt, get clear on three things for yourself: who the user is, which action we want to strengthen (the tap into a product page), and the brand's emotional tone (young, clean, slightly premium).",
+            "The key skill here is prompt structure. A bad prompt sounds like \"generate a store home screen.\" A good prompt describes: the screen type and platform, the content blocks in the right priority order, the style and reference, and the constraints. The more specific you are about hierarchy, the less AI invents that you don't need. At this stage we don't touch the exact brand colors yet—first we look for composition and structure.",
+            "Work in batches, not one-off requests. Generate a first batch, pick the 2 to 3 directions that grab you, and only then deepen each one with its own prompt. That's the design process itself—divergence, then convergence. AI simply speeds up both phases."
+          ],
+          "tools": [
+            {
+              "name": "Galileo AI",
+              "what": "A generator of UI screens from a text description. You write what screen you need and get an editable layout close to a real interface (with blocks, buttons, lists) that you can keep refining."
+            },
+            {
+              "name": "Uizard",
+              "what": "A tool that turns a text description, a screenshot, or even a photo of a paper sketch into a clickable prototype. Handy for quickly drafting entire flows, not just a single screen."
+            },
+            {
+              "name": "Midjourney",
+              "what": "An image generator that works from a description. For UI, you use it not for finished screens but to explore visual mood, style, color atmosphere, and illustrations—as a source of inspiration, not as a layout."
+            }
+          ],
+          "steps": [
+            "State the product problem in a single sentence: which user behavior you need to strengthen (in our case, the tap into a product page).",
+            "List the required screen blocks in priority order: search, personalized recommendations, categories, promotions, product grid, bottom navigation.",
+            "Build a base prompt using the template \"screen type + platform + blocks by priority + style + constraints.\"",
+            "Generate a first batch of 8 to 12 variations in Galileo AI or Uizard, without judging them critically.",
+            "Separately, in Midjourney, generate 3 to 4 mood-board frames to get a feel for the style and palette.",
+            "Pick the 2 to 3 directions that best lead the eye toward the product, and deepen each one with a new, narrower prompt."
+          ],
+          "example": {
+            "title": "Example: the first batch of concepts for the \"Sklad\" home screen",
+            "paragraphs": [
+              "Base prompt for Galileo AI (structural, no exact colors): \"Mobile e-commerce home screen for a fashion marketplace. Top: search bar with location. Below: a personalized 'For you' horizontal carousel of product cards as the visual hero. Then: round category icons (Women, Men, Kids, Sale). Then: a promo banner block. Then: a 2-column product grid with photo, brand, price. Bottom tab bar: Home, Catalog, Cart, Profile. Clean modern style, generous white space, rounded corners, mobile iOS.\"",
+              "A variation with a different priority (emphasis on discounts): \"...same screen, but make a bold 'Sale up to 50%' banner the hero block at the top, and move the personalized carousel below the categories. Energetic, high-contrast promo style.\"",
+              "A Midjourney prompt for mood (not a layout): \"mood board for a young premium fashion app, soft neutral palette, warm beige and off-white, minimal Scandinavian aesthetic, soft daylight product photography --ar 3:2\". Notice: here we aren't asking for an interface—we're searching for an atmosphere that we'll later carry into the layout by hand.",
+              "Outcome of the first batch: out of 12 screens, three turned out to be interesting—the version with a large personalized carousel, the version with compact category chips, and the version with a full-screen hero banner. Those are exactly what we carry into the next lesson on art direction."
+            ]
+          },
+          "bullets": [
+            "The goal of this stage is a range of ideas, not one perfect screen.",
+            "Describe the hierarchy of blocks, not just \"a store\"—AI fills out structure nicely, but it guesses priorities poorly.",
+            "Split the tools by role: Galileo/Uizard for layouts, Midjourney only for mood and style.",
+            "Work in batches: divergence (lots of options) → selection → convergence (deepening)."
+          ],
+          "tip": "Save your prompts as templates with \"blanks\" for the variables (screen type, hero block, style). Within a week you'll have built your own prompt library and you'll stop writing from scratch every time."
+        },
+        {
+          "title": "Art Direction and Redesign",
+          "paragraphs": [
+            "The most common beginner's mistake with AI: getting a good-looking generated screen and assuming the work is done. It isn't. Generated UI almost always has fake content, unrealistic data, inconsistent spacing, nonexistent icons, and ignores your brand and platform guidelines. It's a concept, not a hand-off-ready layout. Your role at this stage shifts: you stop being the \"illustrator\" and become the art director who sets the boundaries and rejects what doesn't fit.",
+            "Art direction is the deliberate control of a visual language: palette, typography, grid, the tone of photography, the shape of elements, the density of the interface. When you give AI clear art direction, you turn random generation into something controlled. In practice that means: you lock down a design system (colors, font, radii, spacing) and force every generation to obey it, not the other way around.",
+            "For a redesign, a handy technique is generating \"from a reference.\" You show AI the current screen (or a chosen concept from the previous lesson) and describe exactly what to change: pull it toward the brand palette, strengthen the hierarchy, remove the noise. This is more precise than generating from scratch, because you're moving from something concrete. Figma AI (edits right inside your file with its design system) and Diagram (generating component variants in context) work well here.",
+            "The final step is always manual. You bring the best generated option into Figma, replace fake content with real content, align everything to an 8pt grid, attach real components from your library, and check the edge cases (an empty recommendation list, a long product name, a missing photo). AI gave you a fast start on 70%, but the last 30%—quality, consistency, and viability—is your professional responsibility."
+          ],
+          "tools": [
+            {
+              "name": "Figma AI",
+              "what": "A set of AI features inside Figma: generating and rewriting text, replacing placeholders with meaningful content, quickly creating drafts, and searching across your layouts. It works right inside your file, so it accounts for your existing styles and components."
+            },
+            {
+              "name": "Diagram",
+              "what": "An AI tool for designers (now part of Figma) that generates and varies UI components and entire screens with your product's context in mind—handy when you need a few variants of a single block fast."
+            },
+            {
+              "name": "Galileo AI",
+              "what": "We reuse it here for iterations: we feed in the chosen concept as a base and ask it to apply specific style changes, rather than generating the screen all over again from scratch."
+            }
+          ],
+          "steps": [
+            "Lock down your art direction in writing: palette (HEX), primary font, radii, base spacing grid, photography tone. This is your \"contract\" for the AI.",
+            "Take the best concept from the previous lesson and formulate 3 to 4 specific edits (palette, hierarchy, density, accent).",
+            "Generate an iteration from the reference with these edits, without changing the composition entirely.",
+            "Bring the final option into Figma and replace all the fake content with real names, prices, and photos.",
+            "Align everything to the 8pt grid and swap random elements for components from your design system.",
+            "Check the edge cases: a long name, an empty personalized list, a missing photo, a discounted price."
+          ],
+          "example": {
+            "title": "Example: art direction for the \"Sklad\" redesign",
+            "paragraphs": [
+              "First, we lock down the brand contract: \"Palette: background #FFFFFF, surface #F6F4F1, primary accent #1F1B16 (graphite), sale accent #C2410C. Font: Inter, headings semibold. Corner radius 16. Spacing grid: 8pt. Photography: warm daylight, neutral background.\"",
+              "Iteration prompt from a reference (Galileo AI / Figma AI): \"Take this fashion home screen as the base. Keep the layout structure. Restyle to the brand: neutral off-white surfaces (#F6F4F1), graphite text (#1F1B16), use #C2410C only for the Sale label and price discounts. Increase visual hierarchy: make the 'For you' carousel the clear hero, reduce the promo banner to one calm line. Use Inter, 16px corner radius, generous 8pt spacing. No neon colors, no drop shadows heavier than soft elevation.\"",
+              "Prompt for variations of the product card component (Diagram): \"Generate 4 variants of a product card for a fashion app: photo on top, brand name small, product title 2 lines max with truncation, price, optional struck-through old price in #C2410C. Clean, 16px radius, consistent 8pt padding.\"",
+              "What we did by hand after generating: we dropped in real products and prices instead of \"Product 1 / $00,\" removed the generated pseudo-icons and placed components from the library, added a card state with a long two-line name and an empty-recommendations state with a prompt. Only after that did the screen become a layout ready for hand-off to engineering, rather than just a pretty render."
+            ]
+          },
+          "bullets": [
+            "Generated UI = a concept, not a finished design: there's always fake content, inconsistent spacing, and ignored guidelines.",
+            "Your role is art director: set the boundaries (palette, font, grid) and reject anything that doesn't fit them.",
+            "A redesign is more effective done from a reference, keeping the composition, than generated from scratch.",
+            "The last 30%—real content, the 8pt grid, system components, and edge cases—is always done by a human.",
+            "A typical mistake is handing the render to engineering: it falls apart on real data and real states."
+          ],
+          "tip": "Keep your art direction as a ready-made text block and paste it at the start of every iteration prompt. It's the cheapest way to make any AI tool speak your brand's language."
+        }
+      ],
+      "practice": "Take the home screen of any e-commerce app (your own project's or a favorite store's) and run both lessons on it. First, generate a batch of 10+ concepts in Galileo AI or Uizard, describing the hierarchy of blocks, and assemble a mood board in Midjourney. Pick one direction. Then write your art-direction contract (palette, font, radii, grid) and produce an iteration from a reference. Finish it off by hand in Figma: real content, the 8pt grid, components, and at least three edge cases. Submit two artifacts: a board with all the concepts, and the final layout with a note on exactly what you fixed after the AI."
+    },
+    "block-7": {
+      "intro": "Generative AI is no longer a toy for futurists — it's a working tool that shrinks the path from idea to visual from days to minutes. In this chapter we won't talk in the abstract about how \"AI is cool.\" Instead, we'll take a single end-to-end case — a habit-tracking app provisionally called \"Sprout\" — and walk through its entire visual journey: we'll draw a set of icons, a series of onboarding illustrations, create a mascot character (a sprout named Sprouty), and even bring him to life in a short animation. At every step you'll see the actual text of the prompts, not generic advice. We'll also dig into two topics that trip up beginners most often: style consistency (so that 12 icons look like one set rather than a zoo) and the legal side — whether you can even use AI-generated work in a commercial product at all. By the end of the chapter you'll be able to hand off the routine of generating variations to AI and spend your own time where a designer is irreplaceable — on meaning, systems, and decisions.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "Creating graphic elements and iconography",
+          "paragraphs": [
+            "Icons are the most disciplined kind of graphics in a product. There's no room here for \"artistic mood\": 24 icons in a navigation bar must share the same stroke weight, the same corner radius, the same optical size. That's exactly why generating icons with AI isn't about \"draw me a pretty icon\" — it's about working within strict constraints. AI is great at throwing out metaphor variations (how do you depict a \"habit\"? a sprout, a checkmark, a progress ring, a streak flame?), but you'll still nail the final vector cleanliness and grid by hand or with specialized tools.",
+            "It's important to distinguish two scenarios. The first is raster generation (Midjourney, DALL·E): you get a PNG image that you then work with as a reference or trace into a vector. The second is tools built for vectors and UI (Recraft, Figma plugins) that hand you a ready-made SVG. For iconography the second path is more practical, because an icon almost always needs to live as a vector. But it's worth mastering raster generation too: it's indispensable for finding a visual language early on, when you don't yet know what style the product will have.",
+            "The classic beginner trap is generating each icon separately and then wondering why they don't get along with each other. The right approach is to first lock in the style (with one reference prompt and its parameters), then change only the object itself while keeping the rest of the description unchanged. We'll cover the mechanics of consistency below, but remember the principle now: only one variable changes — everything else is a constant."
+          ],
+          "tools": [
+            {
+              "name": "Midjourney",
+              "what": "A service that generates images from a text description. It offers the best aesthetics and style control, and works through Discord or the web. It outputs raster (PNG), so for icons it's used more for finding a style and gathering references than for the final vector."
+            },
+            {
+              "name": "DALL·E",
+              "what": "OpenAI's image generator, built into ChatGPT. Its strength is understanding complex text instructions in natural language — handy when you need to explain an icon idea in words. It also outputs raster."
+            },
+            {
+              "name": "Recraft",
+              "what": "A tool built specifically for designers: it generates icons and illustrations directly as vectors (SVG), has an \"icon set\" mode for consistent sets, and gives you control over a single shared style across images."
+            }
+          ],
+          "steps": [
+            "List the icons you need by meaning, not by appearance: \"home,\" \"habits,\" \"stats,\" \"reminders,\" \"profile.\" Metaphors first, style later.",
+            "Generate 3–4 style variants on ONE test icon (for example, \"home\"). Lock in the parameters: type (line / filled / duotone), stroke weight, palette, background.",
+            "Pick one reference style and save its prompt as a template. Everything that describes the style is now off-limits.",
+            "Generate the remaining icons by plugging only the object name into the same template. Style, background, format — no changes.",
+            "Lay all the icons out on a single artboard and check them optically: equal weight, centering, padding. Fix minor discrepancies in a vector editor.",
+            "Export to SVG, fit them to a 24×24 grid, and check them on both light and dark themes."
+          ],
+          "example": {
+            "title": "Example: a set of line icons for the Sprout app",
+            "paragraphs": [
+              "First we lock in the style on a single icon. Reference prompt in Midjourney: \"minimalist line icon of a house, single weight 2px stroke, rounded corners, no fill, centered on plain white background, simple geometric, flat, UI icon, vector style --no shadow gradient text --ar 1:1\". We got a clean outline house — that's our visual language.",
+              "Now we change ONLY the object; the rest of the text stays identical. The \"habits\" icon: \"minimalist line icon of a small sprout in a pot, single weight 2px stroke, rounded corners, no fill, centered on plain white background, simple geometric, flat, UI icon, vector style --no shadow gradient text --ar 1:1\". The \"stats\" icon: \"...of a simple bar chart...\". The \"reminders\" icon: \"...of a bell...\". The \"profile\" icon: \"...of a single person silhouette outline...\".",
+              "Notice that the phrasing about the stroke, rounded corners, absence of fill, and white background never changes. That's exactly what keeps the set cohesive. If you want SVG right away, feed the same list of objects into Recraft's icon set mode, where the tool itself ensures consistency and the output is editable vectors."
+            ]
+          },
+          "bullets": [
+            "Icons = a system of constraints, not standalone pictures. Lock in the style before the objects.",
+            "The final product needs vectors: either generate SVG (Recraft) or trace the raster by hand.",
+            "Check the set optically on a single artboard — the human eye catches imbalance better than metrics do."
+          ],
+          "tip": "Keep your \"style prompt template\" in a separate file alongside your design system. When you need 5 new icons a month from now, you'll add them to the set in a few minutes and they won't fall out of style."
+        },
+        {
+          "title": "Generating characters",
+          "paragraphs": [
+            "A mascot is the face of a product. While an icon should be neutral, a character is the opposite — it has personality, emotion, and recognizability. And that's where generative AI's biggest challenge appears: the same character in different poses and scenes. Generating one cute sprout is easy. But making THAT SAME sprout cheer, feel sad, wave, and hold a smartphone — and stay the same character everywhere — is hard. All modern character-consistency tools are built around exactly this problem.",
+            "Before you open a generator, describe the character in text as a character bible: who they are, what they're made of, what the palette is, what the proportions are, what their default mood is. For Sprout that's: \"friendly sprout Sprouty — two round leaves, big kind eyes, blushing cheeks, no mouth line, soft shapes, a green-and-lime palette, a style like the Duolingo or Headspace apps.\" The more specific the bible, the more stable the character. A vague \"cute mascot\" will give you 10 different creatures.",
+            "Technically, consistency is achieved through three mechanisms. The first is Character Reference: you give the tool a reference image of the character, and it reproduces those exact features in new scenes (in Midjourney this is the --cref parameter; in others it's a separate \"consistent character\" feature). The second is the seed: a fixed number that makes generation reproducible. The third is descriptive discipline: an unchanging block of text about the character's appearance. In practice you combine all three."
+          ],
+          "tools": [
+            {
+              "name": "Midjourney",
+              "what": "Beyond style, it has a Character Reference parameter (--cref) — you attach an image of the character and the model holds its appearance across new poses and scenes. The go-to tool for mascots thanks to its quality and control."
+            },
+            {
+              "name": "DALL·E",
+              "what": "Convenient for iterating through dialogue: you can describe a character and then ask for \"the same one, but waving\" right in the ChatGPT chat. Consistency is weaker than Midjourney's, but it's faster and simpler."
+            },
+            {
+              "name": "Leonardo",
+              "what": "An image-generation platform with a strong emphasis on control: it offers Character Reference, training your own styles, and a fixed seed. Popular with people who need a repeatable character and fine-grained control over details."
+            }
+          ],
+          "steps": [
+            "Write a \"character bible\": 4–6 unchanging traits of the character (shape, eyes, palette, mood, style). This is your text reference.",
+            "Generate several variants of the character's base portrait in a neutral pose. Pick the best one — it becomes your reference.",
+            "Lock in the seed of that successful result and upload the image as a Character Reference.",
+            "Generate the poses/emotions you need, keeping the appearance-description block unchanged and swapping in only the action (waving, celebrating, sleeping).",
+            "Line up all the character versions side by side and check recognizability: is it obviously the same creature? Reject the \"almost similar\" ones.",
+            "Finish in vector/raster: align the palette, remove artifacts, and prepare a set of emotions for the product."
+          ],
+          "example": {
+            "title": "Example: the Sprouty mascot in different emotions",
+            "paragraphs": [
+              "Base portrait (Midjourney). Prompt: \"cute mascot character, a friendly sprout with two round leaves, big kind eyes, soft cheeks with blush, no mouth line, smooth rounded shapes, green and lime color palette, flat vector illustration, mobile app mascot style, centered, plain background --ar 1:1 --style raw\". Out of the four variants we pick the best and note its seed, say --seed 1500.",
+              "Now we create emotions while preserving the character. We plug in the reference and the fixed seed, and change only the action. Joy: \"...a friendly sprout with two round leaves, big kind eyes... [the entire unchanged description] ..., celebrating with leaves raised up, happy expression --cref [link to the base image] --seed 1500 --ar 1:1\". Similarly: \"...waving one leaf, friendly greeting...,\" \"...sleeping with closed eyes, small zzz...,\" \"...holding a smartphone, curious....\"",
+              "An alternative path in DALL·E via ChatGPT: first \"Draw a sprout mascot to this description: [bible],\" then in the same conversation \"Now have this same character wave a leaf in greeting, same style and colors.\" Fast for drafts, but for a final consistent set Midjourney or Leonardo with Character Reference is more reliable."
+            ]
+          },
+          "bullets": [
+            "Write the character's text \"bible\" first, generate only afterward — otherwise you'll get different creatures.",
+            "Consistency = Character Reference + a fixed seed + an unchanging appearance description.",
+            "Ruthlessly reject the \"almost the same\" character: users will notice the swap faster than you will."
+          ],
+          "tip": "Generate a character sheet — the same character in several poses in a single image. It becomes a reference for the team and the best reference for further generations."
+        },
+        {
+          "title": "AI animation",
+          "paragraphs": [
+            "Bringing a static visual to life is the next logical step. AI animation today works in two modes. The first is image-to-video: you provide a ready image (our Sprouty, for instance) and a text description of the motion, and the model fills in the in-between frames. The second is text-to-video: the video is generated entirely from a text prompt. For product design the first one is more practical: you already have a consistent character and want motion, not a new creature in every frame.",
+            "Be realistic about where to use it. AI video doesn't yet replace precise UI micro-animation (for buttons, transitions, and loaders, Lottie/After Effects are better, where you control every frame and the file size). But AI is great for marketing clips, animated stories, splash screens, living illustrations on a landing page, and motion concepts you can later reproduce by hand. In other words, AI animation is a fast way to show a motion idea or make eye-catching content — not a production pipeline for interface micro-interactions.",
+            "A video prompt describes not just the object but the motion and the camera: what moves, how exactly, with what dynamics, and whether the camera moves. The more specific the motion verb (\"gently sways,\" \"slowly blinks\"), the more predictable the result. And just as with stills, consistency is critical here: to keep the character from \"drifting\" between frames, start with a high-quality, clean source image and describe delicate, restrained motion — sharp, complex movements fall apart."
+          ],
+          "tools": [
+            {
+              "name": "Runway",
+              "what": "The leading AI-video platform. Its image-to-video mode animates your picture from a text description of the motion, with control over the camera and duration. The most popular choice among designers for animating generated illustrations and mascots."
+            },
+            {
+              "name": "Leonardo",
+              "what": "Beyond images, it has a Motion feature — it turns a generated picture into a short video clip with one click. Handy when the character was already made in Leonardo and you want to add motion quickly without switching to another service."
+            }
+          ],
+          "steps": [
+            "Prepare a clean source image in the right aspect ratio (9:16 for stories, 16:9 for a landing page). The quality of the input = the quality of the video.",
+            "Describe the motion briefly and specifically: which element moves, the type of motion, the pace. Avoid several complex movements at once.",
+            "Generate a 2–4 second clip and review it for character \"drift\" and artifacts.",
+            "Iterate on the prompt: make the motion more delicate if the image \"falls apart\"; add camera movement only when needed.",
+            "Pick the best take and, if needed, loop it for stories or a landing page.",
+            "Finish in a video editor: trim, set the pacing, and export in the format for your channel."
+          ],
+          "example": {
+            "title": "Example: bringing the Sprouty mascot to life",
+            "paragraphs": [
+              "We take the ready Sprouty image (the same one from the previous lesson) and upload it to Runway in image-to-video mode. Motion prompt: \"the little sprout character gently sways side to side, leaves softly waving as if in a light breeze, eyes slowly blink once, subtle idle animation, static camera, soft and smooth motion\". The result is a soft \"idle\" animation you can loop for the app's splash screen.",
+              "For a marketing story we make a more emphatic take: \"the sprout character happily jumps once and raises its leaves up in celebration, confetti gently falls, smooth bouncy motion, static camera, 9:16\". We keep the motion simple and singular — one expressive action reads better than three chaotic ones.",
+              "A tip from practice: if the character \"drifts\" between frames (the eyes or colors change), go back to the source image — make it sharper and describe an even more delicate motion. In 80% of cases the problem isn't the motion prompt but an overly complex action or a noisy source image."
+            ]
+          },
+          "bullets": [
+            "For mascots and content, use image-to-video; the source image matters more than the motion prompt itself.",
+            "AI video does NOT replace UI micro-animation (Lottie/After Effects) — it's for marketing, splash screens, and motion concepts.",
+            "One simple motion reads better than several complex ones; delicacy saves you from \"drift.\""
+          ],
+          "tip": "Don't chase length. A solid 2 seconds you can loop is more useful than a \"jittery\" 10-second clip. For idle animations, the loop is your best friend."
+        }
+      ],
+      "practice": "Take your own real or made-up app and go through the entire end-to-end case. 1) Icons: write out 5 icons you need by meaning, lock in the style on one reference icon, and generate the set by changing only the object; lay them out on a single artboard and check optically. 2) Character: write a \"character bible\" of 5 traits, generate a base mascot portrait, lock in the seed and reference, and create 3 emotions (joy, greeting, sleep), making sure it's obviously the same creature. 3) Animation: bring your mascot to life in Runway or Leonardo with a short 2–3 second idle animation and loop it. Finally, be sure to check the legal side: open the Terms of the service you used and answer in two sentences — is commercial use of the generated work allowed, who owns the rights, and are there any limits for your plan? Save your style and character prompt templates — that's your reusable asset."
+    },
+    "block-8": {
+      "intro": "UX copy is the interface. A button, a tooltip, an error message, an onboarding screen: all of it shapes how people experience your product just as much as the visuals do. In this chapter, we'll learn to use AI as an assistant for writing, adapting, and localizing UX copy. We'll work through a single running example: a mobile expense-tracking app. We'll write onboarding and error-state copy, adapt it for different audiences, and localize it into another language. The key idea to grasp right away: AI doesn't replace the designer-copywriter, it just speeds up the first draft. Your job is to set the context and tone of voice, then edit the result with a critical eye. The copy AI produces out of the box is almost always too generic and faceless. Below you'll find concrete prompts, before/after examples, and common mistakes to avoid.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "Writing UX copy",
+          "paragraphs": [
+            "UX writing means crafting the short pieces of text inside an interface: screen titles, button labels, field placeholders, hints, and success and error messages. Good UX copy answers three questions for the user: \"Where am I?\", \"What should I do?\", and \"What just happened?\" It's short, clear, and written in the product's voice rather than the voice of a backend developer.",
+            "AI is great for a first draft because it generates several options at once and helps you beat the blank-page problem. But there's a catch: the model doesn't know your product, your user, or your brand until you tell it. So the quality of the copy depends directly on the quality of the context in your prompt. The more detail you give about the situation, the audience, and the tone of voice, the less filler and cliche you'll get back.",
+            "Tone of voice is the personality your product uses when it talks to the user: friendly or formal, playful or restrained, technical or human. For a finance app, a calm, confident, human tone works best: we're talking about people's money, so we don't crack jokes where the user is anxious, but we don't scare them with bureaucratic jargon either. You have to spell the tone out explicitly in the prompt, otherwise AI defaults to a neutral, marketing-ish voice full of cliches like \"Welcome to a world of limitless possibilities.\"",
+            "A note on error messages. This is the most important and most neglected genre of UX copy. A bad error reports a code and scares the user (\"Error 400: Invalid request\"); a good one explains what happened and suggests what to do next, without blaming the user. AI helps you rewrite dry system messages into human ones, but this is also where the risk of generic phrases like \"Something went wrong\" is highest, and you need to replace those with specifics."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT",
+              "what": "A chatbot from OpenAI that generates and edits text on request. Handy for quick drafts of UX copy, brainstorming button and title options, and rewriting error messages."
+            },
+            {
+              "name": "Claude",
+              "what": "A chatbot from Anthropic that also generates and edits text. It often produces more natural, less formulaic wording and holds a given tone of voice well across long conversations, which makes it handy for working on a product's overall voice."
+            },
+            {
+              "name": "Copy.ai",
+              "what": "An online tool for marketing and product copywriting with ready-made templates (titles, descriptions, microcopy). Useful when you need a lot of options fast, all following the same structure."
+            }
+          ],
+          "steps": [
+            "Describe the product and the context: what the app is, which screen it is, and what the user is doing at that moment. Without this, AI writes into a void.",
+            "Set the audience and tone of voice in a sentence or two (for example: \"calm, human, no jargon, address the user informally\").",
+            "State the specific task and constraints: the type of text, the maximum length in characters, and what to avoid (emoji, exclamation marks, technical codes).",
+            "Ask for 3 to 5 options rather than one, so you have something to choose from and combine.",
+            "Edit by hand: cut the cliches, shorten it, and check that the button describes an action with a verb and the error suggests a way out."
+          ],
+          "example": {
+            "title": "Example: rewriting an error message",
+            "paragraphs": [
+              "Before (the app's default): \"Error: Transaction could not be saved.\"",
+              "Prompt: \"You're the UX writer for a personal expense-tracking app. The user tried to save an expense, but there's no internet connection. Write an error message. Tone of voice: calm, human, address the user informally, no technical codes and no blaming. Explain what happened and suggest an action. Give 3 options for the title (up to 40 characters) + a description (up to 90 characters) + button text.\"",
+              "After (the option we chose): Title - \"No connection.\" Description - \"We couldn't save your expense. Check your internet and we'll try again automatically.\" Button - \"Retry.\"",
+              "Why it's better: there's no error code and no word \"Error,\" the user isn't blamed, there's an explanation of the cause and a clear next action. That's the difference between system copy and human UX copy."
+            ]
+          },
+          "bullets": [
+            "Button = action: \"Save,\" \"Add expense,\" not \"OK\" or \"Done\" with no context.",
+            "Error = cause + a way out, with no code and no \"Something went wrong.\"",
+            "Always ask for several options and edit them: the first option AI gives is rarely the best."
+          ],
+          "tip": "Build yourself a prompt template with fields for [product], [screen], [user action], [tone of voice], and [constraints], and just plug in the values. It saves time and keeps your copy consistent."
+        },
+        {
+          "title": "Adapting copy for different audiences",
+          "paragraphs": [
+            "The same screen is often seen by very different people. An expense-tracking app might be opened by a student counting pocket money, by a small-business owner, and by someone over 60 using their first finance app. Copy that sounds perfect to one group can confuse or alienate another. Adapting for an audience isn't about changing the meaning, it's about changing the vocabulary, level of detail, and tone for a specific group.",
+            "AI is good at this kind of adaptation because it can \"switch registers\": make text simpler, more formal, more playful, or more technical. The key is to describe clearly WHO the audience is, WHAT matters to them, and WHAT they fear or don't understand. Instead of an abstract \"make it simpler,\" give a profile: age, usage context, level of expertise, motivation.",
+            "A common mistake is thinking that \"adapting\" just means adding emoji for younger users or formal address for older ones. The difference is actually deeper: for a beginner we explain terms (\"a budget is a monthly spending limit\"), and for an experienced user we strip out the extra explanations because they're annoying. So when adapting, it's useful to ask AI not only to rewrite but also to explain WHY it phrased things that way for this audience: it surfaces the logic, which you then stay in control of.",
+            "It's important to keep a single brand voice even while adapting. The tone can get simpler or more formal, but the product has to stay recognizable. So it helps to keep a short tone-of-voice document (2 to 3 principles + \"do / don't\" examples) and include it in every prompt. That way the different versions of your copy don't drift into different personalities."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT",
+              "what": "Handy here for quickly producing several versions of the same text for different audience segments in a single request."
+            },
+            {
+              "name": "Claude",
+              "what": "Holds a given tone of voice and audience nuances well across long context, which is useful when you need to adapt a lot of copy in sequence to the same brand principles."
+            },
+            {
+              "name": "Writer",
+              "what": "A platform for teams that enforces a consistent brand style and tone of voice. You can upload your style guide and the service checks copy against it, which is useful for keeping adaptations from contradicting the product's voice."
+            }
+          ],
+          "steps": [
+            "Describe the base text and its goal (what the user should understand or do).",
+            "Write short profiles of your audiences: age, context, level of expertise, and the main concern of each.",
+            "Ask AI to produce a separate version for each profile while keeping the shared tone-of-voice principles.",
+            "Ask it to explain the differences between the versions: this helps you check the logic of the adaptation.",
+            "Compare every version against your style guide and remove any inconsistencies in brand voice."
+          ],
+          "example": {
+            "title": "Example: onboarding for two audiences",
+            "paragraphs": [
+              "Base onboarding-screen text: \"Set up a budget to keep your spending in check.\"",
+              "Prompt: \"Here's the onboarding-screen text for a finance app: 'Set up a budget to keep your spending in check.' Adapt it for two audiences while keeping a calm, human tone and informal address. Audience A: students aged 18 to 22, first experience with money, afraid of complexity. Audience B: small-business owners aged 30 to 45 who value speed and control. Give a title (up to 45 characters) and a subtitle (up to 100 characters) for each. Explain the difference.\"",
+              "Version A (students): Title - \"Set yourself a monthly limit.\" Subtitle - \"A budget is just a simple spending cap. We'll let you know when you're getting close.\"",
+              "Version B (business): Title - \"Stay in control of spending from day one.\" Subtitle - \"Set a budget by category and see overspending in real time.\"",
+              "The difference: for students we explain the term \"budget\" itself and lower the anxiety with the word \"simple\"; for business owners we drop the explanation and add value (categories, real time). The meaning is the same, but the vocabulary and level of detail differ."
+            ]
+          },
+          "bullets": [
+            "Adaptation = changing vocabulary and level of detail, not changing the message's meaning.",
+            "Give AI an audience profile, not a \"make it simpler\" command.",
+            "Keep a single tone of voice: the versions should be different but recognizable as one product."
+          ],
+          "tip": "Put together a one-page style guide: 3 voice principles + two \"do / don't\" examples for each. Paste it at the start of every prompt. It's the cheapest way to keep all your copy in one personality."
+        },
+        {
+          "title": "Localization and translation",
+          "paragraphs": [
+            "Localization is adapting a product to another language and culture, not just translating words. A word-for-word translation almost always sounds artificial: idioms break, string lengths don't match, and the tone stops feeling local. A classic example: the button \"Submit\" is short in English, but its literal Ukrainian equivalent, \"Submit for review,\" blows up the layout. Localization handles meaning, form, and cultural context all at once.",
+            "AI translation has made a huge leap and works great for a localization draft, especially when you provide context: what interface element this is, who the target audience is, and what the length constraints are. Without context, a translator doesn't know that \"Save\" is a button (a verb) and not the noun, and it easily trips over homonyms. So the rule is the same as before: context in the prompt decides the quality.",
+            "The main beginner mistake is treating machine translation as a finished result and shipping it in the product without a native-speaker review. AI doesn't sense regional nuances, levels of formality (informal vs. formal \"you\"), cultural taboos, or how local users actually talk. So the final step of localization is a mandatory review by someone who lives the language. AI speeds up 80% of the work, but the last 20% is a human responsibility.",
+            "Pay special attention to tone during localization. Tone of voice gets localized too: a friendly, informal form of address that fits one culture can sound overly familiar in another. So your prompt should include not only the language but also the desired level of formality and the cultural context of the target market, and you should still check it with a native speaker."
+          ],
+          "tools": [
+            {
+              "name": "DeepL",
+              "what": "An online translator famous for natural-sounding output that conveys nuance and style well. Handy for a high-quality localization draft of UX copy, especially between European languages."
+            },
+            {
+              "name": "ChatGPT",
+              "what": "Unlike a classic translator, it accepts context in the prompt (this is a button, here's the audience, here's the length constraint) and translates with the situation in mind, not just the words."
+            },
+            {
+              "name": "Claude",
+              "what": "Also translates with context in mind and explains well why it chose a particular wording, and it offers several levels of formality, which is useful for picking the right tone for a market."
+            }
+          ],
+          "steps": [
+            "Gather the copy together with its context: the type of element (button, error, title), the screen, and the length constraints.",
+            "Specify the target language, region, and desired level of formality (formal or informal address).",
+            "Ask for a translation with an explanation of any tricky spots and alternative options for short strings.",
+            "Check the string lengths in the mockup: localized text is often longer than the original.",
+            "Send the result for a native-speaker review: this is a mandatory step, not an optional one."
+          ],
+          "example": {
+            "title": "Example: localizing a button and an error",
+            "paragraphs": [
+              "Word-for-word translation (bad): English \"Try again\" rendered literally as \"Try to try again\" - a tautology, because it was translated without context.",
+              "Prompt: \"Localize the UX copy for a finance app from English into Ukrainian. Context: this is a connection-error message. Tone of voice: calm, informal address. Constraint: button text up to 15 characters. Copy: title 'No connection,' description 'We couldn't save your expense,' button 'Try again.' Provide the translation and flag where the length might break the layout.\"",
+              "Localization (good): Title - \"No connection.\" Description - \"We couldn't save your expense.\" Button - \"Retry\" (8 characters, fits within the limit).",
+              "What happened: \"Try again\" was localized as \"Retry\" rather than literally - short and natural. AI also warned that the literal \"Try again\" (16 characters) would exceed the button's limit. That's localization: meaning + form + context, not word substitution."
+            ]
+          },
+          "bullets": [
+            "Localization ≠ word-for-word translation: account for string length, idioms, and culture.",
+            "Always give the translator the element's context, otherwise homonyms get confused (Save = a button, not \"rescue\").",
+            "A final native-speaker review is mandatory: AI makes the draft, a human makes the final."
+          ],
+          "tip": "Translate whole screens with their context described, not individual strings. That way AI sees the relationships between elements (title, description, button) and won't produce contradictory wording."
+        }
+      ],
+      "practice": "Take any screen from your own product (or from the expense-tracker app in our examples) and run through the whole cycle. Step 1: write a prompt using the [product]+[screen]+[action]+[tone of voice]+[constraints] template and generate 3 to 5 UX-copy options for one error state and one onboarding screen; then edit the best one by hand. Step 2: write two audience profiles and ask AI to adapt this copy for each one while keeping a single brand voice; note down how the versions differ and why. Step 3: localize the final copy into another language with context and length constraints, check the string lengths, and flag the spots worth sending for a native-speaker review. Compare \"before / after\" at every step: that's your AI-assisted workflow in UX writing."
+    },
+    "block-9": {
+      "intro": "Evaluating design decisions is the moment of truth. You've designed a checkout screen, it looks great in Figma — but do users actually get to payment faster? In this chapter we'll learn to use AI across three stages of evaluation: preparing an A/B test, generating a user flow with edge cases, and analyzing the results you get. We'll follow one running example throughout — the checkout screen of an online store. Here AI isn't an oracle but an assistant that saves you hours of routine work: it frames hypotheses, dreams up scenarios you forgot about, and helps you read a table full of numbers. But the final decision — and the responsibility for the statistics — always rests with you.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "Automated A/B Testing",
+          "paragraphs": [
+            "An A/B test is an experiment in which we show one group of users variant A (say, the current checkout screen) and another group variant B (a new design), then see which performs better on a specific metric. It sounds simple, but 80% of the effort goes not into the test itself but into the preparation: framing the hypothesis, choosing the metric, calculating the required sample size, describing the variants for developers. This is exactly the routine that AI takes off your plate.",
+            "It's important to understand the boundary right away: AI doesn't run the test and doesn't collect real data about how your users behave. It helps you design the experiment well and prepare the materials. The real clicks, conversions, and time-on-screen come from analytics tools (Hotjar, GA4) and testing platforms (Maze, Optimizely). If you confuse these roles — and start \"believing\" numbers AI made up — you can end up making a decision based on a hallucination rather than facts.",
+            "Let's walk through it with the checkout example. Suppose we have a long funnel: cart → shipping details → payment. Analytics shows that 40% of users drop off at the payment step. The designer's hypothesis: \"If we collapse the three steps into a single screen (one-page checkout), users will abandon their carts less often.\" That's a hypothesis that needs to be verified with a test — and it's the framing and surrounding setup of that hypothesis we'll ask AI to help with."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT",
+              "what": "A chatbot built on a large language model from OpenAI. Helps you frame hypotheses, generate text, describe test variants, and explain statistical concepts in plain language."
+            },
+            {
+              "name": "Claude",
+              "what": "A chat assistant from Anthropic, strong at working with long texts and structured tables. Handy when you need to carefully lay out a test methodology or analyze a large set of user responses."
+            },
+            {
+              "name": "Maze",
+              "what": "A platform for testing prototypes and running surveys. Lets you run tests on Figma prototypes with real people and collect metrics: task completion time, success rate, click paths."
+            },
+            {
+              "name": "Optimizely",
+              "what": "A tool for running A/B tests on a live product (on a website or in an app). It splits traffic between variants on its own and calculates the statistical significance of the result."
+            }
+          ],
+          "steps": [
+            "Define the business problem and the metric. First, decide for yourself what hurts (high cart abandonment at the payment step) and which single primary metric you're measuring (conversion rate — the share of users who complete the purchase).",
+            "Ask AI to turn the problem into a clear hypothesis in the format \"If [change], then [expected effect], because [reason].\" This disciplines your thinking and filters out changes made just \"because it looks nicer.\"",
+            "Describe both variants to AI (A — the control, B — the new design) and ask it to draft a short test plan: which action counts as success, and which additional (guardrail) metrics you'll watch to make sure you don't break something else.",
+            "Check with AI which data is needed to calculate the sample size (current conversion rate, the minimum effect you care about — the MDE), and get a formula or a ready-made calculation of how long the test should run.",
+            "Bring variant B into a prototype (Figma) and set up the test itself in Maze or Optimizely. AI doesn't do this step — it has only prepared all the inputs and the description for you."
+          ],
+          "example": {
+            "title": "Example: a hypothesis and test plan for a one-page checkout",
+            "paragraphs": [
+              "Prompt for ChatGPT or Claude: \"You're an experienced product designer. In our online store, checkout consists of three separate screens (cart, shipping, payment). Analytics: 40% of users abandon their cart at the payment step. We want to test a one-page checkout (everything on a single screen). 1) Frame a hypothesis in the format 'If…, then…, because…'. 2) Suggest one primary success metric and two guardrail metrics. 3) Describe exactly what we show group A and what we show group B. Keep the answer concise, structured, and to the point.\"",
+              "What AI will usefully return: a primary hypothesis (\"If we combine the three steps into a single screen, then conversion to payment will rise, because the user sees fewer barriers and isn't put off by how long the process looks\"), a success metric (checkout conversion rate), and guardrail metrics (average order value and the number of form validation errors — to make sure the new screen doesn't become confusing).",
+              "Next, a second prompt to calculate the sample size: \"The current conversion rate of the payment screen is 12%. I want to reliably detect a lift of at least 2 percentage points (from 12% to 14%) at a 95% significance level and 80% power. Explain in plain language how many users I need per group and why, and how long the test will run with 500 payment-screen visitors per day.\" AI will explain the logic and give you a ballpark number — but it's worth double-checking the final figure with a sample-size calculator."
+            ]
+          },
+          "bullets": [
+            "A hypothesis is always in the format \"If…, then…, because…\" — without the reason, it's just a guess.",
+            "One primary metric per test. Several metrics at once = blurry conclusions.",
+            "Calculate the sample size BEFORE you launch, not after — otherwise you'll be tempted to stop the test on a \"lucky\" number."
+          ],
+          "tip": "Ask AI to explain statistical terms \"like I'm a beginner\" right there in the prompt. It's better to understand once what MDE and statistical power are than to blindly copy numbers."
+        },
+        {
+          "title": "Generating User Flows and Edge Cases",
+          "paragraphs": [
+            "A user flow is the sequence of steps a user goes through to reach a goal (for example, from \"added an item\" to \"received order confirmation\"). Edge cases (boundary situations) are the rare but real scenarios that break the happy path: the card runs out of funds, the internet drops, a promo code expires, the user hits \"Back\" in the middle of payment. Edge cases are exactly where designs fall apart, and they're exactly the easiest ones to forget.",
+            "AI is especially useful here because it doesn't \"get tired\" and doesn't suffer from the tunnel vision a design's author does. Looking at your own screen for the hundredth time, you only see the scenario you drew. AI, in a couple of seconds, will sketch out twenty situations — half of which you never thought of. Your job is to filter the realistic ones, discard the ones impossible for your product, and decide how the design should respond to each.",
+            "The more specifically you describe the checkout context (payment types, shipping, guest checkout or registered-only, market and currency), the more accurate the cases you'll get. A generic prompt like \"come up with edge cases for checkout\" will give you the obvious stuff; a prompt with details gives you a genuinely useful list, ready to become test scenarios for Maze or a checklist for QA."
+          ],
+          "tools": [
+            {
+              "name": "Claude",
+              "what": "A chat assistant from Anthropic. It holds context and structure well, which makes it handy for generating branching flows and long lists of edge cases with explanations."
+            },
+            {
+              "name": "ChatGPT",
+              "what": "A chatbot from OpenAI. It quickly generates scenario variations and can rewrite a flow in different formats — from a list to a pseudo-diagram."
+            },
+            {
+              "name": "Whimsical",
+              "what": "An online tool for building diagrams and flowcharts. It has AI features that turn a text description of steps into a visual block diagram of the user flow."
+            },
+            {
+              "name": "FigJam",
+              "what": "An online collaborative whiteboard from Figma. Handy for laying out the AI-generated cases on sticky notes and deciding as a team which ones to address."
+            }
+          ],
+          "steps": [
+            "Describe the product and the scope of the scenario to AI: what kind of checkout it is, which payment methods exist, whether there's a guest mode, which market and currency. Without context the cases will be generic.",
+            "First ask for the happy path — the ideal scenario with no errors, step by step. This is the baseline from which the problem branches will fork off.",
+            "Then, in a separate prompt, ask for edge cases grouped by category: payment errors, network issues, user data, boundary values (empty cart, 99 units of an item), going back / reloading.",
+            "For each important case, ask AI to propose the expected interface response (which message appears, where the button leads, whether the entered data is preserved).",
+            "Move the filtered cases into Whimsical/FigJam as a flow, or into Maze as test tasks. Weed out what's unrealistic for your product — that's your call, not AI's."
+          ],
+          "example": {
+            "title": "Example: a happy path and edge cases for the payment screen",
+            "paragraphs": [
+              "Prompt #1 (happy path): \"You're a UX designer. Describe, step by step, the ideal checkout user flow for an online clothing store. Context: guest checkout is allowed, payment by card or Apple Pay, delivery by courier or to a parcel locker, currency — hryvnia. Give a numbered list of steps from the cart to the confirmation screen. No errors or deviations.\"",
+              "Prompt #2 (edge cases): \"Now, for this same checkout, generate edge cases that could break the flow. Group them by category: (1) payment problems, (2) network and technical failures, (3) data and form validation, (4) boundary values, (5) user navigation. For each case, specify: the situation, what is likely to go wrong, and the interface response you recommend. Format it as a table.\"",
+              "Among the answers you'll get, for example: the bank declined the payment (show a clear error and keep the form data rather than dumping the user back to the start); the internet dropped during payment (show a \"verifying payment\" status and don't allow a double charge); the promo code expired between adding it and paying (notify the user and recalculate the total in front of them); the user hit \"Back\" after paying (don't create a duplicate order). These are precisely the cases you'll then verify on the prototype — you'll see whether the design anticipated them."
+            ]
+          },
+          "bullets": [
+            "Happy path first, deviations second — that way nothing falls out of the logic.",
+            "The most valuable cases: payment errors, loss of connection, preserving entered data after an error.",
+            "AI generates the quantity, you ensure the quality: throw out cases that are impossible for your product."
+          ],
+          "tip": "Ask AI to turn the cases into a ready-made QA checklist or a list of test tasks for Maze — you'll save yourself one more step of manual work."
+        },
+        {
+          "title": "Analyzing Test Results",
+          "paragraphs": [
+            "The test has run, and you have a table: variant A produced a 12% conversion rate, variant B 14%, plus a pile of additional numbers. The temptation is to immediately crown B the winner. But a 2-point difference could be a real effect or just random noise. This is where the analysis begins: is the result statistically significant, did we break any guardrail metrics, and what does this mean for the product? AI helps you structure these numbers and talk through the possible explanations.",
+            "The biggest and most dangerous mistake at this stage is confusing correlation with causation and ignoring statistical significance. If the test gathered too few users, even a pretty difference proves nothing. AI can compute an approximate p-value or explain whether a result is significant, but it does NOT see your raw data and easily makes arithmetic mistakes. So double-check any number from AI with a significance calculator, and reconcile your decision with real metrics from analytics — not with a nicely worded answer in a chat.",
+            "AI's second role at this stage is to help you read the qualitative data: open-ended user responses, survey comments, session recordings. Clustering a hundred text responses by hand takes a long time; AI will group them by theme (\"didn't understand where to enter the promo code,\" \"got scared that Apple Pay didn't work\") in a minute. This tells you WHY the numbers look the way they do, not just WHAT happened."
+          ],
+          "tools": [
+            {
+              "name": "Claude",
+              "what": "A chat assistant from Anthropic. Strong at structuring large volumes of text — handy for clustering hundreds of open-ended user responses by theme."
+            },
+            {
+              "name": "ChatGPT",
+              "what": "A chatbot from OpenAI with a data-analysis mode: it can take a CSV file, compute metrics, and build simple charts, explaining the result in words."
+            },
+            {
+              "name": "Hotjar",
+              "what": "A behavioral analytics tool: heatmaps, session recordings, and surveys. It shows where users actually click and where they stop on the checkout screen."
+            },
+            {
+              "name": "GA4 (Google Analytics 4)",
+              "what": "A free web analytics system from Google. It gives you objective funnel numbers: how many people reached each checkout step and where they drop off."
+            }
+          ],
+          "steps": [
+            "Gather the facts in one place: the A and B metrics from the test platform, the group sizes, the guardrail metrics, and the qualitative user responses. This is the raw data for analysis.",
+            "Check statistical significance separately — with a significance calculator or a data-analysis mode. Don't rely on eyeballing it, and don't trust AI's arithmetic without verifying it.",
+            "Give AI the summary numbers and ask it to explain in plain language: is the result significant or not, did the guardrail metrics suffer, what are the risks of deciding now.",
+            "Upload the qualitative responses and ask AI to group them by theme and link them to the numbers — this explains the reason behind the result.",
+            "Work out a recommendation with AI (roll out B / keep A / refine and retest), but ultimately reconcile it with real metrics from Hotjar and GA4, not just the test."
+          ],
+          "example": {
+            "title": "Example: breaking down the checkout test results",
+            "paragraphs": [
+              "Prompt for ChatGPT (data-analysis mode) or Claude: \"I ran an A/B test of the checkout screen. Variant A (three steps): 4,000 users, 480 completed the purchase. Variant B (one-page checkout): 4,000 users, 560 completed the purchase. Guardrails: average order value in B dropped by 3%, and form validation errors in B are 15% higher. 1) Calculate the conversion rate of each variant and explain whether the difference is statistically significant at 95% confidence. 2) Assess whether the guardrail metrics are cause for concern. 3) Give a recommendation with reasoning. If data is missing — say which.\"",
+              "AI will calculate: A = 12%, B = 14%, and with a sample size like this the difference is most likely significant. But it will flag a warning sign: B has 15% more form errors — so part of the conversion lift may come with frustration, while the average order value dipped. The conclusion isn't \"B won\" but \"B wins on conversion, but you need to deal with the validation errors before rolling it out to everyone.\"",
+              "A second prompt — for the qualitative data: \"Here are 60 open-ended responses from variant B users to the question 'what was inconvenient?'. Group them by theme, note how many responses are in each group, and explain how this relates to the rise in validation errors. [response text]\". AI will show that, say, 22 of the 60 complained about a confusing promo-code field — and there's your concrete hypothesis for the next iteration. But re-check the significance number itself with a calculator before the final decision: AI gets the arithmetic wrong more often than you'd think."
+            ]
+          },
+          "bullets": [
+            "A difference in the numbers ≠ a win. Without statistical significance it's noise.",
+            "Correlation is not causation: B may win for a reason you never built into the design.",
+            "AI doesn't replace real metrics: always reconcile a number from the chat with Hotjar/GA4 and a significance calculator.",
+            "Qualitative responses explain WHY — don't ignore them for the sake of \"clean\" numbers."
+          ],
+          "tip": "Ask AI to state explicitly WHICH data is missing for a confident conclusion. An honest \"there isn't enough data\" saves you from decisions built on sand."
+        }
+      ],
+      "practice": "Take any real or imaginary checkout screen. Step 1: using ChatGPT or Claude, frame a hypothesis in the format \"If…, then…, because…\" and draft a test plan with one primary and two guardrail metrics. Step 2: generate a happy path and at least 10 edge cases grouped by category, and mark which ones your design already handles and which it doesn't. Step 3: take some made-up test results (invent two groups and their conversion rates), ask AI to assess significance and give a recommendation — then verify the number with a statistical significance calculator. Submit a short document: the hypothesis, the list of cases, the conclusion from the test, and an honest note about which data you were missing."
+    },
+    "block-10": {
+      "intro": "Imagine describing an interface in words and watching it appear on screen as a working website. Not a Figma mockup, but a real page you can open in a browser and show to a client. That's vibe coding: you say \"build a landing page for a meditation app,\" and the AI writes the code for you. In this chapter, we won't be teaching you to become a programmer. We'll learn to talk to AI tools in a way that turns your design ideas into living prototypes. We'll work through one running example—building a simple product landing page from scratch, step by step, with the exact prompt texts spelled out. And by the end, you'll understand how HTML and CSS work—just enough to confidently tweak the result instead of being scared of the code.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "Introduction to coding",
+          "paragraphs": [
+            "Let's start with the big question that worries every designer: \"Why do I need coding if I make mockups?\" The answer is simple. A Figma mockup is a picture. A nice, well-thought-out picture, but a static one. You can't click it, you can't type text into it, it won't open on a phone the way a real website does. And clients, developers, and users don't live in pictures—they live in real interfaces. When you can show not a static screen but a working page, your idea becomes many times more convincing.",
+            "Now the most important term in this chapter—vibe coding. It's an approach where you create a digital product by describing it in plain words, and the AI turns your description into code. You don't write commands by hand, you don't learn programming languages. You set the \"vibe\"—the mood, the idea, the direction—and the machine handles the technical part. Roughly speaking, you become the director, while the AI is the camera operator, lighting technician, and editor all in one.",
+            "Where did this term even come from? It was popularized by AI researcher Andrej Karpathy in early 2025. He described a new way of working: you fully trust the tool, talk to it in natural language, look at the result, and simply say what to fix. In the past, building even the simplest website took years of learning to code. Today a designer can put together a working prototype in an evening—and that's exactly what's changing our profession right now.",
+            "Let's take the fear off the table right away. Vibe coding doesn't require you to memorize syntax or understand servers. The most valuable skill here is one you already have: the ability to clearly articulate what you want to see. A good designer is already used to describing mockups in words in documents, briefing developers, and explaining the logic of screens. It turns out that this exact skill is what steers the AI. The more precisely you describe it, the closer the result will be to your vision.",
+            "How it works in practice. You open a special tool (more on those in the next lesson), type a description of what you want into the chat window: \"build a landing page for a running app with a dark background and a bright button.\" The tool thinks for a few seconds and shows you a finished page. Something isn't right—you type \"make the button bigger and add a photo of a runner at the top.\" The page updates. It's a cycle: describe, result, tweak, result. Exactly like iterating on a mockup, except the output is real code.",
+            "An honest word about the limits. Vibe coding is great for prototypes, landing pages, small sites, and testing ideas. But it doesn't replace an experienced development team when it comes to a complex product with databases, security, and millions of users. Treat it as a superpower for quick ideas and presentations, not as a \"build me a bank\" button. And one more thing: the AI sometimes gets it wrong or does something other than what you intended. That's normal—you just tell it to redo it."
+          ],
+          "bullets": [
+            "A mockup is a picture; a working prototype can be clicked, shown on a phone, and tested for real.",
+            "Vibe coding is building a product by describing it in words, with the AI writing the code.",
+            "The key skill isn't syntax—it's the ability to clearly articulate what you want (you already have it).",
+            "The workflow is simple: describe, result, tweak, result again—just like iterating on a mockup.",
+            "Great for prototypes and landing pages; doesn't replace a team for large, complex products."
+          ],
+          "tip": "Before you write your first prompt, describe the page out loud or in your notes, as if explaining it to a colleague: what kind of product it is, who it's for, what blocks it needs. That description becomes the draft of your prompt—and the result will be far more accurate."
+        },
+        {
+          "title": "Tools for turning design into code",
+          "paragraphs": [
+            "Now let's get to know the tools that do all the magic. There are many of them, but for a beginner designer it's enough to know the four main ones. They all work on a similar principle: you write text or upload a mockup, and you get code and a working page. The difference is in convenience, in how deep you can dig into the code, and in who the tool is designed for. Below is a short description of each in plain words, with no technical jargon.",
+            "How to pick your tool. If you just want to describe an idea in words and see a finished website, start with Lovable: it's the friendliest for people who don't code. If you already have a Figma mockup and want to quickly turn it into a page, try v0. Bolt comes in handy when you want a bit more control over what's happening. And Cursor is the next level—for when you've caught the bug and want to edit code for real. For our running example, we'll choose Lovable, because it's perfect for first steps.",
+            "You don't have to know all four. Pick the one you're comfortable with and master it. They're all free to start (with limits) and require no installation—they run right in the browser. You sign up, open the chat window, and within five minutes your first page is on screen. Switching tools doesn't break anything in your head: the skill of writing good prompts carries over between them the same way."
+          ],
+          "tools": [
+            {
+              "name": "Lovable",
+              "what": "The friendliest tool for people who don't code. You simply type into the chat what kind of site you want (\"a coffee shop landing page with a menu and a reservation button\"), and Lovable assembles a full page and shows you the result right away. It's built specifically for people who can't program—the ideal entry point for a designer."
+            },
+            {
+              "name": "Bolt",
+              "what": "A tool from the StackBlitz team that also builds websites and apps from your text description, right in the browser. It gives you a bit more control and shows how the project's structure is organized. A good choice when you want to peek deeper than Lovable allows but aren't yet ready to deal with raw code."
+            },
+            {
+              "name": "v0",
+              "what": "A tool from Vercel that's especially good at turning a description—or even a screenshot of a mockup—into ready-made interface blocks. If you have an image from Figma, v0 will try to recreate it in code. Handy when you think visually and want to quickly get clean components (buttons, cards, forms)."
+            },
+            {
+              "name": "Cursor",
+              "what": "This is a code editor with a built-in AI assistant. Unlike the previous three, it doesn't quite live in the browser and is meant for people ready to see and edit the code itself with the AI's help. The next level: for when vibe coding hooks you and you want full control over the project."
+            }
+          ],
+          "steps": [
+            "Go to the website of your chosen tool (we recommend Lovable to start) and sign up with email or Google—no installation needed, everything runs in the browser.",
+            "Find the main chat window—the field where you type your description. It's usually large and centered on the screen with a prompt like \"What do you want to build?\"",
+            "Write your first simple prompt in a single sentence to get a feel for the tool: describe the site you want without going into detail.",
+            "Wait for the result (a few seconds) and look at the finished page in the preview window on the right.",
+            "Write a refinement—what to change in the colors, text, or sizes—and watch how the page updates. That's how you'll learn the editing cycle.",
+            "Find the view-code or export button—make sure you can take the result with you or publish it. You'll need this when you want to show your work to a client."
+          ],
+          "example": {
+            "title": "Example: first contact with Lovable",
+            "paragraphs": [
+              "We go into Lovable, sign up, and open the chat. We don't try to build the perfect site right away—we just check how the tool responds. We write the simplest prompt.",
+              "Prompt: \"Build a one-page landing for a mobile meditation app. The app's name is Calmly. Calm colors, a soft gradient background.\"",
+              "Within a few seconds, Lovable shows a finished page with a heading, a description, and a button. Chances are it already looks decent. Now let's try the first edit to get a feel for the controls.",
+              "Edit prompt: \"Make the main button brighter and add a short subheading below the heading saying that the app helps you fall asleep in 10 minutes.\"",
+              "The page updates: the button becomes more prominent and a subheading appears. That's the whole principle—you describe changes in plain words instead of digging into the code. We'll polish this same Calmly landing in the next lesson, once we understand HTML and CSS."
+            ]
+          },
+          "tip": "Don't spread yourself thin across tools at the start. Pick one (I recommend Lovable), build 2-3 pages in it, and only then try the others. Otherwise you'll waste time on sign-ups instead of actually learning to write prompts."
+        },
+        {
+          "title": "HTML/CSS for designers",
+          "paragraphs": [
+            "The AI will write the code for you—so why bother understanding HTML and CSS at all? The answer: so you're not flying blind. When you understand what a page is made of, you can tell the tool exactly what to fix, read the result, and notice where something went wrong. That's the difference between \"make it somehow better\" and \"increase the spacing between the heading and the button.\" The second works far more precisely. Don't be scared—we'll walk through it step by step, with zero jargon.",
+            "Picture a page as a house. HTML is the frame and the rooms: the walls, the doors, where the table goes, where the bed goes. It answers the question \"what's on the page and where does it sit\": a heading, a paragraph of text, an image, a button. CSS is the finishing: the wall color, the wallpaper, the size of the windows, the distance between the furniture. It answers the question \"what does it look like\": which color, font, size, spacing. HTML is structure, CSS is beauty. That's the whole core idea—everything else is detail.",
+            "Let's look at HTML. A page is assembled from building blocks called tags. A tag is a label in angle brackets that tells the browser what kind of element this is. Almost always tags come in pairs: an opening one and a closing one (with a slash), with the content in between. For example, <h1>Hello</h1> means \"this is the main heading with the word Hello.\" The logic is just as simple as in Figma: there you have layers like \"Heading,\" \"Body,\" \"Button\"—here those are tags. You already think in these categories; you just called them something else.",
+            "A few tags worth knowing by sight. <h1> is the main heading of the page (like H1 in your mockups), <h2> and <h3> are smaller headings. <p> is a paragraph of regular text. <button> is a button. <img> is an image. <a> is a clickable link. And the most important one—<div>: it's simply a container, an invisible box you put other elements into to group them (for example, the entire top block of the page). Think of <div> as a frame or group in Figma. This vocabulary is already enough to read most simple pages.",
+            "Now CSS—the thing that makes a page look good. If HTML lays out the elements, CSS colors them and positions them. Here's how it works: you specify which element you're addressing, then list properties—pairs of \"what we're changing: what value.\" For example, color: white—the text color is white, background: black—the background is black, font-size: 24px—the font size is 24 pixels. These are the same parameters you adjust in Figma's right-hand panel: fill, text size, corner radius. They're just written out in words here.",
+            "Four CSS concepts that cover 80% of a designer's needs. First—color and background—the color of text and background. Second—font-size and font-weight—the size and weight of the font. Third—padding—the inner spacing, the breathing room inside an element (for example, the distance from the text to the edge of a button). Fourth—margin—the outer spacing, the distance between elements. Padding is the space inside the box, margin is the space around it. If you remember the difference between padding and margin, you'll already be able to meaningfully control layout through prompts.",
+            "And finally—why all this matters for prompts. When you know these words, your edits become surgically precise. Instead of \"it's kind of cramped\" you say \"increase the button's padding.\" Instead of \"the heading is small\" you say \"set the heading's font-size to 40px.\" Instead of \"spread the blocks out\" you say \"add margin between the cards.\" The AI instantly understands this language, because it's its native terminology. You're not writing code—you're just speaking to the tool in its own words, and that's exactly what separates a beginner from a confident user."
+          ],
+          "bullets": [
+            "HTML is the page's frame (what goes where); CSS is the finishing (what it looks like).",
+            "A tag is an HTML building block in angle brackets, usually paired: <h1>Heading</h1>.",
+            "Basic tags: <h1>/<h2> are headings, <p> is a paragraph, <button> is a button, <img> is an image, <a> is a link, <div> is a container (like a frame in Figma).",
+            "A CSS property is a pair of \"what we're changing: value,\" for example color: white or font-size: 24px.",
+            "padding is the spacing inside an element (the breathing room in a button); margin is the distance between elements.",
+            "Knowing these words, you give the AI precise edits instead of vague wishes."
+          ],
+          "steps": [
+            "Go back to your Calmly landing from the previous lesson and open the code view in the tool—just to look around, not to edit by hand.",
+            "Find familiar tags in the code: look for the <h1> with the heading and the <button> with the button. Make sure the structure reads clearly.",
+            "Phrase your edit in CSS language: decide what you want to change—the heading size, the button color, or the spacing between blocks.",
+            "Write a prompt with specific CSS terms (font-size, color, padding, margin) instead of general words.",
+            "Watch how the page executes your command exactly, and compare it to what the result would look like from a vague prompt.",
+            "Publish the finished page via the Publish or Share button to get a link you can send to a client."
+          ],
+          "example": {
+            "title": "Example: polishing the Calmly landing in HTML/CSS language",
+            "paragraphs": [
+              "We take that same Calmly landing from the last lesson. Earlier we edited it with general words; now let's try precise language—and see the difference in the result.",
+              "Instead of a vague \"make the heading more prominent,\" we write it concretely. Prompt: \"Increase the main heading's <h1> font-size to 48px and make the font-weight bold. The heading should grab attention right away.\"",
+              "The button lacks breathing room and feels cramped. Prompt: \"Add padding to the button of 16px top and bottom and 32px on the sides, so it becomes larger and easier to tap. Make the button color a deep purple with white text.\"",
+              "The blocks on the page are stuck together. Prompt: \"Add 40px of margin between the heading section and the section with the app's benefits, so they don't blend together.\"",
+              "A final touch with color and structure. Prompt: \"Make the background of the whole page a soft gradient from light blue to lilac. Wrap the entire top block (heading, subheading, and button) in a single <div> centered on the screen.\"",
+              "Look at the result: each edit landed exactly where you wanted it, because you spoke to the tool in its own language. That's the very advantage that makes it worth a designer knowing the basics of HTML and CSS—even if the AI writes all the code for you."
+            ]
+          },
+          "tip": "Keep a little cheat sheet of 8 words handy: h1, p, button, div (structure) and color, font-size, padding, margin (styles). That vocabulary is enough to phrase 90% of edits to simple pages—and to look like a confident user in the tool's eyes."
+        }
+      ],
+      "practice": "Build your own product landing page from scratch in Lovable, retracing the whole path of this chapter. Step 1: come up with a simple product (an app, a service, a coffee shop—anything) and describe it in one sentence. Step 2: write your first scaffolding prompt, for example \"Build a one-page landing for [your product] with a heading, a short description of the benefits, and a call-to-action button. [Description of the mood and colors].\" Step 3: make at least three edits in precise CSS language—one about the heading's font-size, one about the button's padding and color, one about the margin between blocks. Step 4: open the code view and find the <h1>, <button>, and <div> tags in it—make sure you understand the structure. Step 5: publish the page via Publish and save the link. Share it with a fellow student and ask what they would fix—then make those edits with prompts. The goal of the exercise: go through the full cycle from idea to a live link and feel that building a simple landing page through vibe coding takes not weeks but a single evening."
+    },
+    "block-11": {
+      "intro": "In this chapter you stop \"throwing\" your designs over the wall to developers and take part of the path from Figma to code into your own hands. We'll be working in Cursor — a code editor with an AI assistant always at your side. Using an end-to-end example (a product card screen from Figma), you'll see exactly how to phrase prompts to get working code, not code that just \"looks nice in a screenshot.\" The core mindset of this course: AI is a fast intern, and you're the one who checks the result. That's why, from the very start, we learn not only to generate code but also to read it and catch common mistakes.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "Setting up Cursor",
+          "paragraphs": [
+            "Before you can turn designs into code, you need a tool that makes it easy. Cursor is a full-featured code editor (a fork of VS Code) with a built-in AI chat. In other words, you get a familiar developer environment plus an assistant that can see your files and write code directly in them. For a designer who is just getting into code, this is the perfect starting point: you don't need to keep all the syntax in your head — it's enough to clearly describe what you want.",
+            "Let's address the fear right away: you do NOT need to know a programming language by heart to get started. But you absolutely do need to learn to read the result and understand what's going on. AI often produces code that \"almost works\" or works differently than you expect. So Cursor isn't a magic button — it's a tool for dialogue: you ask, you check, you refine.",
+            "Below is a plain-language rundown of the tools we mention in this chapter. After that, we'll cover how to install Cursor and where to find its key features: the chat and the Composer."
+          ],
+          "tools": [
+            {
+              "name": "Cursor",
+              "what": "An AI code editor built on VS Code. It looks and works like a regular editor, but it has a built-in AI chat that can see your files and edit code directly in your project. Under the hood it supports powerful models (for example, Claude and GPT)."
+            },
+            {
+              "name": "Figma Dev Mode",
+              "what": "A dedicated mode in Figma for handing a design off to development. It shows exact values: spacing, sizes, colors, fonts, and it even suggests an element's CSS properties. This is where we get the \"source of truth\" about the design so we can check the generated code against it."
+            },
+            {
+              "name": "GitHub Copilot",
+              "what": "An AI helper (from GitHub) that autocompletes code as you type. It suggests the next line or a whole block right in the editor. It's an alternative to Cursor's built-in assistant; we mention it as a point of reference — Cursor already has similar autocomplete logic out of the box, so you don't need to install Copilot separately."
+            }
+          ],
+          "steps": [
+            "Download Cursor from the official site, cursor.com (the Download button). Install it like any regular app: on macOS, drag it into Applications; on Windows, run the installer.",
+            "On first launch, agree to import your settings and extensions from VS Code if you used it — that way you keep your familiar themes and plugins. If you didn't have VS Code, just skip this step.",
+            "Sign in to an account (you can use Google or GitHub). The free plan already includes AI chat with a limited number of requests — that's plenty for learning.",
+            "Open your project folder via File → Open Folder. Cursor works with a project folder rather than a single file, because the assistant needs the context of all the surrounding files.",
+            "Find the AI chat panel on the right (open it with the shortcut Cmd+L on macOS or Ctrl+L on Windows). This is where you ask questions and discuss code.",
+            "Find the Composer (Cmd+I / Ctrl+I) — a mode in which the AI can create and edit several files at once from a single request. This is exactly what we'll need to move an entire screen over.",
+            "In the model settings (the gear icon → Models), check which model is enabled. For generating UI code, pick the most powerful one available — the result will be more accurate."
+          ],
+          "example": {
+            "title": "Example: a first conversation with Cursor to check your setup",
+            "paragraphs": [
+              "Create an empty file called hello.html, open the chat (Cmd+L), and paste in the following prompt to confirm that the assistant can see the file and knows how to write code:",
+              "Prompt: \"In the file hello.html, create a simple page with the heading \\\"Hi, I'm turning designs into code\\\" and a single \\\"Start\\\" button. Use plain HTML and inline CSS, no external libraries. Explain in two sentences what you did.\"",
+              "Cursor will propose changes right inside the file — you'll see Apply and Reject buttons. Click Apply, open the file in your browser, and confirm that the page actually appeared.",
+              "Pay attention to the AI's explanation at the end of its reply. Getting into the habit of asking for a short \"what you did\" explanation is your main control tool when you're starting out. If the explanation doesn't match what you see in the code, that's your first signal to stop and dig in."
+            ]
+          },
+          "bullets": [
+            "Cmd+L (Ctrl+L) — open the chat to ask questions and discuss.",
+            "Cmd+I (Ctrl+I) — Composer, for changes across several files at once.",
+            "Apply / Reject — you always explicitly accept or reject the AI's edits; nothing is applied \"on its own.\"",
+            "Always open the project folder, not a single file — otherwise the assistant has no context."
+          ],
+          "tip": "Don't switch off your critical thinking just because you got a quick result. The first rule of working with Cursor: run and check what was generated first, and only then consider the task done. AI writes confidently even when it's wrong."
+        },
+        {
+          "title": "Moving UI elements into code",
+          "paragraphs": [
+            "Now for the main event: we'll move a real screen from Figma into working code. We'll take a typical product designer's task — a product card (image, name, price, and an \"Add to cart\" button). The goal isn't just to \"make it look like the screenshot,\" but to get a component with the right spacing, colors, and states that you can hand to a developer as a foundation.",
+            "The key idea of this lesson: the more precise the data you give the AI, the more precise its output. So we don't describe the design by eye (\"make a modern card\") — we take concrete values from Figma Dev Mode and pass them in the prompt. That's the difference between a random result and a predictable one.",
+            "We'll work in the Composer (Cmd+I), since we'll likely need more than one file: the component itself and a stylesheet. We'll move in small steps: first the structure, then the styles using the values from Figma, then the states (hover, disabled), and only at the end — cleanup. A big \"build me everything at once\" prompt usually produces code that's hard to check."
+          ],
+          "tools": [
+            {
+              "name": "Figma Dev Mode",
+              "what": "Developer mode in Figma. Select an element, and on the right you see its exact parameters: width/height, padding, corner radius, color in HEX, font name and size, and ready-to-use CSS. This is the source of precise values for your prompt."
+            },
+            {
+              "name": "Cursor Composer",
+              "what": "Cursor's mode for generating and editing several files at once from a single request. Unlike the plain chat, it's handy when the result isn't a single line but a component with styles spread across files."
+            }
+          ],
+          "steps": [
+            "In Figma, switch to Dev Mode (the toggle in the top-right corner) and select the screen or component you need — in our case, the product card.",
+            "Write down the exact values from the right-hand panel: the card's dimensions, padding, corner radius, background and text colors in HEX, and the font and sizes for the name and price. This is your \"spec.\"",
+            "Decide which technology you're moving it into. For this example we'll use React + plain CSS (or Tailwind, if that's what your project uses). You need to state the technology explicitly in the prompt, otherwise the AI will pick one for you.",
+            "Open the Composer (Cmd+I) and give the first prompt — just the component's structure, no precise styles yet. First make sure the skeleton is correct.",
+            "Give a second prompt for the styles, passing in the concrete values from Figma (padding, colors, radii, fonts). Not \"make it nice\" — the exact numbers.",
+            "Give a third prompt for the states: hover for the button, the style for an inactive (disabled) button, and the behavior when a product name is long.",
+            "Run the project and compare the result with the design in Figma side by side. Check the spacing and alignment in particular — that's what the AI most often does only \"roughly.\"",
+            "Read the generated code and remove anything unnecessary: unused variables, duplicated styles, and random libraries the AI may have pulled in for no reason."
+          ],
+          "example": {
+            "title": "Example: moving a product card from Figma into a React component",
+            "paragraphs": [
+              "Let's say you read the following values from Figma Dev Mode: card width 280px, padding 16px, radius 12px, background #FFFFFF, a soft shadow, name in Inter 16px semibold color #111827, price in Inter 18px bold color #111827, button with background #2563EB, white text, radius 8px, and 12px padding top and bottom.",
+              "Step 1 — structure. Prompt in the Composer: \"Create a React component called ProductCard in the file ProductCard.jsx. NO styles yet. Structure: a card container, with the product image inside (a placeholder for now, using an img tag with alt text), below it the product name, the price, and an \\\"Add to cart\\\" button. Accept the data (image, name, price) via props. Explain the structure briefly.\"",
+              "Step 2 — styles using the Figma values. Prompt: \"Add styles to ProductCard in a separate file, ProductCard.css, and link it. Exact values: card width 280px, padding 16px, border-radius 12px, background #FFFFFF, a soft shadow. Name: font Inter, 16px, font-weight 600, color #111827. Price: Inter, 18px, font-weight 700, color #111827. Button: background #2563EB, white text color, border-radius 8px, 12px padding top and bottom, full card width. Use these numbers exactly and don't round anything at your own discretion.\"",
+              "Step 3 — states. Prompt: \"Add states: on button hover, make the background slightly darker — #1D4ED8 — with a smooth transition. Add a disabled prop: when it's true, the button is gray (#9CA3AF) and not clickable. If the product name is longer than two lines, truncate it with an ellipsis rather than breaking the card's layout.\"",
+              "Step 4 — verification. Run the app, open Figma side by side, and check: is the 16px padding really 16px, is the button color exactly #2563EB (and not #2663EC, which the AI might have \"made up\"), does the card hold up with a very long name? Anything that looks color-matched by eye, be sure to verify with the eyedropper — this is a classic spot for discrepancies."
+            ]
+          },
+          "bullets": [
+            "Pass the exact values from Dev Mode into the prompt (HEX, px, font-weight), not descriptions like \"nice\" or \"modern.\"",
+            "Go step by step: structure → styles → states → cleanup. That makes the result easier to check.",
+            "Always state the technology explicitly (React, Tailwind, plain CSS) — otherwise the AI picks for you.",
+            "Ask the AI to work in specific, named files — that's how you stay in control of where everything ends up."
+          ],
+          "tip": "The most common beginner mistake is to apply the generated code and move on without checking it against the design. AI loves \"almost right\" colors, extra spacing, and accidentally pulled-in libraries. Keep Figma and the browser side by side and check pixel by pixel — this habit is exactly what separates a designer who really moves designs into code from one who just clicks Apply."
+        }
+      ],
+      "practice": "Take one real screen from your work or learning project in Figma (a card, a banner, or a form with 3-5 elements works best). In Dev Mode, write down the exact values: spacing, colors in HEX, fonts, and radii. Open Cursor, create a project folder, and move this screen into code in three prompt-steps (structure → styles using the Figma values → states), just like in the example. Then run the result, open the design side by side, and find at least three discrepancies between the generated code and Figma (a color, a spacing, the behavior with long text). Write down exactly which mistakes the AI made and which follow-up prompt you used to fix them — that's the core skill of this chapter."
+    },
+    "block-12": {
+      "intro": "In this chapter we stop drawing mockups and start bringing prototypes to life with real AI. You'll learn how to connect an external AI service (OpenAI or Gemini) to your design assistant prototype — for example, a helper that suggests button labels, generates microcopy, or proposes options for a screen's layout. You'll also tame the chaos in your code: you'll move repeated interface elements into a separate component library so you don't have to copy the same button ten times over. Everything is built on concrete examples, with ready-made prompts for Cursor and real API calls. We'll pay special attention to key security — this is where beginners most often make a mistake that costs them money.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "Integrating AI services via an API",
+          "paragraphs": [
+            "Imagine you've built a prototype of a design assistant: there's an input field where the user types \"come up with 5 label options for the payment button,\" and there's a \"Generate\" button. For now that button does nothing — or it shows some hardcoded text typed in ahead of time. For it to start producing real, different answers every time, the prototype needs to reach out to an AI service. This is done through an API.",
+            "An API is the way one program \"talks\" to another. Your prototype sends a request to OpenAI's or Google's server (\"here's the user's text, give me an answer\"), and the server returns generated text. You don't have to train a neural network yourself — you simply use a ready-made one through this \"communication channel.\" Think of it like a waiter: you (the prototype) place an order, the kitchen (the AI model) prepares it, and the waiter (the API) brings the result back.",
+            "So the service knows the request is really from you (and who to bill), you need an API key — a long secret string, like a password. The main security rule of this lesson is built around it: the key must NEVER end up in your frontend code or in your repository. Below we'll walk through how to connect a service step by step and why the key is hidden away on the server.",
+            "Technically, a designer doesn't have to write all the code by hand — Cursor will write most of it. But it's important to understand what it's actually doing, so you can check the result and avoid costly mistakes. So next up: both the prompts and an example of the code you should end up with."
+          ],
+          "tools": [
+            {
+              "name": "API",
+              "what": "Application Programming Interface — a set of rules by which one program sends a request to another and gets a response back. For us it's the \"communication channel\" between our prototype and an AI service: we send text, we get back generated text."
+            },
+            {
+              "name": "API key",
+              "what": "A secret password-like string that identifies you to the service and ties requests to your account (and your usage bill). If the key falls into the wrong hands, others can use it at your expense. That's why it's kept secret."
+            },
+            {
+              "name": "OpenAI API",
+              "what": "A service from OpenAI that gives you access to the GPT family of models (for example, gpt-4o-mini). You send a message — you get back generated text. It's a good fit for assistants, generating microcopy, ideas, and summaries."
+            },
+            {
+              "name": "Gemini API",
+              "what": "A similar service from Google for accessing the Gemini models. It works on the same principle as the OpenAI API: a request with text, a response with text. A good alternative if you want to compare quality or pricing."
+            },
+            {
+              "name": "Environment variables",
+              "what": "A way to store secret settings (like an API key) SEPARATELY from the code — in a special .env file or in your server's settings. The code reads the key from the environment instead of containing it inside, so the key never ends up in the repository."
+            },
+            {
+              "name": "Backend / server function",
+              "what": "The part of an app that runs not in the user's browser but on the server. That's exactly where the API key is hidden: the browser calls your server function, and the function then goes to the AI service with the key. The user never sees the key."
+            }
+          ],
+          "steps": [
+            "Sign up for an AI service's platform (platform.openai.com or aistudio.google.com), create an API key, and copy it right away — services often won't show it to you again.",
+            "In the root of your project, create a .env file and add the line OPENAI_API_KEY=your_key to it. This is the \"environment\" that your code will safely read the key from.",
+            "Make sure .env is listed in your .gitignore file so it NEVER ends up in the repository. This is the single most important step for security.",
+            "Ask Cursor to create a small server function (an endpoint) that takes text from the interface, adds the key from the environment to it, and calls the AI service.",
+            "Wire up the \"Generate\" button in your prototype so that it sends the user's text to this server function and displays the response it gets back.",
+            "Test it with a few different requests and check in the service's console that the requests are coming through and the expected number of tokens is being charged."
+          ],
+          "example": {
+            "title": "Example: Cursor prompts and an OpenAI API call",
+            "paragraphs": [
+              "Prompt #1 (build a secure backend). Paste into Cursor: \"Create a server endpoint POST /api/generate in Node.js (Express). It takes JSON with a prompt field, reads the key from process.env.OPENAI_API_KEY, and calls OpenAI Chat Completions with the gpt-4o-mini model. Return only the generated text. Don't hardcode the key — read it from the environment only. Add error handling for when the key is missing or the service returns an error.\"",
+              "Prompt #2 (wire up the button in the prototype). \"In my assistant component, make the \\\"Generate\\\" button send a fetch request to /api/generate with the text from the input field and display the response in the result block. Add a loading state and an error message.\"",
+              "Here's what the OpenAI API call itself looks like on the server (simplified):",
+              "const response = await fetch(\"https://api.openai.com/v1/chat/completions\", { method: \"POST\", headers: { \"Content-Type\": \"application/json\", \"Authorization\": `Bearer ${process.env.OPENAI_API_KEY}` }, body: JSON.stringify({ model: \"gpt-4o-mini\", messages: [{ role: \"user\", content: userPrompt }] }) });",
+              "const data = await response.json(); const answer = data.choices[0].message.content;",
+              "Notice this: the key is pulled in from process.env.OPENAI_API_KEY (from the environment), not written as a string in the code. The user's browser only ever talks to your /api/generate and never receives the key itself — and that's exactly the point of a secure setup."
+            ]
+          },
+          "bullets": [
+            "One request = one response: you send text (a prompt) — you get back generated text.",
+            "The messages field is the conversation history; role: \"user\" is the user's message, and role: \"system\" sets the assistant's behavior (for example, \"you are a product designer's assistant\").",
+            "Requests cost money per token (small chunks of text), so at the start pick a cheap model and set a spending limit in your account settings.",
+            "The Gemini API works the same way: only the address and the request format change, while the \"request-response\" logic and the rule about the key stay the same."
+          ],
+          "tip": "KEY SECURITY is the main rule of this chapter. Never write an API key directly in frontend code and never commit it to a repository (especially a public one on GitHub) — bots scan repositories within seconds and start spending your money. The key lives only in .env (added to .gitignore) or in your hosting provider's secrets, and a server function is what talks to the service. If a key accidentally gets exposed — revoke it in the service's dashboard immediately and create a new one."
+        },
+        {
+          "title": "Building a component library",
+          "paragraphs": [
+            "As a prototype grows, you start to notice it: the same button, card, or input field copied into ten different places. You change the color in one spot — and in the other nine it stays the old color. This is a classic pain point. The solution is a component library: a set of reusable interface \"building blocks\" (Button, Input, Card) that you define ONCE and then simply drop in everywhere.",
+            "This is the direct counterpart of what you already do in Figma: components and variants. A design system in Figma and a component library in code are two sides of the same coin. Change a component in the library and it automatically updates everywhere it's used. Less duplication, fewer mistakes, faster changes.",
+            "For our AI assistant this is especially useful: the assistant's interface is made up of repeating elements — the \"Generate\" button, the prompt field, the answer card, the loading indicator. We'll move them into components, and the prototype will become tidy and easy to change.",
+            "To see and test components in isolation from the rest of the app, designers often use Storybook — it's like a \"showcase\" for your UI building blocks. We'll cover it too."
+          ],
+          "tools": [
+            {
+              "name": "Component library",
+              "what": "A set of ready-made, reusable interface elements (buttons, fields, cards) defined in code once. The same idea as components in Figma, only in code: you drop them in everywhere, and changing one place updates them all."
+            },
+            {
+              "name": "Component",
+              "what": "A separate, self-contained interface \"building block\" with its own look and behavior (for example, Button). It takes settings — props (text, color, disabled state) — and renders accordingly, just like component variants in Figma."
+            },
+            {
+              "name": "Props",
+              "what": "The parameters you pass to a component to tailor it to a specific spot: the button's text, its size, whether it's active or not. Thanks to props, a single Button component covers dozens of different buttons."
+            },
+            {
+              "name": "Storybook",
+              "what": "A \"showcase\" tool that displays each of your components in isolation from the app, in all its states and variants. It's handy for checking how a button looks (default, hover, disabled) without running the whole prototype, and for showing components to your team."
+            }
+          ],
+          "steps": [
+            "Pick out the repeating elements in your prototype: look at what gets copied most often (a button, an input field, an answer card) — those will be your first components.",
+            "Create a components folder and ask Cursor to extract, say, the button into a separate Button component with props for the text, the variant (primary/secondary), and the disabled state.",
+            "Replace all the copied buttons in the prototype with the new Button component, passing in the props you need.",
+            "Add Storybook to the project and create a story for Button so you can see all of its variants on one page.",
+            "Gradually extract the rest of the repeating elements (Input, Card, Spinner) the same way — and assemble the assistant's interface out of them."
+          ],
+          "example": {
+            "title": "Example: a Cursor prompt and the Button component",
+            "paragraphs": [
+              "Prompt for Cursor: \"Extract the button from my prototype into a separate React component, Button, in the file components/Button.tsx. It should take props: label (the text), variant (\\\"primary\\\" or \\\"secondary\\\"), disabled, and onClick. Style it with CSS classes. Then replace all my existing buttons with this component.\"",
+              "Here's what using the component will look like in the assistant's interface:",
+              "<Button label=\"Generate\" variant=\"primary\" disabled={isLoading} onClick={handleGenerate} />",
+              "Prompt for Storybook: \"Add Storybook to the project and create a story for the Button component with three variants: a regular primary, a secondary, and a disabled one. Explain how to run Storybook locally.\"",
+              "Now, if you need to change the look of all the assistant's buttons, you only edit Button.tsx, and the change applies everywhere automatically. That's the main benefit of a component library."
+            ]
+          },
+          "bullets": [
+            "Start small: extract the 2-3 most frequent elements first; don't try to build a perfect design system right away.",
+            "Give components clear names (Button, PromptInput, AnswerCard) — it makes the code easier to navigate, both for you and for Cursor.",
+            "Props are your friend: instead of ten similar components, make one flexible component with parameters.",
+            "Storybook is great to show to your team and developers — it's a shared language between design and code."
+          ],
+          "tip": "Keep your component library in sync with your design system in Figma: the same names, the same variants. Then the \"mockup → code\" transition becomes almost mechanical, and the team understands each other without extra explanation."
+        }
+      ],
+      "practice": "Take your AI assistant prototype and get it into working shape. Part 1: create an API key, put it in .env, make sure .env is in .gitignore, and use prompts to Cursor to connect a server endpoint /api/generate to OpenAI or Gemini so that the \"Generate\" button produces real answers. Verify that the key isn't in the frontend or in your commits. Part 2: extract the button, the prompt field, and the answer card into separate components, replace the duplicated code with them, and then add Storybook and create a story for the button with three states. The end result will be a tidy prototype that talks to a real AI and is assembled from reusable components."
+    },
+    "block-13": {
+      "intro": "Testing is the moment of truth for any product. This is where you find out whether your hypotheses actually hold up, whether the interface makes sense, and whether the app will hold together in the hands of a real user. In this chapter, we'll walk through a full prototype testing cycle using a concrete example: a mobile food-ordering app. You'll learn how to analyze test data with AI, generate realistic user testing scenarios, decode user behavior, and even work with unit tests for code, even if you've never written a single line of a program. Here, AI doesn't replace your expertise as a designer. It's a powerful assistant that takes the routine off your plate: it counts, groups, finds patterns, and drafts first versions while you make the decisions.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "Data analytics",
+          "paragraphs": [
+            "Picture this: you've run a prototype test of a food-ordering app with 40 participants. In front of you is a spreadsheet with the time it took each person to complete every task, the number of errors, and satisfaction ratings on a scale of 1 to 5. In the past, you'd have spent half a day on Excel formulas. Now AI can do the basic analysis in a few minutes, freeing you up to focus on interpretation.",
+            "The key idea: AI is great at calculating averages, medians, and percentages, and at spotting anomalies, but it does NOT understand the context of your product. So your job is to give it clean data and the right questions, then critically check its conclusions. AI can confidently write nonsense, so any numbers you'll be basing decisions on are worth verifying by hand, at least on a sample basis.",
+            "It's important to distinguish descriptive analytics (what happened: the average time was 47 seconds) from explanatory analytics (why it happened). AI handles the first reliably. The second should be treated only as a hypothesis that you need to confirm."
+          ],
+          "tools": [
+            {
+              "name": "ChatGPT (with Advanced Data Analysis)",
+              "what": "A chat assistant from OpenAI. In data analysis mode it doesn't just write text, it actually runs Python code under the hood: you upload a CSV or Excel file and it calculates statistics and draws charts. Handy when the table is large and crunching the numbers by hand would take too long."
+            },
+            {
+              "name": "Claude",
+              "what": "A chat assistant from Anthropic. Strong at working with text and tables, it explains its reasoning step by step and is less likely to \"make up\" numbers if you explicitly ask it to rely only on the data you provide. Useful for double-checking conclusions you reached in another tool."
+            }
+          ],
+          "steps": [
+            "Prepare the data: consolidate the results into a single CSV file where each row is one participant and the columns are time, errors, and ratings. Remove personal data (names, emails).",
+            "Upload the file to ChatGPT and clearly describe what each column means. The AI won't figure it out on its own.",
+            "Ask for basic descriptive statistics: mean, median, and spread, for each task separately.",
+            "Ask it to find anomalies: participants whose time or error count stands out sharply from the overall picture.",
+            "Ask about relationships as hypotheses (for example, whether long completion time correlates with a low rating), but label them clearly as hypotheses.",
+            "Spot-check 2-3 key numbers by hand before you bring them into a presentation to the team."
+          ],
+          "example": {
+            "title": "Example: analyzing metrics from a food-delivery app test",
+            "paragraphs": [
+              "You upload a results.csv file with the columns: participant_id, task1_time_sec, task1_errors, task2_time_sec, task2_errors, satisfaction_1_5.",
+              "Prompt: \"You are a UX analyst. I've uploaded a CSV with the results of a usability test of a food-delivery app prototype (40 participants). The columns are: completion time for two tasks in seconds, number of errors in each, and a satisfaction rating on a scale of 1-5. Please: 1) provide descriptive statistics (mean, median, min, max, standard deviation) for each numeric column; 2) identify outlier participants by completion time for task 1; 3) test the hypothesis of whether high completion time is linked to a low satisfaction rating, and indicate the strength of the relationship. Rely SOLELY on the data in the file, do not add any made-up numbers. Explain each conclusion in plain language.\"",
+              "The output will give you a table of statistics, a list of outlier IDs, and a cautious conclusion about the relationship. From there, your job is to explain WHY those people slowed down: maybe the \"Pay\" button was hard to spot."
+            ]
+          },
+          "bullets": [
+            "AI calculates reliably, but it doesn't know the context. Interpretation is always up to you.",
+            "Always explicitly ask it to rely only on the data provided, to reduce made-up numbers.",
+            "Correlation isn't causation: a link between metrics is just a reason to dig deeper."
+          ],
+          "tip": "A common mistake is to take a chart from AI as the truth and drop it straight into your report. Always ask the AI how many observations the conclusion is based on: with a sample of 3 people, no pattern is reliable."
+        },
+        {
+          "title": "User testing with AI scenarios",
+          "paragraphs": [
+            "Before you sit real people down in front of a prototype, you need to prepare a test script: tasks, questions, and instructions for the moderator. This is painstaking work, and this is exactly where AI saves you hours. It helps you phrase tasks neutrally (without hint-laden cues), generate a screener for selecting participants, and even assemble a finished test in Maze.",
+            "It's worth mentioning AI scenarios separately in the sense of \"synthetic users.\" AI can play the role of a persona and \"walk through\" your scenario, voicing the thoughts it might have. This is useful for quickly checking how tasks are worded and for finding obvious holes BEFORE the real test. But remember the main rule: a synthetic user does NOT replace a live one. It doesn't feel frustration, has no real experience, and tends to be too \"accommodating.\" Use it as a rehearsal, not as a result.",
+            "A good scenario is a realistic story (\"Imagine you're hungry in the evening...\"), not a dry command (\"Find the order button\"). AI is good at helping rewrite tasks in this format."
+          ],
+          "tools": [
+            {
+              "name": "Maze",
+              "what": "An online platform for unmoderated prototype testing. You connect a mockup from Figma, set the tasks, send a link to participants, and Maze records where they clicked, how much time they spent, and where they went wrong. The output gives you heatmaps and metrics. Handy when you need to quickly gather data from a lot of people without a moderator."
+            },
+            {
+              "name": "ChatGPT",
+              "what": "A chat assistant from OpenAI. Here we use it as a text generator: task wording, screeners for selecting participants, and lists of post-test questions. It can also play the role of a synthetic persona to rehearse a scenario."
+            }
+          ],
+          "steps": [
+            "State the goal of the test in one sentence: exactly what you want to check (for example, whether users will find the reorder feature).",
+            "Ask the AI to draft 3-5 tasks framed as realistic scenarios, without cue words pulled from the interface.",
+            "Ask it to generate a screener: questions for selecting the \"right\" participants (for example, those who order food online at least once a week).",
+            "Run the scenario through the AI as a synthetic persona to catch any ambiguous wording.",
+            "Move the final tasks into Maze, connect the prototype from Figma, and set up questions after each task.",
+            "Run a pilot with 2-3 real people, adjust the wording, and only then launch it on the full sample."
+          ],
+          "example": {
+            "title": "Example: generating a test scenario for the \"reorder\" feature",
+            "paragraphs": [
+              "Prompt for the tasks: \"You are an experienced UX researcher. I'm testing a food-delivery app prototype in Maze. The goal is to check whether users can easily find and use the feature for repeating a past order. Draft 4 tasks framed as realistic real-life scenarios. Important: do NOT use button names or menu items from the interface (don't write 'tap Reorder'), so as not to hint at the path. After each task, add 1 short question about how easy it was to complete, on a scale of 1-5.\"",
+              "Prompt for the rehearsal: \"Now play the role of a persona: Olena, 34, orders food 2-3 times a week, always in a hurry. Walk through task 1 from the previous list out loud, describing what you see and think at each step of the prototype. Flag any spots where the task wording would be unclear to you.\"",
+              "If synthetic Olena stumbles over a word in the task, that's a signal to rewrite it BEFORE the real test."
+            ]
+          },
+          "bullets": [
+            "Synthetic users are a rehearsal, not a replacement for live people.",
+            "Avoid using interface button names in tasks. It's a hint that spoils the results.",
+            "Always run a pilot with 2-3 people before the full test."
+          ],
+          "tip": "The most common beginner mistake is to phrase a task as an instruction (\"open the cart and apply the promo code\"). That tests reading skills, not how usable the product is. Ask the AI to rewrite tasks through the user's motivation: \"a friend told you about a discount, try to save money on this order.\""
+        },
+        {
+          "title": "Analyzing user behavior",
+          "paragraphs": [
+            "After a test, you end up with a pile of \"raw\" behavioral data: interview transcripts, open-ended comments, click recordings, and heatmaps from Maze. Reading and making sense of 40 transcripts by hand is days of work. AI can quickly do what researchers call thematic coding: read a lot of text and group people's thoughts by themes and pain points.",
+            "How it works: you \"feed\" the AI transcripts or a summary of comments and ask it to pull out recurring patterns, group them, and assess their frequency and sentiment. This dramatically speeds up the move from chaos to structure. But there's a critical caveat: AI can \"hallucinate\" quotes, meaning it can invent a phrase a participant never said. So any quote you want to show the team must always be checked against the original.",
+            "AI helps you interpret quantitative behavioral data (heatmaps, click paths), but you read the maps themselves with your own eyes: where there's a cluster of clicks on a non-clickable element, there's a hidden user expectation."
+          ],
+          "tools": [
+            {
+              "name": "Claude",
+              "what": "A chat assistant from Anthropic. It works well with large volumes of text at once. You can paste in many interview transcripts and ask it to group the themes. It tends to stick carefully to the text you provide, which matters when you're worried about invented quotes."
+            },
+            {
+              "name": "Maze",
+              "what": "Here we mention Maze as a source of behavioral data: beyond metrics, it builds heatmaps (where people clicked most often) and shows the paths they took. These visualizations are the foundation for analyzing behavior."
+            }
+          ],
+          "steps": [
+            "Gather all your qualitative data into a single document: transcripts, open-ended responses, moderator notes. Anonymize them.",
+            "Ask the AI to identify the main themes (pain points, wishes, moments of confusion) and group the statements under them.",
+            "Ask it to assess the frequency of each theme (how many participants mentioned it) and the overall sentiment.",
+            "For each theme, ask it to provide 1-2 example quotes, and be sure to check them against the original.",
+            "Separately, open the heatmaps in Maze and match them against the themes: do they confirm what people said or contradict it.",
+            "Formulate 3-5 key insights, where each one is grounded in both what users said and what they did."
+          ],
+          "example": {
+            "title": "Example: thematic coding of post-test comments",
+            "paragraphs": [
+              "Prompt: \"You are a UX researcher doing a thematic analysis. Below are 40 open-ended comments from participants after testing a food-delivery app prototype. Your task: 1) identify 5-7 recurring themes; 2) for each theme, indicate the approximate frequency (how many comments relate to it) and the sentiment (positive/negative/neutral); 3) provide one REAL quote from the text for each theme, inventing nothing. If there's no exact quote, write \"no direct quote.\" Don't add themes that aren't in the provided text. Here are the comments: [paste text].\"",
+              "In response you'll get a structure like: \"Theme: unclear delivery status, 12 mentions, negative sentiment, quote: 'I never could figure out where my order was right now.'\"",
+              "Next, you open the heatmap of the status screen in Maze and see chaotic clicks on text that isn't a button. The behavior confirms what was said, so the insight is solid."
+            ]
+          },
+          "bullets": [
+            "AI groups themes in minutes, but always check quotes against the original.",
+            "The strongest insight is the one confirmed by both words and behavior (click maps).",
+            "Ask the AI not to invent themes beyond the provided text."
+          ],
+          "tip": "A common mistake is to trust the number of mentions as the main criterion of importance. Sometimes one painful problem mentioned by three people (\"I couldn't pay by card\") is more important than a minor wish from twenty. Frequency is a guide, not a verdict; weigh the severity of the problem."
+        },
+        {
+          "title": "Using AI to generate unit tests",
+          "paragraphs": [
+            "This lesson might seem like it's \"not for designers,\" but it's really about your superpower in working with developers. When a designer at least understands what a unit test is and knows how to ask AI to generate one, they speak the same language as the team and can check the small logic of a prototype built in code themselves (for example, in a React app).",
+            "A unit test is a small automatic check of one piece of code (a \"unit,\" for example a single function). Imagine a function that calculates an order total with a discount. The unit test says: \"if you pass in a total of 500 and a discount of 10%, the result MUST be 450.\" If someone accidentally breaks the formula, the test immediately \"lights up\" red. It's a safeguard for the product against breakage. AI is excellent at writing such tests: it sees the function and proposes the checks itself, including tricky edge cases (what if the discount is 0%? what if the total is negative?).",
+            "Your role as a designer here isn't to become a programmer, but to learn to ask the right questions: which user scenarios you mustn't forget to check. Often it's the designer who remembers the edge case the developer missed."
+          ],
+          "tools": [
+            {
+              "name": "Unit test (what it is)",
+              "what": "A small program that automatically checks whether one specific piece of code (usually a single function) works correctly. It feeds in known values and compares the result with the expected one. If they don't match, it flags an error. It lets you catch breakage early, before a user ever sees it."
+            },
+            {
+              "name": "Cursor",
+              "what": "A code editor with built-in AI (powered by Anthropic or OpenAI models). Developers write code in it, and the AI suggests and generates entire functions and tests right in the context of the file. You can select a function and ask it to \"write unit tests,\" and Cursor sees the surrounding code and does it quickly and accurately."
+            },
+            {
+              "name": "Claude",
+              "what": "A chat assistant from Anthropic. If you don't have Cursor, you can simply paste the function's code into Claude and ask it to write the tests. It does a good job of explaining, in plain language, WHAT each test checks, which is useful for a designer who wants to understand the logic."
+            }
+          ],
+          "steps": [
+            "Find a small function you want to check (for example, calculating the cart total) and copy its code.",
+            "Paste the code into Cursor or Claude and ask it to generate unit tests, specifying the language and library (for example, JavaScript and Jest).",
+            "Separately, list the scenarios from the user's perspective that are important to check: an empty cart, the maximum discount, odd values.",
+            "Ask the AI to add tests for edge cases (zero, negative numbers, very large totals).",
+            "Hand the generated tests to a developer or run them in the project to see which pass and which \"light up.\"",
+            "If a test \"lights up,\" it's not always a bug in the code; sometimes the test itself expects the wrong thing. Discuss the questionable cases with the team."
+          ],
+          "example": {
+            "title": "Example: tests for a function that calculates a total with a discount",
+            "paragraphs": [
+              "Let's imagine a simple function: function calcTotal(price, discountPercent) { return price - price * discountPercent / 100; }",
+              "Prompt: \"You are an experienced software engineer. Here is a JavaScript function that calculates an order total with a discount: [paste code]. Write unit tests for it using Jest. Cover: 1) the normal case (price 500, discount 10%, I expect 450); 2) a 0% discount; 3) a 100% discount; 4) edge and \"odd\" cases (price 0, a negative discount). For each test, add a short comment in plain language explaining WHAT exactly it checks and why it matters for the user.\"",
+              "The AI will return a ready-made file with tests like expect(calcTotal(500, 10)).toBe(450) along with explanations. As a designer, you'll immediately notice: the test for a negative discount shows that the function allows a price higher than the original. That's a bug worth flagging to the developer."
+            ]
+          },
+          "bullets": [
+            "A unit test checks one piece of code and catches breakage early.",
+            "A designer doesn't write the code, but suggests WHICH user scenarios to check.",
+            "A test that \"lights up\" is sometimes wrong itself. Discuss anything questionable with the team."
+          ],
+          "tip": "A common mistake is to ask the AI to \"write tests\" with no context at all and blindly paste in the result. The AI doesn't know your product's business rules (for example, that a discount can't exceed 90%). Always list the edge cases yourself. That's exactly the value a designer brings to testing code."
+        }
+      ],
+      "practice": "Take any prototype of your own (or a practice case with a delivery app) and go through a mini testing cycle. Step 1: state the goal of the test and ask ChatGPT to generate 3 scenario-based tasks without cue words. Step 2: assemble the mockup in Maze and run a pilot with 3 friends. Step 3: load the metrics you collected into a CSV format and ask the AI to produce descriptive statistics, verifying 2 numbers by hand. Step 4: paste the open-ended comments into Claude and identify 5 themes, checking the quotes against the original. Step 5 (a bonus for the brave): find any simple calculation function, paste it into Claude, and generate unit tests, adding 2 edge cases yourself. At the end, write down where AI saved you time and where you had to correct it. That's your main takeaway about the role of AI in testing."
+    },
+    "block-14": {
+      "intro": "In this chapter we shift from \"how to use AI tools\" to \"how to use them responsibly.\" For a product designer, that isn't abstract philosophy but part of daily work: the interface you design with AI affects real people, and the data and models under the hood carry someone else's decisions and biases. We'll start by unpacking what bias in AI actually is through concrete cases, and how to build checks straight into your design process. Then we'll look at the trends already reshaping the profession, so you can grow intentionally rather than play catch-up. The tone is practical: less anxiety, more concrete actions, prompts, and checklists you can put to use as soon as tomorrow.",
+      "readingTime": 12,
+      "lessons": [
+        {
+          "title": "Reducing Bias in AI-Driven Work",
+          "paragraphs": [
+            "Bias in AI isn't \"the machine's evil intent\" but a reflection of the data a model was trained on and the examples it saw most often. If a training set shows doctors mostly as men and nurses mostly as women, a generative model will simply reproduce that statistic and present it as the \"norm.\" For a designer this means something simple: by default, AI tends to amplify stereotypes rather than correct them. So your role is not to blindly accept what's generated, but to become the filter that spots and corrects skews.",
+            "Let's look at real patterns that keep recurring across the industry. The first is image and persona generation. For a long time, the prompt \"successful CEO\" returned almost exclusively middle-aged white men in suits in many models, while \"a person cleaning\" more often showed women. The second pattern is text descriptions: an AI copywriter drafting a job posting might write \"a strong leader who takes the team into battle,\" unconsciously screening out women candidates. The third is data-driven product decisions: if a recommendation system is trained on past user behavior, it cements what already happened and serves underrepresented groups worse options.",
+            "A particularly insidious case for designers is creating personas and research artifacts with AI. It's tempting to ask a model to \"generate 5 typical users of our fintech app,\" but you risk ending up with a homogenized set of similar, \"default\" people of the same wealth, age, and tech-savviness. Such personas quietly push people with disabilities, older adults, low-income users, or those on poor internet connections out of view. From there, the entire product gets designed around an invented \"average\" audience that doesn't actually exist.",
+            "The good news: bias can be caught systematically. Instead of hoping you'll \"somehow notice it,\" build specific checks into every stage, from the brief to the final mockup. The simplest tool is the prompts themselves, the ones you use to challenge the AI and force it to show alternatives. Below you'll find the concepts, the steps, and ready-made prompts for checking for bias."
+          ],
+          "tools": [
+            {
+              "name": "Bias",
+              "what": "A systematic skew in AI outputs in favor of or against certain groups. It arises from unrepresentative training data, not from any \"intent\" of the model. Example: the prompt \"engineer\" returns mostly men."
+            },
+            {
+              "name": "Fairness",
+              "what": "The property of a system to treat different user groups with comparable quality. In design, this is the question: \"Does my product work equally well for a 25-year-old and a 70-year-old, across different languages, genders, and income levels?\""
+            },
+            {
+              "name": "Representational harm",
+              "what": "Harm caused when AI reinforces stereotypes or makes a group of people invisible (e.g. not a single image of a person in a wheelchair among the \"active users\"). It isn't always obvious, but it shapes perception."
+            },
+            {
+              "name": "Training data bias",
+              "what": "The root source of most problems: a model sees the world the way it appeared in its dataset. If the data was collected unevenly, the conclusions will be uneven too."
+            },
+            {
+              "name": "Human-in-the-loop",
+              "what": "The principle that a person reviews and approves AI decisions before they reach the user. For a designer this means: no generated text, image, or persona ships in the product without your critical review."
+            },
+            {
+              "name": "Inclusive design",
+              "what": "An approach that deliberately accounts for the diversity of users and edge cases from the very start, rather than as an afterthought at the end. It helps offset the skews AI introduces."
+            }
+          ],
+          "steps": [
+            "At the brief stage, define who the product is for: list the axes of diversity (age, gender, language, income, tech-savviness, disability). This becomes your checklist for later validating AI outputs.",
+            "When generating images or personas, always run several passes and deliberately ask for variety rather than a single \"perfect\" result. Compare who the model shows \"by default.\"",
+            "Check AI-written text for exclusionary language: test tasks, job descriptions, microcopy. Ask the model who such wording might alienate.",
+            "Before accepting personas or recommendations, ask yourself: \"Who's missing here?\" and add underrepresented groups manually.",
+            "Keep a human in the loop: agree as a team that AI artifacts are drafts a designer approves, not finished facts.",
+            "Document the skews you find and the decisions you make. That way the team learns instead of stepping on the same rake twice."
+          ],
+          "example": {
+            "title": "Example: catching bias in persona generation for a banking app",
+            "paragraphs": [
+              "Designer Olena asks the AI: \"Generate 5 personas of mobile banking users.\" The model produces five people aged 28-40, with higher education, high income, all confident smartphone users. It looks convincing, and that's exactly why it's dangerous: the product would start being designed around this narrow \"norm.\"",
+              "Olena applies a checking prompt: \"Analyze these 5 personas. Which groups of real bank users aren't represented here? Consider age, income, tech-savviness, disability, language, and usage conditions (poor internet, an old phone). Suggest 3 additional personas that fill these gaps.\"",
+              "The AI returns important gaps: there's no one 65+, for whom large text is critical; no low-income user who watches every penny; no one who uses a screen reader. Olena adds these personas, and the team immediately bakes larger text, a data-saving mode, and screen-reader accessibility into the design.",
+              "Bottom line: AI here is neither the enemy nor an oracle. It quickly produced a draft, and a critical prompt plus a human in the loop turned it into a representative tool. That's what a responsible workflow looks like."
+            ]
+          },
+          "bullets": [
+            "Ready-made prompt for auditing images: \"Describe who you depicted by age, gender, ethnicity, and physical traits. Which stereotypes might have surfaced? Generate alternatives that show broader diversity.\"",
+            "Ready-made prompt for text: \"Check this text for bias and exclusionary language. Could it alienate people based on gender, age, culture, or income level? Suggest a more neutral version.\"",
+            "Ready-made prompt for data-driven decisions: \"What assumptions about users are built into this recommendation? Who could it systematically harm or underserve?\"",
+            "The \"who's missing here\" rule: ask this question out loud about every AI artifact. It catches most skews in 30 seconds.",
+            "Don't offload responsibility onto the model: in the final decision, the ethical choice is always the designer's to make."
+          ],
+          "tip": "Build yourself a short bias checklist (5-6 items) and keep it close while working with AI. Skews are easiest to miss precisely when the output looks smooth and convincing. The habit of pausing to ask \"who's missing here?\" saves months of rework."
+        },
+        {
+          "title": "Trends and the Future of AI in Design",
+          "paragraphs": [
+            "Talk about the future often slides into two extremes: either \"AI will replace designers\" or \"it's just hype, nothing will change.\" Both are wrong. The realistic picture is in the middle: AI is already taking over the routine (generating variations, drafts, resizing, filling in content), and human value is shifting toward what the machine does poorly, framing the right problem, understanding context, ethical decisions, and taste. In other words, what's changing isn't \"do we need designers\" but \"what exactly are designers paid for.\"",
+            "The first big trend is the move from \"pixel\" design to design orchestration: increasingly, a designer doesn't draw every screen by hand but sets the intent, constraints, and criteria, while the tools generate and vary the solutions. This raises the importance of prompting as a design skill and the ability to evaluate dozens of options quickly and critically. The second trend is generative UI and real-time personalization: interfaces that adapt to the individual user. It's powerful, but this is exactly where the fairness and transparency questions from the previous lesson become most acute.",
+            "The third trend is AI as a research collaborator: tools help analyze interviews, cluster feedback, and find patterns across tons of data. The UX researcher gains a superpower, but also a new responsibility, not to mistake the model's hallucinations for insights and not to lose live contact with real people. The fourth is growing demand for skills that AI amplifies but doesn't replace: systems thinking, facilitation, ethics, accessibility, and communication with stakeholders.",
+            "How do you prepare without anxiety? Don't try to \"beat\" AI at generation speed, that's a losing game. Instead, invest in the things that are growing in value: a deep understanding of users, the ability to frame problems, critical thinking, and accountability. A designer who wields AI as a tool and stays a human in the loop becomes stronger, not redundant. Below are concrete skills and steps for where to start right now."
+          ],
+          "tools": [
+            {
+              "name": "Generative UI",
+              "what": "Interfaces that AI assembles or adapts on the fly to the user or context. They enable personalization but demand attention to fairness: different people shouldn't get a worse experience because of their group."
+            },
+            {
+              "name": "Design orchestration",
+              "what": "An approach where the designer sets intent, constraints, and criteria, and AI generates the variations. Value shifts from drawing by hand to clearly framing the problem and evaluating the results."
+            },
+            {
+              "name": "Prompting as a design skill",
+              "what": "The ability to precisely describe to AI the desired result, context, and constraints. It's becoming as fundamental a skill as working with a grid or typography."
+            },
+            {
+              "name": "Transparency",
+              "what": "The principle that the user understands they're interacting with AI and on what data it bases its decisions. Future interfaces will increasingly need to be honest about the AI's role."
+            },
+            {
+              "name": "AI literacy",
+              "what": "Understanding how models work, where their limits and risks lie. It lets a designer use AI critically rather than magically trusting every result."
+            }
+          ],
+          "steps": [
+            "Shift your learning focus from \"tools\" to \"skills\": go deeper on user research, systems thinking, and accessibility, areas AI amplifies rather than replaces.",
+            "Make prompting part of your craft: keep your own library of effective prompts for generation, critique, and bias checking.",
+            "Test generative and personalized solutions for fairness: check that different groups don't end up with a noticeably worse experience.",
+            "Build transparency into the design: show the user where AI is at work and that it can make mistakes (e.g. an \"AI-generated\" label, the option to correct it).",
+            "Develop critical thinking about AI insights: always ask \"what data is this built on?\" and cross-check with real users.",
+            "Set aside time for experiments: try 1-2 new tools a month on real tasks to feel their limits in practice."
+          ],
+          "example": {
+            "title": "Example: a designer moves from hands-on work to orchestration",
+            "paragraphs": [
+              "Maksym used to spend days manually creating dozens of landing-page variations. Now he frames the intent and constraints for the AI, target audience, tone, key message, accessibility requirements, and gets 15 drafts in an hour.",
+              "But the decisive part of the work stays human. Maksym critically selects the variations, checks them for bias and accessibility (contrast, text size, wording), clarifies what's shown to different users, and polishes the best ideas to completion together with the team.",
+              "Six months on, Maksym notices: the routine takes less time, yet he's valued more, for his ability to frame the right problem, pick strong solutions, and own the ethics of the result. AI didn't replace him; it freed him up for higher-level work.",
+              "The takeaway for you: the future rewards not those who press buttons faster, but those who think, frame, and take responsibility better as a human in the loop."
+            ]
+          },
+          "bullets": [
+            "What AI takes on: generating variations, drafts, routine edits, initial data analysis.",
+            "What grows more valuable in you: framing the problem, understanding context, ethics, accessibility, facilitation, and communication.",
+            "The personalization trap: an \"individual\" experience must not mean a worse experience for certain groups, check fairness.",
+            "Transparency becomes the norm: label the AI's role honestly and give the user control and the ability to correct.",
+            "An anxiety-free strategy: don't compete with AI on speed, invest in the human skills it amplifies."
+          ],
+          "tip": "The best career investment right now isn't yet another plugin, but the habit of applying AI regularly and critically on real tasks. A designer who understands both the capabilities and the limits of the tools will always be needed, because they're the one who keeps the human at the center of the product."
+        }
+      ],
+      "practice": "Take one real artifact from your current work, a set of AI-generated personas, a series of images, or a piece of microcopy. Step 1: run it through the bias-checking prompt from the first lesson and write down who or what the model missed or distorted. Step 2: manually add the underrepresented groups or rewrite the wording to close the gaps. Step 3: put together your own personal 5-6 item checklist for vetting AI outputs for bias and save it where you work. Step 4: look at your workflow through the lens of the second lesson and answer honestly, which routine tasks can you already hand off to AI, and which human skills (framing, ethics, research) are worth investing in over the next six months? Write down one concrete development step for this month."
+    }
+  }
 }
 
 export function getChapter(lang, id) {
