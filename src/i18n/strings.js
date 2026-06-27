@@ -1,0 +1,51 @@
+// UI labels per language. Course/lesson content lives in the data files;
+// these are the chrome strings (buttons, headings, reader labels).
+export const UI = {
+  uk: {
+    nav_program: 'Програма курсу',
+    start_course: 'Почати курс →',
+    program_eyebrow: '14 розділів',
+    program_title: 'Програма курсу',
+    program_subtitle: 'Наскрізний шлях від вступу до AI до готового кейсу. Відкрийте будь-який розділ, щоб почати читати — або проходьте їх по черзі.',
+    all_chapters: 'Усі розділи',
+    chapter_word: 'Розділ',
+    reading_time: 'хв читання',
+    tools_label: 'Інструменти',
+    practice_label: 'Практика',
+    in_this_chapter: 'У цьому розділі',
+    content_coming: 'Повний матеріал розділу готується.',
+    prev_chapter: 'Попередній розділ',
+    next_chapter: 'Наступний розділ',
+    course_done: 'Курс завершено',
+    back_all: 'До всіх розділів',
+    not_found: 'Розділ не знайдено.',
+    footer_tagline: '© 2026 · Онлайн-курс для продуктових дизайнерів',
+    chapters_label: 'Розділи курсу',
+    lang_label: 'Мова',
+  },
+  en: {
+    nav_program: 'Course program',
+    start_course: 'Start the course →',
+    program_eyebrow: '14 chapters',
+    program_title: 'Course program',
+    program_subtitle: 'An end-to-end path from an intro to AI to a finished case. Open any chapter to start reading — or go through them in order.',
+    all_chapters: 'All chapters',
+    chapter_word: 'Chapter',
+    reading_time: 'min read',
+    tools_label: 'Tools',
+    practice_label: 'Practice',
+    in_this_chapter: 'In this chapter',
+    content_coming: 'Full chapter content is coming soon.',
+    prev_chapter: 'Previous chapter',
+    next_chapter: 'Next chapter',
+    course_done: 'Course complete',
+    back_all: 'Back to all chapters',
+    not_found: 'Chapter not found.',
+    footer_tagline: '© 2026 · Online course for product designers',
+    chapters_label: 'Course chapters',
+    lang_label: 'Language',
+  },
+}
+
+export const LANGS = ['uk', 'en']
+export const DEFAULT_LANG = 'uk'
