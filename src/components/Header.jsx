@@ -1,10 +1,3 @@
-const NAV = [
-  { href: '#program', label: 'Програма' },
-  { href: '#skills', label: 'Що вивчите' },
-  { href: '#audience', label: 'Для кого' },
-  { href: '#faq', label: 'FAQ' },
-]
-
 function Header() {
   return (
     <header className="sticky top-0 z-30 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-xl">
@@ -20,13 +13,9 @@ function Header() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-7 md:flex">
-          {NAV.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm text-slate-400 transition hover:text-slate-100">
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <a href="#program" className="text-sm text-slate-400 transition hover:text-slate-100">
+          Програма курсу
+        </a>
       </div>
     </header>
   )
