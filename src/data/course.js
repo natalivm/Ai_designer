@@ -5,15 +5,7 @@ export const HERO = {
   title: 'AI for Product Designers',
   subtitle:
     'Програма для продуктових дизайнерів, UX-дослідників та аналітиків. З живими вебінарами та куратором, яка проведе вас через повний продуктовий флоу — від AI-ресерчу до готового кейсу для портфоліо.',
-  secondaryCta: 'Програма курсу',
 }
-
-// Stats shown under the hero.
-export const STATS = [
-  { value: '14', label: 'блоків програми' },
-  { value: 'Live', label: 'вебінари з куратором' },
-  { value: '1', label: 'кейс для портфоліо' },
-]
 
 // The 14 blocks of the course. Fill `topics` and set `placeholder: false`
 // as each block's content is finalised. `id` is used for anchor navigation.

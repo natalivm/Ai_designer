@@ -1,5 +1,5 @@
 import Button from '../Button'
-import { HERO, STATS } from '../../data/course'
+import { HERO, BLOCKS } from '../../data/course'
 
 function Hero() {
   return (
@@ -27,17 +27,8 @@ function Hero() {
         </p>
 
         <div className="rise-in mt-9 flex items-center justify-center" style={{ animationDelay: '0.15s' }}>
-          <Button as="a" href="#program" size="lg">{HERO.secondaryCta}</Button>
+          <Button as="a" href={`#/chapter/${BLOCKS[0].id}`} size="lg">Почати курс →</Button>
         </div>
-
-        <dl className="rise-in mx-auto mt-16 grid max-w-2xl grid-cols-3 gap-4" style={{ animationDelay: '0.2s' }}>
-          {STATS.map((s) => (
-            <div key={s.label} className="rounded-2xl border border-slate-800/70 bg-slate-900/40 px-3 py-5">
-              <dt className="text-2xl font-bold text-white sm:text-3xl">{s.value}</dt>
-              <dd className="mt-1 text-xs text-slate-500 sm:text-sm">{s.label}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   )
