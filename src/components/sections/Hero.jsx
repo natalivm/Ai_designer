@@ -1,7 +1,12 @@
 import Button from '../Button'
-import { HERO, BLOCKS } from '../../data/course'
+import { getHero, getBlocks } from '../../data/course'
+import { useLang } from '../../i18n/useLang'
 
 function Hero() {
+  const { lang, t } = useLang()
+  const hero = getHero(lang)
+  const firstId = getBlocks(lang)[0].id
+
   return (
     <section id="top" className="relative overflow-hidden">
       {/* Ambient glows */}
@@ -13,21 +18,21 @@ function Hero() {
       <div className="mx-auto max-w-6xl px-4 pb-16 pt-20 text-center sm:px-8 sm:pb-24 sm:pt-28">
         <span className="rise-in inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-xs font-medium text-violet-200">
           <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
-          {HERO.badge}
+          {hero.badge}
         </span>
 
         <h1 className="rise-in mx-auto mt-6 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-6xl" style={{ animationDelay: '0.05s' }}>
           <span className="bg-gradient-to-r from-violet-300 via-white to-sky-300 bg-clip-text text-transparent">
-            {HERO.title}
+            {hero.title}
           </span>
         </h1>
 
         <p className="rise-in mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg" style={{ animationDelay: '0.1s' }}>
-          {HERO.subtitle}
+          {hero.subtitle}
         </p>
 
         <div className="rise-in mt-9 flex items-center justify-center" style={{ animationDelay: '0.15s' }}>
-          <Button as="a" href={`#/chapter/${BLOCKS[0].id}`} size="lg">Почати курс →</Button>
+          <Button as="a" href={`#/chapter/${firstId}`} size="lg">{t.start_course}</Button>
         </div>
       </div>
     </section>

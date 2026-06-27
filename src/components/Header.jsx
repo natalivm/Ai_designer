@@ -1,4 +1,8 @@
+import LanguageSwitch from './LanguageSwitch'
+import { useLang } from '../i18n/useLang'
+
 function Header() {
+  const { t } = useLang()
   return (
     <header className="sticky top-0 z-30 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-8">
@@ -13,9 +17,12 @@ function Header() {
           </span>
         </a>
 
-        <a href="#program" className="text-sm text-slate-400 transition hover:text-slate-100">
-          Програма курсу
-        </a>
+        <div className="flex items-center gap-4 sm:gap-6">
+          <a href="#program" className="hidden text-sm text-slate-400 transition hover:text-slate-100 sm:block">
+            {t.nav_program}
+          </a>
+          <LanguageSwitch />
+        </div>
       </div>
     </header>
   )

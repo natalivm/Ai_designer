@@ -1,6 +1,8 @@
 import { SITE } from '../utils/constants'
+import { useLang } from '../i18n/useLang'
 
 function Footer() {
+  const { t } = useLang()
   return (
     <footer className="border-t border-slate-800/60 bg-slate-950">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-10 text-sm text-slate-500 sm:flex-row sm:px-8">
@@ -12,7 +14,7 @@ function Footer() {
           </span>
           <span className="font-semibold text-slate-300">{SITE.name}</span>
         </div>
-        <p>© 2026 · Онлайн-курс для продуктових дизайнерів</p>
+        <p>{t.footer_tagline}</p>
       </div>
     </footer>
   )

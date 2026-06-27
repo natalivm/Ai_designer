@@ -1,27 +1,27 @@
 import SectionHeading from './SectionHeading'
 import Button from '../Button'
-import { BLOCKS } from '../../data/course'
+import { getBlocks } from '../../data/course'
+import { useLang } from '../../i18n/useLang'
 
 function pad(n) {
   return String(n).padStart(2, '0')
 }
 
 function Curriculum() {
+  const { lang, t } = useLang()
+  const blocks = getBlocks(lang)
+
   return (
     <section id="program" className="scroll-mt-20 border-t border-slate-800/60 bg-slate-950">
       <div className="mx-auto max-w-4xl px-4 py-20 sm:px-8 sm:py-28">
-        <SectionHeading
-          eyebrow="14 розділів"
-          title="Програма курсу"
-          subtitle="Наскрізний шлях від вступу до AI до готового кейсу. Відкрийте будь-який розділ, щоб почати читати — або проходьте їх по черзі."
-        />
+        <SectionHeading eyebrow={t.program_eyebrow} title={t.program_title} subtitle={t.program_subtitle} />
 
         <div className="mt-10 flex justify-center">
-          <Button as="a" href={`#/chapter/${BLOCKS[0].id}`} size="lg">Почати курс →</Button>
+          <Button as="a" href={`#/chapter/${blocks[0].id}`} size="lg">{t.start_course}</Button>
         </div>
 
         <ol className="mt-12 space-y-3">
-          {BLOCKS.map((b, i) => (
+          {blocks.map((b, i) => (
             <li key={b.id}>
               <a
                 href={`#/chapter/${b.id}`}
