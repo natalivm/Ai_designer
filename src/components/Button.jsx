@@ -1,26 +1,24 @@
-function Button({ children, onClick, variant = 'default', size = 'md', className = '', ...props }) {
-  const base = 'font-semibold transition'
+function Button({ as = 'button', children, variant = 'primary', size = 'md', className = '', ...props }) {
+  const base = 'inline-flex items-center justify-center gap-2 font-semibold transition rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/60'
 
   const variants = {
-    default: 'rounded-xl border border-zinc-700/50 bg-zinc-800/40 hover:bg-zinc-700/40 text-zinc-400 hover:text-zinc-200',
-    primary: 'rounded-full bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30',
-    danger: 'rounded-full bg-red-500/20 text-red-300 hover:bg-red-500/30',
+    primary: 'bg-violet-500 text-white hover:bg-violet-400 shadow-lg shadow-violet-500/25',
+    ghost: 'border border-slate-700/70 bg-slate-900/40 text-slate-200 hover:border-slate-500 hover:text-white',
   }
 
   const sizes = {
-    sm: 'px-3 py-1 text-[10px]',
-    md: 'px-4 py-2 text-xs',
-    lg: 'w-full py-3 text-sm',
+    md: 'px-5 py-2.5 text-sm',
+    lg: 'px-7 py-3.5 text-base',
   }
 
+  const Tag = as
   return (
-    <button
-      onClick={onClick}
-      className={`${base} ${variants[variant] || variants.default} ${sizes[size] || sizes.md} ${className}`}
+    <Tag
+      className={`${base} ${variants[variant] || variants.primary} ${sizes[size] || sizes.md} ${className}`}
       {...props}
     >
       {children}
-    </button>
+    </Tag>
   )
 }
 

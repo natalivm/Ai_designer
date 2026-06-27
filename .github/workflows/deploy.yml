@@ -12,7 +12,7 @@ on:
       notify_title:
         description: 'Notification title'
         type: string
-        default: 'TradingFun Updated!'
+        default: 'AI for Product Designers — оновлено!'
       notify_body:
         description: 'Notification message body'
         type: string
@@ -42,7 +42,7 @@ jobs:
             NOTIFY_PART=$(echo "$COMMIT_MSG" | grep -oP '\[notify\]\s*\K.*' || echo "")
             TITLE=$(echo "$NOTIFY_PART" | cut -d'|' -f1 | xargs)
             BODY=$(echo "$NOTIFY_PART" | cut -s -d'|' -f2 | xargs)
-            [ -z "$TITLE" ] && TITLE="TradingFun Updated!"
+            [ -z "$TITLE" ] && TITLE="AI for Product Designers — оновлено!"
             [ -z "$BODY" ] && BODY="A new version is available."
             VERSION="$(date +%Y%m%d%H%M%S)"
             echo '{"enabled":true,"title":"'"$TITLE"'","body":"'"$BODY"'","version":"'"$VERSION"'"}' > public/notification.json
