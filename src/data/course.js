@@ -114,11 +114,54 @@ export const BLOCKS = [
       'Аналіз результатів тестування',
     ],
   },
-  { id: 'block-10', title: 'Vibe-кодинг: від макету до коду', placeholder: true, topics: [] },
-  { id: 'block-11', title: 'Підключення AI API', placeholder: true, topics: [] },
-  { id: 'block-12', title: 'AI-тестування і edge cases', placeholder: true, topics: [] },
-  { id: 'block-13', title: 'Презентація і захист рішень', placeholder: true, topics: [] },
-  { id: 'block-14', title: 'Фінальний кейс для портфоліо', placeholder: true, topics: [] },
+  {
+    id: 'block-10',
+    title: 'Вайб-кодинг',
+    placeholder: false,
+    topics: [
+      'Вступ у кодинг',
+      'Інструменти трансформації дизайну в код',
+      'HTML/CSS для дизайнерів',
+    ],
+  },
+  {
+    id: 'block-11',
+    title: 'Cursor та інструменти інтеграції',
+    placeholder: false,
+    topics: [
+      'Налаштування Cursor',
+      'Перенесення UI-елементів у код',
+    ],
+  },
+  {
+    id: 'block-12',
+    title: 'Робота з API',
+    placeholder: false,
+    topics: [
+      'Інтеграція AI-сервісів через API',
+      'Створення бібліотеки компонентів',
+    ],
+  },
+  {
+    id: 'block-13',
+    title: 'Тестування продукту',
+    placeholder: false,
+    topics: [
+      'Аналітика даних',
+      'Користувацьке тестування з AI-сценаріями',
+      'Аналіз поведінки користувачів',
+      'AI для генерації юніт-тестів',
+    ],
+  },
+  {
+    id: 'block-14',
+    title: 'Етика та майбутнє AI в дизайні',
+    placeholder: false,
+    topics: [
+      'Усунення упереджень в AI-розробках',
+      'Тренди та майбутнє AI в дизайні',
+    ],
+  },
 ]
 
 // Why this format works.
