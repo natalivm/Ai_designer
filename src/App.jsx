@@ -8,7 +8,6 @@ import Features from './components/sections/Features'
 import Audience from './components/sections/Audience'
 import Outcome from './components/sections/Outcome'
 import Faq from './components/sections/Faq'
-import CtaBanner from './components/sections/CtaBanner'
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
           <Audience />
           <Outcome />
           <Faq />
-          <CtaBanner />
         </main>
         <Footer />
       </div>

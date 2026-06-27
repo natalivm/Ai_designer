@@ -3,8 +3,6 @@
 export const SITE = {
   name: 'AI for Product Designers',
   shortName: 'AI for PD',
-  // Where the "enroll" buttons point. Replace with the real signup URL.
-  enrollUrl: 'mailto:hello@ai-for-pd.com?subject=Запис%20на%20курс%20AI%20for%20Product%20Designers',
 }
 
 // Tailwind border/background accents reused by Card and section chips.

@@ -1,6 +1,3 @@
-import Button from './Button'
-import { SITE } from '../utils/constants'
-
 const NAV = [
   { href: '#program', label: 'Програма' },
   { href: '#skills', label: 'Що вивчите' },
@@ -30,10 +27,6 @@ function Header() {
             </a>
           ))}
         </nav>
-
-        <Button as="a" href={SITE.enrollUrl} size="md" className="hidden sm:inline-flex">
-          Записатися
-        </Button>
       </div>
     </header>
   )
