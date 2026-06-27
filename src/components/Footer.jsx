@@ -13,9 +13,6 @@ function Footer() {
           <span className="font-semibold text-slate-300">{SITE.name}</span>
         </div>
         <p>© 2026 · Онлайн-курс для продуктових дизайнерів</p>
-        <a href={SITE.enrollUrl} className="text-violet-300 transition hover:text-violet-200">
-          Записатися на курс →
-        </a>
       </div>
     </footer>
   )

@@ -1,6 +1,5 @@
 import Button from '../Button'
 import { HERO, STATS } from '../../data/course'
-import { SITE } from '../../utils/constants'
 
 function Hero() {
   return (
@@ -27,9 +26,8 @@ function Hero() {
           {HERO.subtitle}
         </p>
 
-        <div className="rise-in mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row" style={{ animationDelay: '0.15s' }}>
-          <Button as="a" href={SITE.enrollUrl} size="lg">{HERO.primaryCta}</Button>
-          <Button as="a" href="#program" variant="ghost" size="lg">{HERO.secondaryCta}</Button>
+        <div className="rise-in mt-9 flex items-center justify-center" style={{ animationDelay: '0.15s' }}>
+          <Button as="a" href="#program" size="lg">{HERO.secondaryCta}</Button>
         </div>
 
         <dl className="rise-in mx-auto mt-16 grid max-w-2xl grid-cols-3 gap-4" style={{ animationDelay: '0.2s' }}>
