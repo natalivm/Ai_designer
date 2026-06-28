@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
 import { getBlocks } from '../data/course'
 import { getChapter } from '../data/chapterContent'
+import { getQuiz } from '../data/quizzes'
 import { SITE } from '../utils/constants'
 import { useLang } from '../i18n/useLang'
 import LanguageSwitch from './LanguageSwitch'
+import Quiz from './Quiz'
 
 function pad(n) {
   return String(n).padStart(2, '0')
@@ -106,6 +108,7 @@ function ChapterReader({ id }) {
   const index = blocks.findIndex((b) => b.id === id)
   const block = index >= 0 ? blocks[index] : null
   const content = block ? getChapter(lang, block.id) : null
+  const quiz = block ? getQuiz(lang, block.id) : null
   const prev = index > 0 ? blocks[index - 1] : null
   const next = index >= 0 && index < blocks.length - 1 ? blocks[index + 1] : null
 
@@ -186,6 +189,8 @@ function ChapterReader({ id }) {
                 <p className="mt-3 leading-relaxed text-slate-300">{content.practice}</p>
               </div>
             )}
+
+            {quiz?.length > 0 && <Quiz key={`${block.id}-${lang}`} quiz={quiz} />}
 
             <nav className="mt-14 grid gap-3 border-t border-slate-800/60 pt-8 sm:grid-cols-2">
               {prev ? (
