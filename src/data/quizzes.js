@@ -29,15 +29,15 @@ export const QUIZZES = {
         "fact": "Через токенізацію одне й те саме повідомлення українською коштує помітно дорожче, ніж англійською: латиниця часто вкладається в один токен на слово, а кирилиця нерідко б'ється на 2–4 токени навіть для коротких слів. Тому той самий промпт «дешевший» англійською — і це реальний аргумент писати системні інструкції англійською, навіть якщо відповідь треба українською."
       },
       {
-        "q": "Ви брейнштормите 20 сміливих варіантів вітального екрана й хочете максимум різноманіття. Який параметр і як варто налаштувати?",
+        "q": "Ви просите ChatGPT «дати фідбек на мій екран онбордингу» і отримуєте розмиті, загальні поради. Яка одна зміна найнадійніше покращить відповідь?",
         "options": [
-          "Підняти температуру ближче до 0,7–1",
-          "Опустити температуру до 0–0,3",
-          "Збільшити контекстне вікно до максимуму",
-          "Вимкнути мультимодальність"
+          "Задати моделі чітку роль і контекст (напр.: «Дій як senior продуктовий дизайнер, що рев’ю онбординг фінтех-застосунку для нових користувачів»)",
+          "Написати запит ВЕЛИКИМИ ЛІТЕРАМИ, щоб модель була уважнішою",
+          "Надіслати той самий короткий запит кілька разів, поки відповідь не покращиться",
+          "Додати більше ввічливих слів — «будь ласка» і «дякую»"
         ],
         "answer": 0,
-        "fact": "Температура буквально перемикає випадковість вибору наступного слова. При температурі 0 модель майже детермінована — на однаковий запит дає майже однакову відповідь щоразу. А ось «температура» — не метафора: термін узятий із фізики (розподіл Больцмана), де висока температура означає більше хаотичного руху частинок. Тут вона так само «розігріває» розподіл імовірностей слів."
+        "fact": "Точна роль + контекст працюють краще за довший промпт: коли ви вказуєте, ким має бути модель і для кого відповідь, ви звужуєте її величезний простір імовірностей до релевантних, «експертних» відповідей. Цікавий факт: ввічливість майже не впливає на якість результату — а конкретні обмеження (аудиторія, мета, формат) впливають суттєво. Розмите на вході — розмите на виході."
       },
       {
         "q": "Чим Perplexity принципово відрізняється від «голого» ChatGPT для ресерчу ринку та конкурентів?",
@@ -675,15 +675,15 @@ export const QUIZZES = {
         "fact": "Because of tokenization, the very same message costs noticeably more in Ukrainian than in English: Latin script often fits one token per word, while Cyrillic frequently splits into 2–4 tokens even for short words. So an identical prompt is literally \"cheaper\" in English — a real reason to write system instructions in English even when you need the answer in Ukrainian."
       },
       {
-        "q": "You're brainstorming 20 bold variants of a welcome screen and want maximum variety. Which setting should you adjust, and how?",
+        "q": "You ask ChatGPT for \"feedback on my onboarding screen\" and get vague, generic advice. Which single change most reliably improves the answer?",
         "options": [
-          "Raise the temperature toward 0.7–1",
-          "Lower the temperature to 0–0.3",
-          "Maximize the context window",
-          "Turn off multimodality"
+          "Give the model a clear role and context (e.g. \"Act as a senior product designer reviewing a fintech onboarding for first-time users\")",
+          "Type the request in ALL CAPS so it pays more attention",
+          "Send the same short prompt several times until the answer gets better",
+          "Add more polite words like \"please\" and \"thank you\""
         ],
         "answer": 0,
-        "fact": "Temperature literally tweaks the randomness of picking the next word. At temperature 0 the model is almost deterministic — it returns nearly the same answer to the same prompt every time. And \"temperature\" isn't a metaphor: the term comes from physics (the Boltzmann distribution), where high temperature means more chaotic particle motion. Here it likewise \"heats up\" the probability distribution over words."
+        "fact": "A precise role + context beats a longer prompt: telling the model who it should be and who the output is for narrows its huge probability space toward relevant, expert-sounding answers. Surprising finding: being polite barely affects quality — but concrete constraints (audience, goal, format) move the needle a lot. Vague in, vague out."
       },
       {
         "q": "How is Perplexity fundamentally different from a \"bare\" ChatGPT for researching markets and competitors?",
