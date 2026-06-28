@@ -3,22 +3,22 @@
 
 const HERO = {
   uk: {
-    badge: 'Онлайн-курс · живі вебінари',
+    badge: 'Онлайн-курс · інтерактивні квізи',
     title: 'AI for Product Designers',
     subtitle:
-      'Програма для продуктових дизайнерів, UX-дослідників та аналітиків. З живими вебінарами та куратором, яка проведе вас через повний продуктовий флоу — від AI-ресерчу до готового кейсу для портфоліо.',
+      'Програма для продуктових дизайнерів, UX-дослідників та аналітиків. Практичні розділи та інтерактивні квізи проведуть вас через повний продуктовий флоу — від AI-ресерчу до готового кейсу для портфоліо.',
   },
   en: {
-    badge: 'Online course · live webinars',
+    badge: 'Online course · interactive quizzes',
     title: 'AI for Product Designers',
     subtitle:
-      'A program for product designers, UX researchers and analysts. With live webinars and a mentor who guides you through the full product flow — from AI research to a finished portfolio case.',
+      'A program for product designers, UX researchers and analysts. Hands-on chapters and interactive quizzes guide you through the full product flow — from AI research to a finished portfolio case.',
   },
 }
 
 const BLOCKS = {
   uk: [
-    { id: 'block-1', title: 'Вебінар-знайомство + вступ до AI в дизайні', topics: ['Що таке AI: ключові концепції та термінологія', 'Переваги використання AI в роботі дизайнера', 'Екосистема інструментів AI', 'Основи prompt engineering', 'Просунуті техніки промптингу'] },
+    { id: 'block-1', title: 'Знайомство + вступ до AI в дизайні', topics: ['Що таке AI: ключові концепції та термінологія', 'Переваги використання AI в роботі дизайнера', 'Екосистема інструментів AI', 'Основи prompt engineering', 'Просунуті техніки промптингу'] },
     { id: 'block-2', title: 'AI-інструменти для маркетингових досліджень', topics: ['Новий підхід до рісьорчу з AI', 'Джерела даних та пошукові AI-платформи', 'Аналіз конкурентів за допомогою AI', 'Виявлення трендів, аналіз сигналів та побудова гіпотез'] },
     { id: 'block-3', title: 'Робота з даними та аналітика', topics: ['Дизайнер як data communicator', 'Структурування неструктурованих даних', 'AI-візуалізація: діаграми, класифікації, word cloud', 'Аналіз конкурентів через AI'] },
     { id: 'block-4', title: 'AI для розуміння користувачів', topics: ['Аналітика інтерв’ю', 'Створення та використання AI-персон', 'Проведення інтерв’ю з AI-згенерованими персонами', 'Гіпотезування через AI-моделювання', 'Формулювання продуктової проблеми'] },
@@ -34,7 +34,7 @@ const BLOCKS = {
     { id: 'block-14', title: 'Етика та майбутнє AI в дизайні', topics: ['Усунення упереджень в AI-розробках', 'Тренди та майбутнє AI в дизайні'] },
   ],
   en: [
-    { id: 'block-1', title: 'Kickoff webinar + intro to AI in design', topics: ['What AI is: key concepts and terminology', 'Benefits of using AI in a designer’s work', 'The AI tools ecosystem', 'Prompt engineering basics', 'Advanced prompting techniques'] },
+    { id: 'block-1', title: 'Kickoff + intro to AI in design', topics: ['What AI is: key concepts and terminology', 'Benefits of using AI in a designer’s work', 'The AI tools ecosystem', 'Prompt engineering basics', 'Advanced prompting techniques'] },
     { id: 'block-2', title: 'AI tools for market research', topics: ['A new approach to research with AI', 'Data sources and AI search platforms', 'Competitor analysis with AI', 'Spotting trends, analyzing signals and forming hypotheses'] },
     { id: 'block-3', title: 'Working with data and analytics', topics: ['The designer as a data communicator', 'Structuring unstructured data', 'AI visualization: diagrams, classifications, word clouds', 'Competitor analysis with AI'] },
     { id: 'block-4', title: 'AI for understanding users', topics: ['Interview analytics', 'Creating and using AI personas', 'Running interviews with AI-generated personas', 'Hypothesizing through AI modeling', 'Framing the product problem'] },
